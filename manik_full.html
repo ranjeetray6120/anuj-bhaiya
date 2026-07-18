@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5DBQZ2BC');</script>
+    <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manik Digital</title>
+  <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4eb46f;
+      --bs-primary-rgb: 78, 180, 111;
+    }
+
+    * {
+      font-family: "Open Sans", sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .font-alice {
+        /*font-family: 'Times New Roman', sans-serif;*/
+    }
+
+    .fs-16 {
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      --bs-btn-bg: var(--primary-color);
+      --bs-btn-hover-bg: var(--primary-color);
+      --bs-btn-border-color: var(--primary-color);
+      --bs-border-radius: 4px;
+      --bs-border-radius-lg: 4px;
+      --bs-btn-font-size: 1rem;
+    }
+    
+    .navbar-brand {
+        margin: 0 !important;
+    }
+
+    .navbar-brand img {
+      width: 140px;
+      transition: all 0.3s ease;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .navbar.scrolled {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled .navbar-brand img {
+      width: 110px;
+    }
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+      max-width: 1140px;
+    }
+
+    .nav-link:focus,
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 210px;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 9;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 99;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 100;
+      color: #fff;
+    }
+
+    .hero-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 35px;
+    }
+
+    .hero-content h3 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 25px;
+    }
+
+    .form-bg {
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .form-heading {
+      font-weight: bold;
+      font-size: 1rem !important;
+      color: #000 !important;
+      text-align: center;
+    }
+
+    .form-heading i {
+      font-size: 0.9rem !important;
+      color: #FF0000;
+    }
+
+    .form-desc {
+      font-size: 0.8rem !important;
+      color: #000 !important;
+      text-align: center;
+    }
+
+    section {
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #517082;
+    }
+    p.section-title {
+      text-transform: capitalize;
+    }
+
+    h4.h4-xl {
+      font-size: 2.125rem;
+      margin-bottom: 30px;
+    }
+
+    ul.list {
+      list-style: disc;
+    }
+
+    ul.list li {
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+    }
+
+    .stats-container {
+      margin-top: 20px;
+    }
+
+    .stat-item {
+      text-align: start;
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #6c757d;
+    }
+
+    .h3-lg {
+      font-size: 2.75rem;
+    }
+
+    .icon-fluid img {
+      height: 60px;
+      width: 60px;
+    }
+
+    .bg-offer {
+      /* background-image: url(assets/images/background.png); */
+      /* background-color: var(--primary-color); */
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1e6ecc 100%);
+    }
+
+    .nav-pills {
+      --bs-nav-pills-border-radius: var(--bs-border-radius);
+      --bs-nav-pills-link-active-color: #fff;
+      --bs-nav-pills-link-active-bg: var(--primary-color);
+    }
+
+    .nav-pills .nav-link {
+      color: #000;
+    }
+
+    .review {
+      background-color: #fff;
+      border: 1px solid #f5f5f5;
+      margin: 0 25px;
+      overflow: visible;
+      margin-bottom: 40px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      box-shadow: 0px 8px 20px 0px rgba(20, 20, 20, .15);
+      min-height: 375px;
+      position: relative;
+      padding: 80px 30px 40px 30px;
+    }
+
+    .review .author-avatar {
+      display: inline-block;
+      float: left;
+    }
+
+    .owl-carousel .owl-item .review-author img {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      margin: 0 15px 0 0;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -o-border-radius: 100%;
+      border-radius: 100%;
+    }
+
+    .review-author.d-flex.align-items-center {
+      position: fixed;
+      top: 40px;
+    }
+
+    .review-3 {
+      color: #757575;
+      line-height: 1.4;
+      margin-bottom: 25px;
+    }
+
+    .review-author h5 {
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .review-author span {
+      color: #858585;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .quote-ico {
+      position: relative;
+      margin-bottom: -25px;
+    }
+
+    .owl-carousel .owl-item .quote-ico img {
+      width: 65px;
+      height: 65px;
+      opacity: .15;
+    }
+
+    .rating {
+      margin: 10px 0px;
+    }
+
+    .img-85 {
+      width: 85px;
+      height: 85px;
+    }
+
+    .accordion-item {
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .accordion-button {
+        padding: 20px 0;
+        font-weight: 600;
+        color: #333;
+        background-color: transparent;
+    }
+
+    .accordion-button:not(.collapsed) {
+        color: #333;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+    .accordion-button {
+        padding-left: 2rem !important; /* Make space for the icon */
+        position: relative;
+    }
+    
+    .accordion-button::before {
+        content: "+";
+        position: absolute;
+        left: 0.75rem;
+        font-size: 1.25rem;
+        font-weight: 400;
+        transition: all 0.3s ease;
+    }
+    
+    .accordion-button::after {
+        background-image: none !important;
+        content: none;
+    }
+    
+    .accordion-button:not(.collapsed)::before {
+        content: "-";
+    }
+
+    .accordion-body {
+        padding: 0 0 20px 32px;
+    }
+    @media (max-width: 768px) {
+      .navbar-brand img {
+        width: 120px;
+        transition: all 0.3s ease;
+      }
+      .navbar.scrolled .navbar-brand img {
+        width: 100px;
+      }
+      .review {
+          min-height: 470px;
+        }
+    }
+  </style>
+  <style>
+		/* white-bordered navy circles */
+		.icon-circle {
+			width: 70px;
+			height: 70px;
+			background: #131820;
+			border: 4px solid #fff;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+		}
+
+		/* inputs */
+		#promoForm .form-control {
+			height: 3.5rem;
+			border-radius: 2rem;
+			border: 3px solid #000;
+			background: #fff;
+			color: #333;
+			font-size: 1.1rem;
+			padding: 0 1.5rem;
+		}
+
+		#promoForm .form-control::placeholder {
+			color: #777;
+		}
+
+		/* submit */
+		.submit-btn {
+			width: 100%;
+			height: 3.5rem;
+			border-radius: 2rem;
+			border: 3px solid #000;
+			background: #fff;
+			color: #1e3a8a;
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+
+		.submit-btn:hover {
+			background: #f0f0f0;
+		}
+
+		/* text sizing */
+		.modal-body p,
+		.modal-body li span {
+			font-size: 0.95rem;
+		}
+
+		.modal-body h5 {
+			font-size: 1.1rem;
+		}
+		.card h5 a i.fa-plus {
+			display: none;
+		}
+		.card h5 a i.fa-minus {
+			display: block;
+		}
+		.card h5 a.collapsed i.fa-plus {
+			display: block;
+		}
+		.card h5 a.collapsed i.fa-minus {
+			display: none;
+		}
+		.form-bg.highlighted {
+			animation: glowHighlight 0.3s ease-in-out infinite alternate;
+			box-shadow: 0 0 150px rgba(78, 180, 111,0.8);
+			border: 2px solid rgb(78, 180, 111);
+			border-radius: 8px;
+		}
+
+		@keyframes glowHighlight {
+			0%   { scale : 1 }
+			100% { scale: 1.05 }
+		}
+    
+	</style>
+  <style>
+    .graphimage {
+        max-width: none;
+    }
+    @media (max-width: 991px) {
+      .hero-section {
+          padding-top: 130px;
+      }
+      .hero-content h4 {
+          font-size: 0.8rem;
+          font-weight: 400;
+          margin-bottom: 25px;
+      }
+      .hero-content h3 {
+          font-size: 2.5rem;
+      }
+
+      section {
+      padding-top: 60px;
+      padding-bottom: 30px;
+    }
+    .h3-lg {
+      font-size: 1.75rem;
+      }
+      h4.h4-xl {
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+      }
+      .graphimage {
+            max-width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        }
+      
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DBQZ2BC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+  <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-sm py-3">
+    <div class="container-lg">
+      <a class="navbar-toggler" style="padding:0 30px;font-size:24px" href="tel:7888910945"><i class="fa-solid fa-phone-volume"></i></a>
+      <a class="navbar-brand" href="#"><img width="150" src="assets/images/logo.png" alt="" srcset=""></a>
+      <button class="navbar-toggler" style="padding:0 30px;font-size:22px"  type="button" data-bs-toggle="collapse" data-bs-target="#navbartoggle"
+        aria-controls="navbartoggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbartoggle">
+        <ul class="navbar-nav gap-sm-4 ms-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="fillForm()">Contact</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="tel:7888910945"><i class="fa-solid fa-phone me-1"></i>78889 10945</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-section" id="home">
+    <video class="bgvid" autoplay muted loop playsinline>
+      <source src="assets/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="mask"></div>
+    <div class="container hero-content">
+      <div class="row row-gap-4 d-flex align-items-center">
+        <div class="col-md-8">
+          <div class="hero-txt">
+            <h4>Boost Visibility, Drive Sales &amp; Dominate Online</h4>
+            <h3>Struggling to Get Leads or ROI from Your Ads?</h3>
+            <p class="mb-4">Our data-driven digital marketing and PPC strategies are built to scale your business,
+              not drain it. From increasing visibility to turning traffic into real leads, we do it all.</p>
+            <button onclick="fillForm()" class="btn btn-lg btn-primary">Get Free Consultancy Call</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-bg px-3 py-4">
+            <h6 class="form-heading">Get 40% OFF + Free Expert Marketing Call <i>(Only 10 Bookings Left!)</i></h6>
+            <p class="form-desc">Enter Your Info Below to Grab the Deal!</p>
+            <form method="post" autocomplete="on">
+              <div class="mb-3">
+                <input type="text" placeholder="Enter Name here" name="name" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" placeholder="Enter Email here" name="email" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <input type="text"
+                   name="mobile"
+                   class="form-control"
+                   placeholder="Enter Mobile here (998877XXXX)"
+                   pattern="\d{10}"
+                   minlength="10"
+                   maxlength="10"
+                   required
+                   title="Enter a valid 10-digit mobile number">
+              </div>
+              <div class="mb-3">
+                <textarea name="message" placeholder="Enter Message here" class="form-control" required
+                  rows="3"></textarea>
+              </div>
+              <button class="btn btn-primary btn-md tra-white-hover store btn-type-dark w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="section-title wow fadeInLeft">WELCOME TO MANIK DIGITAL</h1>
+          <h4 class="h4-xl wow fadeInLeft">We're delivering high<br>converting digital marketing &<br>SEO solutions for your business
+          </h4>
+          <ul class="list wow fadeInLeft">
+            <li>Trusted by 2000+ businesses globally for PPC, SEO, and social media strategies that drive real results
+            </li>
+            <li>Not just an agency, we also train the next-gen digital marketers through hands-on courses & placements
+            </li>
+          </ul>
+          <div class="row stats-container wow fadeInLeft">
+            <div class="col-md-6 stat-item">
+              <div class="stat-number"><span class="counter">2</span>k+</div>
+              <div class="stat-label">Websites & Campaigns Delivered</div>
+            </div>
+            <div class="col-md-6 stat-item">
+              <div class="stat-number"><span class="counter">99</span>%</div>
+              <div class="stat-label">Client Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="assets/images/about-us.jpg" alt="" class="img-fluid wow fadeInRight">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="services-section container" id="services">
+    <div class="row justify-content-center">
+      <div class="col-sm-10">
+        <h3 class="h3-lg text-center wow fadeInUp fw-bold" data-wow-delay="0.2s">Our Expert Digital Marketing Services</h3>
+        <p class="text-secondary text-center mb-4 wow fadeInUp" data-wow-delay="0.2s">Boost visibility, drive targeted traffic & convert leads into
+          loyal customers</p>
+      </div>
+    </div>
+    <div class="row mt-4 row-gap-4">
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/seo.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>Search Engine Optimization (SEO)</h5>
+            <p class="text-muted fs-16 fw-light">We optimize your website for high-performing keywords, strengthen your
+              online reputation, and build authority to help you rank higher on Google and other search engines. Trust,
+              traffic, and top positions, we deliver all three.</p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/seo.png" alt="">
+            </div>
+            <h5>Search Engine Optimization (SEO)</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">We optimize your website for high-performing keywords, strengthen your
+              online reputation, and build authority to help you rank higher on Google and other search engines. Trust,
+              traffic, and top positions, we deliver all three.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/google-ads.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>Google Ads (PPC Management)</h5>
+            <p class="text-muted fs-16 fw-light">Our customized Google Ads campaigns are built around your business
+              goals, whether it’s increasing website traffic, generating leads, or driving sales. We manage every click
+              to ensure a maximum return on ad spend (ROAS)</p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/google-ads.png" alt="">
+            </div>
+            <h5>Google Ads (PPC Management)</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">Our customized Google Ads campaigns are built around your business
+              goals, whether it’s increasing website traffic, generating leads, or driving sales. We manage every click
+              to ensure a maximum return on ad spend (ROAS)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/meta.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>Meta Ads (Facebook & Instagram Advertising)</h5>
+            <p class="text-muted fs-16 fw-light">We design high-converting ad creatives and run smart targeting
+              strategies on Facebook and Instagram to drive engagement, boost awareness, and bring you quality leads
+              that convert.</p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/meta.png" alt="">
+            </div>
+            <h5>Meta Ads (Facebook & Instagram Advertising)</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">We design high-converting ad creatives and run smart targeting
+              strategies on Facebook and Instagram to drive engagement, boost awareness, and bring you quality leads
+              that convert.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/linkedin.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>LinkedIn Ads</h5>
+            <p class="text-muted fs-16 fw-light">Perfect for B2B growth, our LinkedIn ad strategies help you build a
+              professional presence, connect with decision-makers, and generate qualified leads from your niche industry
+            </p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/linkedin.png" alt="">
+            </div>
+            <h5>LinkedIn Ads</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">Perfect for B2B growth, our LinkedIn ad strategies help you build a
+              professional presence, connect with decision-makers, and generate qualified leads from your niche industry
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/instagram.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>Social Media Handling</h5>
+            <p class="text-muted fs-16 fw-light">From Instagram and Facebook to YouTube, X, and TikTok, we manage it
+              all. We create engaging content, grow your audience, and maintain consistent brand visibility for both
+              Indian and international clients (USA, UK, Canada, etc.)</p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/instagram.png" alt="">
+            </div>
+            <h5>Social Media Handling</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">From Instagram and Facebook to YouTube, X, and TikTok, we manage it
+              all. We create engaging content, grow your audience, and maintain consistent brand visibility for both
+              Indian and international clients (USA, UK, Canada, etc.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="d-none d-sm-flex justify-content-center align-items-start gap-4">
+          <div class="icon-fluid">
+            <img src="assets/icons/web.png" alt="">
+          </div>
+          <div class="service-content">
+            <h5>Website Designing & Landing Pages</h5>
+            <p class="text-muted fs-16 fw-light">Whether you need a full business website or a PPC landing page, our
+              design team creates mobile-friendly, SEO-optimized pages tailored to your goals built after understanding
+              your business inside-out.</p>
+          </div>
+        </div>
+        <div class="d-flex d-sm-none flex-column justify-content-center align-items-start gap-4">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <div class="icon-fluid">
+              <img src="assets/icons/web.png" alt="">
+            </div>
+            <h5>Website Designing & Landing Pages</h5>
+          </div>
+          <div class="service-content">
+            <p class="text-muted fs-16 fw-light">Whether you need a full business website or a PPC landing page, our
+              design team creates mobile-friendly, SEO-optimized pages tailored to your goals built after understanding
+              your business inside-out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-offer py-5">
+    <h2 class="text-center text-white mb-0">Get <span class="fw-bold">40% OFF + Free SEO Audit & Expert Call</span></h2>
+  </section>
+  <section id="features">
+    <div class="container">
+      <ul class="nav nav-pills mb-3 justify-content-center gap-2 gap-sm-4" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" style="border: 1px solid #d0d0d0;min-width:250px" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+            type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pay-Per-Click Advertising</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" style="border: 1px solid #d0d0d0;min-width:250px" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+            type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Social Media Marketing</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" style="border: 1px solid #d0d0d0;min-width:250px" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+            type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Search Engine
+            Optimization</button>
+        </li>
+      </ul>
+      <div class="tab-content mt-5" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+          tabindex="0">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="img-fluid"><img class="h-100 w-100" src="assets/images/pay-per-click.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="col-sm-7">
+              <h4 class="h4-xl">Grow Your Business with Result Driven PPC Advertising</h4>
+              <p>We help you reach your ideal customers fast through targeted ads on Google, Meta, and more that turn
+                every click into a potential sale.</p>
+              <ul class="list mb-15">
+                <li><b>ROI Focused Ad Campaigns: </b>Strategic keyword targeting, compelling ad copy, and smart bidding
+                  to drive high quality leads and boost conversions</li>
+                <li><b>Cross Platform Visibility: </b>Run and manage ads across Google, Facebook, Instagram, and
+                  LinkedIn with campaigns optimized for maximum reach and performance</li>
+              </ul>
+              <a onclick="fillForm()" class="mt-4 btn py-2 px-3 fw-bold text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, #1e6ecc 100%)">Download Brochure</a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="img-fluid"><img class="h-100 w-100" src="assets/images/social-media-marketing.png" alt=""
+                  srcset=""></div>
+            </div>
+            <div class="col-sm-7">
+              <h4 class="h4-xl">Amplify Your Brand with Smart Social Media Marketing</h4>
+              <p>We help your business stay active, engaging, and visible across all major platforms that helps in
+                building trust, awareness, and loyal customer relationships</p>
+              <ul class="list mb-15">
+                <li><b>Platform Specific Strategies: </b>:We create user friendly content and campaigns for Instagram,
+                  Facebook, LinkedIn, X, YouTube, and TikTok to connect with your ideal audience where they spend their
+                  time</li>
+                <li><b>Consistent Growth and Engagement: </b>From creatives to captions, we manage everything to grow
+                  your followers, increase interactions, and drive real business results through organic and paid
+                  efforts</li>
+              </ul>
+              <a onclick="fillForm()" class="mt-4 btn btn-outline-secondary">Download Brochure</a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="img-fluid"><img class="h-100 w-100" src="assets/images/search-engine-optimization.png" alt=""
+                  srcset=""></div>
+            </div>
+            <div class="col-sm-7">
+              <h4 class="h4-xl">Get Found First with Powerful SEO Strategies</h4>
+              <p>We help your website rank higher on search engines, attract quality traffic, and build long-term trust
+                with both global and local audiences</p>
+              <ul class="list mb-15">
+                <li><b>Complete On Page and Off Page SEO: </b>From keyword research and content optimization to
+                  backlinks and technical fixes, we ensure your website is search engine friendly and ready to rank</li>
+                <li><b>Local SEO for Nearby Customers: </b>We optimize your business for local searches through Google
+                  Business Profile, map listings, and location based keywords to bring in more foot traffic and local
+                  leads</li>
+              </ul>
+              <a onclick="fillForm()" class="mt-4 btn btn-outline-secondary">Download Brochure</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-dark">
+    <div class="container">
+      <div class="text-center">
+        <h3 class="h3-lg mb-5" style="color: #FF0000;border-bottom: 1px dotted;display: inline-block;"><i
+            aria-hidden="true" class="fas fa-times me-2" style="color: #FF0000;"></i> WARNING</h3>
+      </div>
+      <div class="row justify-content-center g-4">
+        <div class="col-md-5">
+          <div class="p-3 border border-danger rounded text-white h-100"
+            style="background: rgba(220, 53, 69, 0.1); backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);border: 1px solid rgba(220, 53, 69, 0.3);">
+            <div class="text-center mb-3">
+              <img height="300" src="assets/images/warning-1.png" class="img-fluid rounded"
+                style="height: auto;width: 100%;" alt="Frustrated Person">
+              <div class="badge bg-danger mt-3">The Harsh Truth</div>
+            </div>
+            <h5 class="text-center text-white fw-bold">Without Digital Marketing</h5>
+            <ul class="list-unstyled mt-3">
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Blind spending on outdated methods</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> No online visibility or brand recall</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Low-quality or no leads</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Unoptimized website and zero SEO</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Social media presence is scattered</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Losing customers to smarter competitors</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-times me-2"
+                  style="color: #FF0000;"></i> Stuck in growth frustration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="p-3 border border-success rounded text-white h-100"
+            style="background: rgba(25, 135, 84, 0.1); /* green with light opacity */backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);border: 1px solid rgba(25, 135, 84, 0.3);">
+            <div class="text-center mb-3">
+              <img height="300" src="assets/images/warning-2.png" class="img-fluid rounded"
+                style="height: auto;width: 100%;" alt="Happy Marketer">
+              <div class="badge bg-success mt-3">The Growth Shift</div>
+            </div>
+            <h5 class="text-center text-white fw-bold">With Strategic Digital Marketing</h5>
+            <ul class="list-unstyled mt-3">
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Every campaign backed by data</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Rank higher & stay visible on search engines</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Consistent, qualified leads through SEO & ads</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Engaging social media that builds loyalty</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Conversion-optimized websites & landing pages</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Performance you can track & scale</li>
+              <li class="text-white" style="font-size: 16px;"><i aria-hidden="true" class="fas fa-check-square me-2"
+                  style="color: #44FF00;"></i> Outshine your competition locally & globally</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3 class="h3-lg text-white fw-bold mt-5 mb-5 font-alice">What Makes Our Services<br>Stand Out</h3>
+      </div>
+      <div class="row justify-content-center g-4 align-items-center">
+        <div class="col-lg-6 text-center mb-4 mb-lg-0">
+          <img src="assets/images/ads-expert.jpg" alt="Meta Ads Expert" class="img-fluid rounded-4 shadow"
+            style="max-height: 480px; object-fit: cover;">
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-dark d-flex flex-column align-items-start justify-content-start h-100"
+                style="border: 1px solid #2c2c2c;">
+                <div class="bg-primary text-dark rounded mx-auto mx-sm-0 mb-4"
+                  style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin-bottom: 10px;">
+                  <i class="fas fa-users" style="color: #fff; font-size: 40px;"></i>
+                </div>
+                <p class="mb-0 text-white text-center text-sm-start">Successfully Handled 2000+ Projects Across 15+ Industries</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-dark d-flex flex-column align-items-start justify-content-start h-100"
+                style="border: 1px solid #2c2c2c;">
+                <div class="bg-primary text-dark rounded mx-auto mx-sm-0 mb-4"
+                  style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin-bottom: 10px;">
+                  <i class="fas fa-dollar-sign" style="color: #fff; font-size: 40px;"></i>
+                </div>
+                <p class="mb-0 text-white text-center text-sm-start">Helped 500+ Clients Achieve Consistent Growth with Google and Meta Ads</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-dark d-flex flex-column align-items-start justify-content-start h-100"
+                style="border: 1px solid #2c2c2c;">
+                <div class="bg-primary text-dark rounded mx-auto mx-sm-0 mb-4"
+                  style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin-bottom: 10px;">
+                  <i class="fas fa-paperclip" style="color: #fff; font-size: 40px;"></i>
+                </div>
+                <p class="mb-0 text-white text-center text-sm-start">Created and A/B Tested 10,000+ Ad Creatives</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-dark d-flex flex-column align-items-start justify-content-start h-100"
+                style="border: 1px solid #2c2c2c;">
+                <div class="bg-primary text-dark rounded mx-auto mx-sm-0 mb-4"
+                  style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin-bottom: 10px;">
+                  <i class="fas fa-file-alt" style="color: #fff; font-size: 40px;"></i>
+                </div>
+                <p class="mb-0 text-white text-center text-sm-start">Built 1500+ Landing Pages Optimized for Conversions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-primaryy" style="overflow: hidden;background:linear-gradient(135deg, var(--primary-color) 0%, #1e6ecc 100%)">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-7 col-lg-6">
+          <div class="txt-block pc-25 wow fadeInLeft" data-wow-delay="0.1s">
+            <span class="section-title text-white">We're technical and creative</span>
+            <h4 class="h4-xl text-white">Rely on our experienced and knowledgeable team</h4>
+            <p class="text-white fw-light">With 6+ years of proven results, our digital marketing experts help Indian
+              and global businesses grow with strategies that actually work. From lead generation to complete online
+              brand building, we focus on delivering visible and measurable growth.</p>
+            <h5 class="h5-lg text-white mb-4">We’re proud to help businesses grow</h5>
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <i class="fas fa-check text-white"></i>
+              <p class="text-white mb-0">Trusted by 500+ brands across multiple industries</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <i class="fas fa-check text-white"></i>
+              <p class="text-white mb-0">Delivered 2000+ successful projects</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <i class="fas fa-check text-white"></i>
+              <p class="text-white mb-0">Experts in SEO, PPC, social media, and more</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <i class="fas fa-check text-white"></i>
+              <p class="text-white mb-0">Transparent process and dedicated support</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-6 gx-0 gx-sm-auto">
+          <img class="ms-0 ms-md-3 img-fluid rounded-sm-4 graphimage" style="display: inline-block;max-height: 560px" src="assets/images/team.jpg" alt="" srcset="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials" class="bg-04 wide-100 reviews-section division">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto mb-3 section-title wow fadeInUp" data-wow-delay="0.2s">
+          <h2 class="text-center text-dark fw-bold">Excellent Services</h2>
+          <p class="section-title text-center">Bassed on our customer reviews</p>
+          <div class="d-flex justify-content-center">
+            <img style="margin-top: -25px; margin-bottom: -25px;" width="120" src="assets/icons/google.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 mx-auto">
+          <div class="owl-carousel owl-theme reviews-holder">
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">Ryan Zaritsky</h5>
+                  <small class="mb-0">PPC & Landing Page Client</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"I took digital marketing services from Manik Digital, including a landing page and PPC campaigns for
+                both Google and Meta Ads. Everything is going great so far! The campaigns are well-optimized, and I'm
+                already seeing positive results. Highly recommend them for anyone looking for real performance."</p>
+            </div>
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">Sarah Matthews</h5>
+                  <small class="mb-0">Social Media Management</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"It’s been great connecting with Manik. His approach to handling business is very impressive. The team
+                at Manik Digital is managing all my social media platforms, and I can already see better engagement and
+                a more professional online presence."</p>
+            </div>
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">Jonathan Lee</h5>
+                  <small class="mb-0">Website Development</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"I reached out to Manik Digital for website development, and they did an excellent job. They understood
+                my business requirements and delivered a fast, responsive, and SEO-friendly website. I’m very satisfied
+                with the result and their support throughout the process."</p>
+            </div>
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">Priya Verma</h5>
+                  <small class="mb-0">SEO Services</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"I wanted to improve my website’s ranking and visibility, and Manik Digital helped me do just that.
+                Their SEO work is solid from keyword research to backlinking, everything is handled professionally. My
+                website has started to rank higher, and organic traffic is increasing."</p>
+            </div>
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">David Connor</h5>
+                  <small class="mb-0">Full Digital Marketing Package</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"Manik Digital is managing everything for my brand from SEO, social media, paid ads, to content and web
+                design. It’s like having a full in-house marketing team. The communication is smooth, results are
+                consistent, and I finally feel like my business is heading in the right direction."</p>
+            </div>
+            <div class="review">
+              <div class="review-author d-flex align-items-center">
+                <div class="author-avatar">
+                  <img class="img-fluid" src="assets/icons/google-icon.png" alt="review-author-avatar">
+                </div>
+                <div class="review-author">
+                  <h5 class="h5-xs bluestone-color">Sunita Heda</h5>
+                  <small class="mb-0">Instagram Growth</small>
+                </div>
+              </div>
+              <div class="rating">
+                ⭐⭐️⭐️⭐️⭐️⭐️
+              </div>
+              <div class="quote-ico"><img src="assets/images/left-quote.png" alt="quote-image"></div>
+              <p>"I started working with Manik Digital to grow my Instagram, and I’m really happy with the results. They manage content, posting, and engagement with care, and my followers and reach have grown."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pt-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 section-title wow fadeInUp" data-wow-delay="0.2s">
+          <h2 class="text-center text-dark fw-bold">Custom SEO Services : Our Specialty</h2>
+          <p class="section-title text-center">We provide result driven SEO solutions that improve your visibility,
+            bring in the right audience, and grow your business online</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-3">
+          <a onclick="fillForm()">
+            <div class="d-flex justify-content-center align-items-center flex-column gap-2 wow fadeInUp"
+              data-wow-delay="0.1s">
+              <img class="img-85" src="assets/icons/map.png" alt="feature-icon">
+              <h5 class="mt-2 mb-3">Local SEO</h5>
+              <p class="text-muted fw-light text-center">Improve your local presence and get found by nearby customers
+                through location based SEO strategies and optimized Google Business listings</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a onclick="fillForm()">
+            <div class="d-flex justify-content-center align-items-center flex-column gap-2 wow fadeInUp"
+              data-wow-delay="0.6s">
+              <img class="img-85" src="assets/icons/shopping.png" alt="feature-icon">
+              <h5 class="mt-2 mb-3">E-Commerce SEO</h5>
+              <p class="text-muted fw-light text-center">Increase your product visibility and drive more sales with SEO
+                services designed to improve rankings for your online store</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a onclick="fillForm()">
+            <div class="d-flex justify-content-center align-items-center flex-column gap-2 wow fadeInUp"
+              data-wow-delay="0.8s">
+              <img class="img-85" src="assets/icons/analytics.png" alt="feature-icon">
+              <h5 class="mt-2 mb-3">Advanced Analytics</h5>
+              <p class="text-muted fw-light text-center">Understand what works with detailed SEO performance tracking
+                and insights that help improve traffic, engagement, and conversions</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a onclick="fillForm()">
+            <div class="d-flex justify-content-center align-items-center flex-column gap-2 wow fadeInUp"
+              data-wow-delay="1s">
+              <img class="img-85" src="assets/icons/online-banking.png" alt="feature-icon">
+              <h5 class="mt-2 mb-3">PPC Management</h5>
+              <p class="text-muted fw-light text-center">Run profitable ad campaigns with expert PPC services that
+                include smart targeting, landing page optimization, and performance improvement</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pt-3" id="faqs">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 section-title wow fadeInUp" data-wow-delay="0.2s">
+          <h2 class="text-center mt-4 mt-sm-0 text-dark fw-bold">Frequently Asked Questions</h2>
+          <p class="section-title text-center">Find clear answers to the most common questions about our digital marketing services, process, and how we help your business grow online.</p>
+        </div>
+      </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">What services do you offer at Manik Digital?</button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">We offer complete digital marketing services like SEO, Google Ads, Facebook and Instagram Ads, LinkedIn Ads, Social Media Management, and Website Designing. Everything is planned according to your business goals.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="true" aria-controls="faq2">How can digital marketing help my business?</button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">Businesses can increase their audience visibility with the use of digital marketing. A seasoned digital marketing agency constantly ensures that the correct people see your brand. in order to obtain high-quality leads.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="true" aria-controls="faq2">How do you determine the right marketing strategy for my business?</button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">In order to create a proper marketing statistic, we must do market research. We will begin targeting and businessing your custom audience after studying your competitors’ techniques. We will also use our advanced digital marketing technologies to leverage your competitors’ custom audiences.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="true" aria-controls="faq2">How long does it take to see results from digital marketing?</button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">It is entirely dependent on the services you choose. SEO typically takes three to six months, although it may take longer or shorter depending on the competition for the keyword. While social networking takes time and effort, paid advertisements yield results instantly.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="true" aria-controls="faq2">What makes your agency different from others?</button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">We have every option: a company, a training institution, and a freelance digital marketer. These services are all incredibly affordable. We work with businesses of all sizes, concentrating on giving them a strong return on investment.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="true" aria-controls="faq2">What budget do I need for digital marketing?</button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">The purpose and niche of the firm determine the budget. What precisely are you looking for? We work with companies of all sizes, thus the budget should be adjusted appropriately.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="true" aria-controls="faq2">How do I track the success of my campaigns?</button>
+                        </h2>
+                        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                          <div class="accordion-body">To make our campaign effective, we concentrate on the KPI, and these matrices aid in campaign optimisation, retargeting, funnel creation, and user data collection.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center mt-4">
+            <a onclick="fillForm()" class="btn btn-outline-secondary">Have More Questions?</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer-landing py-5 bg-white border border-top" style="background: #eee !important;">
+			<div class="container text-center">
+				<img src="assets/images/logo.png" width="150" alt="" class="mb-3">
+				<p class="mb-4">We build high-performance websites & digital campaigns that get results. <br>Based in Delhi, serving businesses globally.</p>
+				<button onclick="fillForm()" class="btn btn-primary mb-4">Get a Free Consultation</button>
+				<div class="nav-item"><a class="nav-link fw-bold" href="tel:7888910945"><i class="fa-solid fa-phone me-2"></i>78889-10945</a></div>
+			</div>
+		</footer>
+		<a style="position: fixed;bottom: 0;color: #000; padding: 10px 20px;background-color: #fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 24px;z-index: 9999;margin: 20px; text-decoration: none;"
+			href='https://wa.me/917888910945?text=Hi' title='Show Chat'>
+			<svg width="20" viewBox="0 0 24 24">
+				<defs />
+				<path fill="#eceff1"
+					d="M20.5 3.4A12.1 12.1 0 0012 0 12 12 0 001.7 17.8L0 24l6.3-1.7c2.8 1.5 5 1.4 5.8 1.5a12 12 0 008.4-20.3z" />
+				<path fill="#4caf50"
+					d="M12 21.8c-3.1 0-5.2-1.6-5.4-1.6l-3.7 1 1-3.7-.3-.4A9.9 9.9 0 012.1 12a10 10 0 0117-7 9.9 9.9 0 01-7 16.9z" />
+				<path fill="#fafafa"
+					d="M17.5 14.3c-.3 0-1.8-.8-2-.9-.7-.2-.5 0-1.7 1.3-.1.2-.3.2-.6.1s-1.3-.5-2.4-1.5a9 9 0 01-1.7-2c-.3-.6.4-.6 1-1.7l-.1-.5-1-2.2c-.2-.6-.4-.5-.6-.5-.6 0-1 0-1.4.3-1.6 1.8-1.2 3.6.2 5.6 2.7 3.5 4.2 4.2 6.8 5 .7.3 1.4.3 1.9.2.6 0 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z" />
+			</svg>
+			Chat with Us
+		</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
+  <script>
+    document.addEventListener( 'DOMContentLoaded', function () {
+      new WOW().init();
+      const navbar = document.querySelector( '.navbar' );
+      window.addEventListener( 'scroll', function () {
+        if ( window.scrollY > 50 ) {
+          navbar.classList.add( 'scrolled' );
+        } else {
+          navbar.classList.remove( 'scrolled' );
+        }
+      } );
+      const owl = $( '.reviews-holder' );
+      owl.owlCarousel( {
+        items: 2,
+        loop: true,
+        autoplay: true,
+        navBy: 1,
+        autoplayTimeout: 1500,
+        autoplayHoverPause: true,
+        smartSpeed: 1500,
+        responsive: {
+          0: {
+            items: 1
+          },
+          767: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          991: {
+            items: 2
+          },
+          1000: {
+            items: 2
+          }
+        }
+      } );
+    } );
+    function fillForm() {
+      const formBox = document.querySelector('.form-bg');
+      formBox.querySelector('input').focus();
+      formBox.classList.add('highlighted');
+      setTimeout(() => {
+        formBox.style.animation = 'none';
+              formBox.style.transition = 'none';
+      }, 1500);
+      setTimeout(() => {
+        formBox.classList.remove('highlighted');
+      }, 2000);
+    }
+  </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".counter");
+    const speed = 100; // smaller = faster
+
+    const animateCounter = (counter) => {
+      const target = +counter.dataset.target;
+      let count = 0;
+
+      const updateCount = () => {
+        const increment = Math.ceil(target / speed);
+        if (count < target) {
+          count += increment;
+          if (count > target) count = target;
+          counter.innerText = count.toLocaleString() + (counter.dataset.suffix || '');
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target.toLocaleString() + (counter.dataset.suffix || '');
+        }
+      };
+
+      updateCount();
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          animateCounter(counter);
+          observer.unobserve(counter); // run only once
+        }
+      });
+    }, {
+      threshold: 0.6, // adjust based on when you want the animation to start
+    });
+
+    counters.forEach(counter => {
+      const originalText = counter.innerText.trim();
+      const match = originalText.match(/^([\d,]+)(\+|%)?$/);
+      if (match) {
+        counter.dataset.target = match[1].replace(/,/g, '');
+        counter.dataset.suffix = match[2] || '';
+        counter.innerText = '0' + (counter.dataset.suffix || '');
+        observer.observe(counter);
+      }
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
