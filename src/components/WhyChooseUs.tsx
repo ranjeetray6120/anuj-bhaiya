@@ -4,86 +4,85 @@ import { X, Check, Users, DollarSign, Paperclip, FileText } from "lucide-react";
 
 export default function WhyChooseUs() {
   const withoutMarketing = [
-    "Blind spending on outdated methods",
-    "No online visibility or brand recall",
-    "Low-quality or no leads",
-    "Unoptimized website and zero SEO",
-    "Social media presence is scattered",
-    "Losing customers to smarter competitors",
-    "Stuck in growth frustration",
+    "Unstructured spend on unmeasured channels",
+    "No server-side conversion tracking setup",
+    "Missing local Google search map visibility",
+    "High CPC costs pointing to generic pages",
+    "Scattered social accounts with low activity",
+    "Prospect leakages directly to competitors",
+    "Frustrated scaling bottlenecks",
   ];
 
   const withMarketing = [
-    "Every campaign backed by data",
-    "Rank higher & stay visible on search engines",
-    "Consistent, qualified leads through SEO & ads",
-    "Engaging social media that builds loyalty",
-    "Conversion-optimized websites & landing pages",
-    "Performance you can track & scale",
-    "Outshine your competition locally & globally",
+    "Attribution syncs via modern tracking APIs",
+    "Commercial intent keyword ranks on search",
+    "Consistent qualified lead volumes for sales",
+    "Bespoke mobile-first landing page flows",
+    "Retargeting funnels warm visitor segments",
+    "Measurable campaign ROAS improvements",
+    "Predictable pipelines to scale spend",
   ];
 
   const standOutStats = [
     {
-      icon: Users,
-      text: "Successfully Handled 2000+ Projects Across 15+ Industries",
+      icon: FileText,
+      text: "Custom landing page designs optimized for conversion rates",
     },
     {
-      icon: DollarSign,
-      text: "Helped 500+ Clients Achieve Consistent Growth with Google and Meta Ads",
+      icon: Users,
+      text: "Live account audits conducted to resolve campaign bottlenecks",
     },
     {
       icon: Paperclip,
-      text: "Created and A/B Tested 10,000+ Ad Creatives",
+      text: "Creative hook assets produced and split tested weekly",
     },
     {
-      icon: FileText,
-      text: "Built 1500+ Landing Pages Optimized for Conversions",
+      icon: DollarSign,
+      text: "Client accounts managed under strict ROAS targets",
     },
   ];
 
   const teamBenefits = [
-    "Trusted by 500+ brands across multiple industries",
-    "Delivered 2000+ successful projects",
-    "Experts in SEO, PPC, social media, and more",
-    "Transparent process and dedicated support",
+    "Attribution experts configuring Google CAPI & analytics",
+    "Looker Studio real-time metrics dashboards",
+    "Conversion rate optimization split test systems",
+    "Weekly visual asset design and copywriting sprints",
   ];
 
   return (
     <div className="w-full">
       {/* 1. WARNING & Contrast Section */}
-      <section className="py-20 bg-[#111827] text-white">
+      <section className="py-12 sm:py-20 bg-white text-slate-900 border-t border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Warning Header */}
+          
           <div className="text-center mb-12">
-            <h3 className="text-xl sm:text-2xl font-bold text-red-500 border-b border-dashed border-red-500/40 inline-flex items-center gap-2 pb-1.5 uppercase font-mono tracking-wider">
+            <h3 className="text-sm font-bold text-red-500 border-b border-dashed border-red-500/30 inline-flex items-center gap-2 pb-1.5 uppercase font-mono tracking-wider">
               <X className="w-5 h-5 text-red-500 stroke-[3]" />
-              WARNING
+              Campaign Vulnerabilities
             </h3>
           </div>
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
-            {/* Without Digital Marketing */}
-            <div className="p-6 rounded-xl border border-red-500/20 bg-red-500/5 backdrop-blur-md space-y-6">
+            {/* Static Growth Model */}
+            <div className="p-6 rounded-xl border border-red-200 bg-red-500/5 space-y-6">
               <div className="text-center space-y-3">
-                {/* Real Image */}
-                <div className="w-full h-44 rounded-lg overflow-hidden border border-slate-800 bg-slate-950">
+                <div className="w-full h-44 rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
                   <img
                     src="/assets/images/warning-1.png"
-                    alt="Without Digital Marketing"
+                    alt="Unoptimized Marketing Strategy"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <span className="inline-block px-3 py-1 text-xs font-bold bg-red-500 text-white rounded-full">
-                  The Harsh Truth
+                  Unoptimized Setup
                 </span>
-                <h4 className="text-lg font-bold text-white">Without Digital Marketing</h4>
+                <h4 className="text-lg font-bold text-slate-900 font-sans">The Static Model</h4>
               </div>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-left">
                 {withoutMarketing.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-350">
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
                     <X className="w-4 h-4 text-red-500 stroke-[3] mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -91,27 +90,26 @@ export default function WhyChooseUs() {
               </ul>
             </div>
 
-            {/* With Strategic Digital Marketing */}
-            <div className="p-6 rounded-xl border border-green-500/20 bg-green-500/5 backdrop-blur-md space-y-6">
+            {/* Agile Growth Framework */}
+            <div className="p-6 rounded-xl border border-[#ff6a00]/20 bg-[#ff6a00]/5 space-y-6">
               <div className="text-center space-y-3">
-                {/* Real Image */}
-                <div className="w-full h-44 rounded-lg overflow-hidden border border-slate-800 bg-slate-950">
+                <div className="w-full h-44 rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
                   <img
                     src="/assets/images/warning-2.png"
-                    alt="With Strategic Digital Marketing"
+                    alt="Structured Conversion Setup"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="inline-block px-3 py-1 text-xs font-bold bg-[#4eb46f] text-white rounded-full">
-                  The Growth Shift
+                <span className="inline-block px-3 py-1 text-xs font-bold bg-[#ff6a00] text-white rounded-full">
+                  Attribution Scaling
                 </span>
-                <h4 className="text-lg font-bold text-white">With Strategic Digital Marketing</h4>
+                <h4 className="text-lg font-bold text-slate-900 font-sans">The ADFORGE Engine</h4>
               </div>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-left">
                 {withMarketing.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-200">
-                    <Check className="w-4 h-4 text-green-400 stroke-[3] mt-0.5 flex-shrink-0" />
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <Check className="w-4 h-4 text-[#ff6a00] stroke-[3] mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -121,33 +119,31 @@ export default function WhyChooseUs() {
 
           {/* 2. Stand Out Sub-Section */}
           <div className="mt-24 space-y-12">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-center text-white tracking-tight">
-              What Makes Our Services Stand Out
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-center text-slate-900 tracking-tight font-sans">
+              What Drives Our Campaigns
             </h3>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Left Column Real Image */}
               <div className="lg:col-span-6 flex justify-center">
                 <img
                   src="/assets/images/ads-expert.jpg"
-                  alt="Meta Ads Expert at Work"
-                  className="w-full max-w-md rounded-2xl shadow-2xl object-cover border border-slate-800"
+                  alt="ADFORGE PPC Strategy Analyst"
+                  className="w-full max-w-md rounded-2xl shadow-lg object-cover border border-slate-200"
                 />
               </div>
 
-              {/* Right Column Stats Grid */}
               <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {standOutStats.map((stat, idx) => {
                   const Icon = stat.icon;
                   return (
                     <div
                       key={idx}
-                      className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-[#4eb46f]/30 transition-colors flex flex-col justify-start items-start gap-3 h-full"
+                      className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#ff6a00]/30 transition-colors flex flex-col justify-start items-start gap-3 h-full"
                     >
-                      <div className="w-12 h-12 rounded bg-[#4eb46f] flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded bg-[#ff6a00] flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <p className="text-sm font-semibold text-white leading-normal text-left">
+                      <p className="text-sm font-semibold text-slate-800 leading-normal text-left font-sans">
                         {stat.text}
                       </p>
                     </div>
@@ -161,20 +157,20 @@ export default function WhyChooseUs() {
       </section>
 
       {/* 3. Gradient Agile Team Banner */}
-      <section className="py-20 bg-gradient-to-br from-[#4eb46f] to-[#1e6ecc] text-white">
+      <section className="py-20 bg-gradient-to-br from-[#ff6a00] to-[#1e6ecc] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-white/90">
-                We're technical and creative
+                OUR METHODOLOGY
               </span>
               <h4 className="text-2xl sm:text-3xl font-extrabold leading-tight">
-                Rely on our experienced and knowledgeable team
+                Partner with certified media buyers and CRO specialists
               </h4>
-              <p className="text-sm sm:text-base leading-relaxed text-white/80 font-light">
-                With 6+ years of proven results, our digital marketing experts help Indian and global businesses grow with strategies that actually work. From lead generation to complete online brand building, we focus on delivering visible and measurable growth.
+              <p className="text-sm sm:text-base leading-relaxed text-white/80 font-light font-sans">
+                We focus entirely on metrics that affect your profit margin: qualified leads, customer acquisitions, and cost-per-lead efficiencies. Our media buyers keep your target accounts active with clean execution.
               </p>
 
               <div className="space-y-3 pt-2">
@@ -191,7 +187,7 @@ export default function WhyChooseUs() {
             <div className="lg:col-span-6 flex justify-center">
               <img
                 src="/assets/images/team.jpg"
-                alt="Aetheris Digital Performance Analysts Team"
+                alt="ADFORGE Strategy Operations Group"
                 className="w-full max-w-md rounded-2xl shadow-2xl object-cover border border-white/20"
               />
             </div>

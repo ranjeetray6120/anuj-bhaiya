@@ -1,7 +1,6 @@
 "use client";
 
 import { ShoppingBag, Cloud, HeartPulse, Building2, Landmark, GraduationCap } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function IndustriesServed() {
   const industries = [
@@ -50,18 +49,18 @@ export default function IndustriesServed() {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200">
+    <section className="py-12 sm:py-20 bg-white border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[#517082]">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
             Market Expertise
-          </h2>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
             Industries We Scale
           </h3>
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-550 text-sm font-light">
             We don't believe in generic marketing. We construct channel solutions engineered for the specific purchasing behavior of your sector.
           </p>
         </div>
@@ -71,38 +70,37 @@ export default function IndustriesServed() {
           {industries.map((ind, idx) => {
             const Icon = ind.icon;
             return (
-              <motion.div
+              <div
                 key={idx}
-                className="bg-slate-50 border border-slate-200 hover:border-slate-300 rounded-xl p-5 transition-all duration-300 flex flex-col justify-between"
-                whileHover={{ y: -2 }}
+                className="bg-slate-50 border border-slate-200 hover:border-[#ff6a00]/30 rounded-xl p-5 transition-colors flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-[#4eb46f]">
+                    <div className="w-10 h-10 rounded bg-white border border-slate-200 flex items-center justify-center text-[#ff6a00]">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">
+                      <h4 className="font-bold text-slate-900 text-sm sm:text-base font-sans">
                         {ind.name}
                       </h4>
-                      <span className="text-[10px] font-bold text-[#1e6ecc] uppercase tracking-wide">
+                      <span className="text-[10px] font-bold text-[#1e6ecc] uppercase tracking-wide font-mono">
                         {ind.benefit}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-500 leading-relaxed font-light text-left">
+                  <p className="text-xs text-slate-600 leading-relaxed font-light text-left">
                     {ind.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-400">
+                <div className="pt-4 mt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-450">
                   <span>Strategy Blueprint</span>
-                  <a href="#contact" className="text-[#4eb46f] hover:underline font-semibold">
+                  <a href="#contact" className="text-[#ff6a00] hover:underline font-semibold">
                     View Plan
                   </a>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

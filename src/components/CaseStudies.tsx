@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, TrendingUp, Target, Landmark, ArrowRight, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function CaseStudies() {
   const [activeStudy, setActiveStudy] = useState(0);
@@ -19,7 +18,7 @@ export default function CaseStudies() {
         { label: "Conversion Rate Lift", value: "+160%" },
         { label: "Revenue Growth", value: "$4.2M / mo" },
       ],
-      color: "from-[#4eb46f]/5 to-[#1e6ecc]/5 border-[#4eb46f]/10",
+      color: "from-[#ff6a00]/5 to-[#1e6ecc]/5 border-[#ff6a00]/10",
     },
     {
       icon: TrendingUp,
@@ -32,7 +31,7 @@ export default function CaseStudies() {
         { label: "Sales Qualified Leads", value: "+210%" },
         { label: "Marketing Pipeline", value: "$12.4M" },
       ],
-      color: "from-[#1e6ecc]/5 to-[#4eb46f]/5 border-[#1e6ecc]/10",
+      color: "from-[#1e6ecc]/5 to-[#ff6a00]/5 border-[#1e6ecc]/10",
     },
     {
       icon: Landmark,
@@ -45,7 +44,7 @@ export default function CaseStudies() {
         { label: "Equivalent PPC Ad Value", value: "$1.2M Saved" },
         { label: "Top-3 Keyword Ranks", value: "42 Terms" },
       ],
-      color: "from-[#4eb46f]/5 to-slate-50 border-slate-200",
+      color: "from-[#ff6a00]/5 to-slate-50 border-slate-200",
     },
   ];
 
@@ -58,19 +57,19 @@ export default function CaseStudies() {
   };
 
   return (
-    <section id="case-studies" className="py-20 bg-slate-50 border-t border-slate-200">
+    <section id="case-studies" className="py-12 sm:py-20 bg-slate-50 border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="text-left space-y-3 max-w-xl">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#517082]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
               Proof of Performance
-            </h2>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
               Data-Backed Case Studies
             </h3>
-            <p className="text-slate-500 text-sm">
+            <p className="text-slate-550 text-sm font-light">
               Actual results achieved for clients. We don't hide behind fluffy statistics—we showcase verified revenue metrics and performance enhancements.
             </p>
           </div>
@@ -79,13 +78,13 @@ export default function CaseStudies() {
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-350 transition-all cursor-pointer shadow-sm"
+              className="w-10 h-10 rounded bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-350 transition-colors cursor-pointer shadow-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-350 transition-all cursor-pointer shadow-sm"
+              className="w-10 h-10 rounded bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-350 transition-colors cursor-pointer shadow-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -94,83 +93,74 @@ export default function CaseStudies() {
 
         {/* Case Study Card Display */}
         <div className="relative w-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeStudy}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className={`bg-white border rounded-2xl p-6 sm:p-10 bg-gradient-to-br ${studies[activeStudy].color} relative overflow-hidden shadow-sm`}
-            >
-              {/* Background accent badge icon */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm">
-                <Sparkles className="w-5 h-5 text-[#4eb46f]" />
+          <div className={`bg-white border rounded-2xl p-6 sm:p-10 bg-gradient-to-br ${studies[activeStudy].color} border-slate-250 relative overflow-hidden shadow-sm`}>
+            {/* Quote badge icon */}
+            <div className="absolute top-6 right-6 w-10 h-10 rounded bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+              <Sparkles className="w-5 h-5 text-[#ff6a00]" />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Left side: Content description */}
+              <div className="lg:col-span-8 space-y-6 text-left">
+                <div className="space-y-1">
+                  <span className="text-xs font-bold text-[#1e6ecc] tracking-wider uppercase block font-mono">
+                    {studies[activeStudy].tag}
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight font-sans">
+                    {studies[activeStudy].title}
+                  </h4>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-200">
+                  <div className="space-y-1.5">
+                    <h5 className="text-xs font-bold text-red-500 uppercase tracking-widest font-mono">The Challenge:</h5>
+                    <p className="text-sm text-slate-600 leading-relaxed font-light">
+                      {studies[activeStudy].challenge}
+                    </p>
+                  </div>
+                  <div className="space-y-1.5">
+                    <h5 className="text-xs font-bold text-[#ff6a00] uppercase tracking-widest font-mono">The Strategy:</h5>
+                    <p className="text-sm text-slate-600 leading-relaxed font-light">
+                      {studies[activeStudy].strategy}
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                {/* Left side: Content description */}
-                <div className="lg:col-span-8 space-y-6 text-left">
-                  <div className="space-y-1">
-                    <span className="text-xs font-bold text-[#1e6ecc] tracking-wider uppercase block">
-                      {studies[activeStudy].tag}
+              {/* Right side: Outcomes panel */}
+              <div className="lg:col-span-4 w-full h-full flex flex-col gap-4">
+                <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 lg:text-right font-mono">Verified Outcomes:</h5>
+                {studies[activeStudy].results.map((res, i) => (
+                  <div
+                    key={i}
+                    className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col justify-center shadow-sm text-left lg:text-right"
+                  >
+                    <span className="text-2xl font-black text-[#ff6a00] tracking-tight">
+                      {res.value}
                     </span>
-                    <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
-                      {studies[activeStudy].title}
-                    </h4>
+                    <span className="text-xs text-slate-450 mt-1 font-semibold">
+                      {res.label}
+                    </span>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
-                    <div className="space-y-1.5">
-                      <h5 className="text-xs font-bold text-red-500 uppercase tracking-widest">The Challenge:</h5>
-                      <p className="text-sm text-slate-600 leading-relaxed font-light">
-                        {studies[activeStudy].challenge}
-                      </p>
-                    </div>
-                    <div className="space-y-1.5">
-                      <h5 className="text-xs font-bold text-[#4eb46f] uppercase tracking-widest">The Strategy:</h5>
-                      <p className="text-sm text-slate-600 leading-relaxed font-light">
-                        {studies[activeStudy].strategy}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right side: Outcomes panel */}
-                <div className="lg:col-span-4 w-full h-full flex flex-col gap-4">
-                  <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 lg:text-right">Verified Outcomes:</h5>
-                  {studies[activeStudy].results.map((res, i) => (
-                    <div
-                      key={i}
-                      className="bg-white border border-slate-200 p-4 rounded-xl flex flex-col justify-center shadow-sm text-left lg:text-right"
-                    >
-                      <span className="text-2xl font-black text-slate-900 tracking-tight bg-gradient-to-r from-[#4eb46f] to-[#1e6ecc] bg-clip-text text-transparent">
-                        {res.value}
-                      </span>
-                      <span className="text-xs text-slate-400 mt-1 font-semibold">
-                        {res.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
+                ))}
               </div>
 
-              {/* Detail action */}
-              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs text-slate-450">Case Study {activeStudy + 1} of {studies.length}</span>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-[#4eb46f] transition-colors group"
-                >
-                  Request Full PDF Breakdown
-                  <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-              </div>
+            </div>
 
-            </motion.div>
-          </AnimatePresence>
+            {/* Detail action */}
+            <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between">
+              <span className="text-xs text-slate-400 font-mono">Case Study {activeStudy + 1} of {studies.length}</span>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-[#ff6a00] transition-colors group"
+              >
+                Request Full PDF Breakdown
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+
+          </div>
         </div>
 
       </div>

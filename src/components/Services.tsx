@@ -1,95 +1,115 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Target, Search, PenTool } from "lucide-react";
 
 export default function Services() {
-  const services = [
+  const pillars = [
     {
-      icon: "/assets/icons/seo.png",
-      title: "Search Engine Optimization (SEO)",
-      description: "We optimize your website for high-performing keywords, strengthen your online reputation, and build authority to help you rank higher on Google and other search engines. Trust, traffic, and top positions, we deliver all three.",
+      icon: Target,
+      title: "Paid Media Acceleration",
+      desc: "Architecting intent-based paid media campaigns across search and social channels to capture high-value buyers.",
+      bullets: [
+        "Structured Google Search & Shopping campaigns",
+        "Meta Dynamic Creative (DCT) sandboxes",
+        "LinkedIn account-based target modeling",
+      ],
+      iconBg: "bg-orange-50 text-[#ff6a00]",
     },
     {
-      icon: "/assets/icons/google-ads.png",
-      title: "Google Ads (PPC Management)",
-      description: "Our customized Google Ads campaigns are built around your business goals, whether it’s increasing website traffic, generating leads, or driving sales. We manage every click to ensure a maximum return on ad spend (ROAS).",
+      icon: Search,
+      title: "Search Dominance (SEO)",
+      desc: "Establishing organic dominance for commercially viable search terms to capture non-paid transactional traffic.",
+      bullets: [
+        "Semantic keyword clustering & roadmap",
+        "Technical site speed & index optimizations",
+        "Local Map Pack authority scaling",
+      ],
+      iconBg: "bg-blue-50 text-blue-600",
     },
     {
-      icon: "/assets/icons/meta.png",
-      title: "Meta Ads (Facebook & Instagram Advertising)",
-      description: "We design high-converting ad creatives and run smart targeting strategies on Facebook and Instagram to drive engagement, boost awareness, and bring you quality leads that convert.",
-    },
-    {
-      icon: "/assets/icons/linkedin.png",
-      title: "LinkedIn Ads",
-      description: "Perfect for B2B growth, our LinkedIn ad strategies help you build a professional presence, connect with decision-makers, and generate qualified leads from your niche industry.",
-    },
-    {
-      icon: "/assets/icons/instagram.png",
-      title: "Social Media Handling",
-      description: "From Instagram and Facebook to YouTube, X, and TikTok, we manage it all. We create engaging content, grow your audience, and maintain consistent brand visibility for both Indian and international clients (USA, UK, Canada, etc.).",
-    },
-    {
-      icon: "/assets/icons/web.png",
-      title: "Website Designing & Landing Pages",
-      description: "Whether you need a full business website or a PPC landing page, our design team creates mobile-friendly, SEO-optimized pages tailored to your goals built after understanding your business inside-out.",
+      icon: PenTool,
+      title: "Conversion Architecture",
+      desc: "Designing custom mobile-first landing pages and checkout flows engineered to maximize ROAS efficiency.",
+      bullets: [
+        "High-converting static landing page layouts",
+        "A/B heading and field split tests",
+        "Dynamic content matches matching ad groups",
+      ],
+      iconBg: "bg-green-50 text-green-600",
     },
   ];
 
   return (
-    <section id="services" className="py-12 sm:py-20 bg-white">
+    <section id="services" className="py-12 sm:py-20 bg-white border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Our Expert Digital Marketing Services
+          <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
+            CORE SERVICES
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
+            Scale-Focused Acquisition Frameworks
           </h3>
-          <p className="text-slate-500 text-sm sm:text-base">
-            Boost visibility, drive targeted traffic & convert leads into loyal customers
+          <p className="text-slate-555 text-sm sm:text-base font-light">
+            We build direct customer acquisition engines that align with your exact cost-per-lead and revenue goals.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => {
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {pillars.map((pillar, idx) => {
+            const Icon = pillar.icon;
             return (
               <div
-                key={index}
-                className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors group"
+                key={idx}
+                className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-[#ff6a00]/30 transition-colors text-left"
               >
-                {/* Icon Container */}
-                <div className="w-12 h-12 rounded-xl bg-slate-100/80 border border-slate-200/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#4eb46f]/10 group-hover:border-[#4eb46f]/20 transition-colors">
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    className="w-6 h-6 object-contain"
-                  />
+                <div className="space-y-6">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${pillar.iconBg}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-bold text-slate-900 font-sans">{pillar.title}</h4>
+                    <p className="text-xs text-slate-550 leading-relaxed font-light">{pillar.desc}</p>
+                  </div>
+
+                  <ul className="space-y-2.5 pt-2 border-t border-slate-200">
+                    {pillar.bullets.map((bullet, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                        <span className="text-[#ff6a00] font-extrabold select-none">•</span>
+                        <span className="font-light">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="space-y-2">
-                  <h4 className="text-lg font-bold text-slate-900 group-hover:text-[#4eb46f] transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-sm text-slate-500 leading-relaxed font-light">
-                    {service.description}
-                  </p>
+                <div className="pt-6 mt-6">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ff6a00] hover:text-[#e05d00] transition-colors font-mono"
+                  >
+                    ACQUISITION DEPLOYMENT
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Dynamic bottom CTA for services */}
+        {/* Bottom Call to Action */}
         <div className="mt-16 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-slate-900 hover:bg-[#4eb46f] px-6 py-3 rounded-lg transition-colors group shadow-lg cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#ff6a00] hover:bg-[#e05d00] px-6 py-3 rounded-lg transition-colors shadow-lg cursor-pointer"
           >
             Claim 40% Off & Consultation Call
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
+
       </div>
     </section>
   );

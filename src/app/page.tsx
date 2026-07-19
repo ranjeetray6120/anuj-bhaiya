@@ -1,23 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ClientLogos from "@/components/ClientLogos";
 import About from "@/components/BusinessStats"; // Welcome / About
 import Services from "@/components/Services";
 import Features from "@/components/Features"; // Tabbed features
 import WhyChooseUs from "@/components/WhyChooseUs"; // Warning contrast and Stand Out
-import ProcessTimeline from "@/components/ProcessTimeline";
-import Portfolio from "@/components/Portfolio";
-import CaseStudies from "@/components/CaseStudies";
-import IndustriesServed from "@/components/IndustriesServed";
-import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQs from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot"; // Floating AI Chatbot widget
 
 export const metadata = {
-  title: "Aetheris Digital | Digital Marketing & SEO Solutions",
-  description: "Aetheris Digital delivers high converting digital marketing, Google Ads, Meta Ads, and SEO solutions for your business.",
+  title: "ADFORGE | Performance Digital Marketing & CRO Funnels",
+  description: "ADFORGE engineers high-converting customer acquisition funnels, Google Search ad setups, Meta campaigns, and programmatic SEO dominance.",
 };
 
 export default function Home() {
@@ -26,23 +21,20 @@ export default function Home() {
       {/* Sticky Navigation */}
       <Navbar />
 
-      {/* Main Page Layout - Restored all sections */}
+      {/* Unique structural flow of sections */}
       <main className="flex-grow">
         <Hero />
-        {/* <ClientLogos /> */}
-        <About />
         <Services />
         <Features />
         <WhyChooseUs />
-        {/* <ProcessTimeline /> */}
-        {/* <Portfolio /> */}
-        {/* <CaseStudies /> */}
-        {/* <IndustriesServed /> */}
-        {/* <Pricing /> */}
+        <About />
         <Testimonials />
         <FAQs />
         <Contact />
       </main>
+
+      {/* AI Chatbot Widget (Bottom Right) */}
+      <Chatbot />
 
       {/* Footer */}
       <Footer />

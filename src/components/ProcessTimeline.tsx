@@ -42,15 +42,18 @@ export default function ProcessTimeline() {
   ];
 
   return (
-    <section id="process" className="py-20 bg-slate-50 border-t border-slate-200">
+    <section id="process" className="py-12 sm:py-20 bg-white border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
+            Execution Strategy
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
             Our Strategy Execution Process
           </h3>
-          <p className="text-slate-550 text-sm sm:text-base">
+          <p className="text-slate-550 text-sm sm:text-base font-light">
             A systematic, risk-reduced timeline designed to take your campaigns from discovery to scale in under 30 days.
           </p>
         </div>
@@ -69,23 +72,23 @@ export default function ProcessTimeline() {
                   onClick={() => setActiveStep(idx)}
                   className={`w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-start gap-4 cursor-pointer relative overflow-hidden ${
                     isActive
-                      ? "bg-white border-[#4eb46f] shadow-md"
-                      : "bg-white/40 border-slate-200 hover:bg-white hover:border-slate-350"
+                      ? "bg-white border-[#ff6a00] shadow-md"
+                      : "bg-slate-50 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
                   }`}
                 >
                   {isActive && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#4eb46f]" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#ff6a00]" />
                   )}
 
                   <div className={`p-2 rounded-lg border flex-shrink-0 ${
-                    isActive ? "bg-[#4eb46f]/10 border-[#4eb46f]/20 text-[#4eb46f]" : "bg-slate-50 border-slate-200 text-slate-450"
+                    isActive ? "bg-[#ff6a00]/10 border-[#ff6a00]/20 text-[#ff6a00]" : "bg-slate-100 border-slate-200 text-slate-500"
                   }`}>
                     <Icon className="w-5 h-5" />
                   </div>
 
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold text-[#4eb46f] uppercase tracking-wider">{step.timeline}</span>
+                      <span className="text-[10px] font-bold text-[#ff6a00] uppercase tracking-wider font-mono">{step.timeline}</span>
                       <span className="text-[10px] font-semibold text-slate-400">• Phase {step.phase}</span>
                     </div>
                     <h4 className="font-bold text-slate-800 text-sm sm:text-base">
@@ -99,16 +102,16 @@ export default function ProcessTimeline() {
 
           {/* Right: Detailed View */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between shadow-sm">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between shadow-sm text-left">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#4eb46f] uppercase tracking-widest">Stage Overview</span>
+                  <span className="text-xs font-bold text-[#ff6a00] uppercase tracking-widest font-mono">Stage Overview</span>
                   <span className="text-4xl font-black text-slate-100 select-none">PHASE {steps[activeStep].phase}</span>
                 </div>
 
                 <div className="space-y-1.5">
-                  <span className="text-xs font-bold text-slate-400 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">{steps[activeStep].timeline}</span>
-                  <h4 className="text-xl font-bold text-slate-850">{steps[activeStep].title}</h4>
+                  <span className="text-xs font-bold text-slate-500 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">{steps[activeStep].timeline}</span>
+                  <h4 className="text-xl font-bold text-slate-850 font-sans">{steps[activeStep].title}</h4>
                 </div>
 
                 <p className="text-slate-600 text-sm leading-relaxed font-light">
@@ -117,10 +120,10 @@ export default function ProcessTimeline() {
               </div>
 
               <div className="pt-6 mt-8 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs text-slate-400">Step {activeStep + 1} of {steps.length}</span>
+                <span className="text-xs text-slate-400 font-mono">Step {activeStep + 1} of {steps.length}</span>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#4eb46f] hover:text-[#3d9e5c] transition-colors group"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#ff6a00] hover:text-[#e05d00] transition-colors group"
                 >
                   Request Strategy Breakdown
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
