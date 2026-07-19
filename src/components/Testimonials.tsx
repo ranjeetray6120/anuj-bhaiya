@@ -61,7 +61,7 @@ export default function Testimonials() {
           <div className="flex justify-center pt-2">
             <img
               width="120"
-              src="/assets/icons/google.png"
+              src="/assets/icons/google.svg"
               alt="Google Rating"
               className="object-contain"
             />
@@ -95,7 +95,7 @@ export default function Testimonials() {
                   {/* Author Information */}
                   <div className="flex items-center gap-3">
                     <img
-                      src="/assets/icons/google-icon.png"
+                      src="/assets/icons/google-icon.svg"
                       alt="Google review author"
                       className="w-8 h-8 rounded-full object-contain shadow-sm border border-slate-200 bg-slate-50"
                     />
