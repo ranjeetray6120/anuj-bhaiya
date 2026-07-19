@@ -2,7 +2,17 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
-import ReCAPTCHA from "react-google-recaptcha";
+import Script from "next/script";
+
+// Declare window types for reCAPTCHA v3 execution
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -11,7 +21,6 @@ export default function Contact() {
     mobile: "",
     message: "",
   });
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -19,13 +28,36 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!recaptchaToken) {
-      alert("Please complete the reCAPTCHA verification.");
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
+      // 1. Verify reCAPTCHA script is loaded
+      if (typeof window === "undefined" || !window.grecaptcha) {
+        alert("reCAPTCHA protection is loading. Please wait a second and try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // 2. Execute reCAPTCHA v3 invisible token retrieval
+      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+      
+      let token = "";
+      await new Promise<void>((resolve, reject) => {
+        window.grecaptcha.ready(async () => {
+          try {
+            token = await window.grecaptcha.execute(siteKey, { action: "submit_lead" });
+            resolve();
+          } catch (err) {
+            reject(err);
+          }
+        });
+      });
+
+      if (!token) {
+        alert("Failed to retrieve security token. Please reload the page.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // 3. Post payload to Resend endpoint
       const response = await fetch("/api/send", {
         method: "POST",
         headers: {
@@ -36,7 +68,7 @@ export default function Contact() {
           email: formState.email,
           phone: formState.mobile,
           details: formState.message,
-          recaptchaToken,
+          recaptchaToken: token,
         }),
       });
 
@@ -47,7 +79,7 @@ export default function Contact() {
         alert(result.error || "Something went wrong. Please try again.");
       }
     } catch (error) {
-      alert("Network error. Please try again.");
+      alert("Network error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -55,6 +87,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-12 sm:py-20 bg-slate-50 border-t border-slate-200">
+      {/* Load Google reCAPTCHA v3 dynamically */}
+      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="lazyOnload"
+        />
+      )}
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -183,14 +223,6 @@ export default function Contact() {
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00] resize-none"
-                    />
-                  </div>
-
-                  {/* Google reCAPTCHA widget */}
-                  <div className="flex justify-center sm:justify-start pt-2">
-                    <ReCAPTCHA
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-                      onChange={(token) => setRecaptchaToken(token)}
                     />
                   </div>
 

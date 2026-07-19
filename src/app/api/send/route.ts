@@ -8,9 +8,9 @@ export async function POST(req: Request) {
   try {
     const { name, email, phone, details, recaptchaToken } = await req.json();
 
-    // 1. Verify Google reCAPTCHA Token server-side
+    // 1. Verify Google reCAPTCHA v3 Token server-side
     if (!recaptchaToken) {
-      return NextResponse.json({ error: "Please complete the reCAPTCHA verification." }, { status: 400 });
+      return NextResponse.json({ error: "Please complete the verification." }, { status: 400 });
     }
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
@@ -21,8 +21,9 @@ export async function POST(req: Request) {
     });
     const verifyResult = await verifyResponse.json();
 
-    if (!verifyResult.success) {
-      return NextResponse.json({ error: "reCAPTCHA verification failed. Please try again." }, { status: 400 });
+    // Google reCAPTCHA v3 returns a score (0.0 to 1.0). 0.5 is the standard threshold.
+    if (!verifyResult.success || (verifyResult.score !== undefined && verifyResult.score < 0.5)) {
+      return NextResponse.json({ error: "reCAPTCHA verification failed (Low score). Please try again." }, { status: 400 });
     }
 
     // 2. Get receiving email from environment variables (important for Resend sandbox mode tests)
