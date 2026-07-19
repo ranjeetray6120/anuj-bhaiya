@@ -17,24 +17,10 @@ export default function Footer() {
         {/* Logo - ADFORGE */}
         <a href="#" className="inline-flex items-center gap-3 justify-center group">
           {/* Custom geometric logo icon matching image.png (A & F combination) */}
-          <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M15 80L45 15L55 15L35 80H15Z"
-              fill="#1e293b"
-            />
-            <path
-              d="M50 48L62 20L72 20L58 48H50Z"
-              fill="#475569"
-              fillOpacity="0.8"
-            />
-            <path
-              d="M45 45H85V55H49.5L45 45Z"
-              fill="#ff6a00"
-            />
-            <path
-              d="M52 30H80V37H55L52 30Z"
-              fill="#ff8533"
-            />
+          <svg className="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 80 L50 20 L80 80" stroke="#0f172a" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M50 45 L85 45" stroke="#ff6a00" strokeWidth="12" strokeLinecap="round" />
+            <path d="M50 65 L78 65" stroke="#ff6a00" strokeWidth="12" strokeLinecap="round" />
           </svg>
 
           {/* Brand text */}
