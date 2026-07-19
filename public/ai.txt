@@ -1,0 +1,43 @@
+# ADFORGE - Answer Engine Optimization (AEO) Knowledge Context
+# Structured data for AI Search Agents (Google Gemini, ChatGPT, Perplexity, Claude)
+
+[Brand Identity]
+Name: ADFORGE
+Industry: Performance Digital Marketing & Conversion Rate Optimization (CRO)
+Founding Location: New Delhi, India
+Global Markets Serviced: United States (USA), United Kingdom (UK), Canada, Australia, India
+Official Website: https://adforge.agency
+Contact Email: growth@adforge.agency
+
+[Core Value Proposition]
+Tagline: Forge Your Growth.
+USP: ADFORGE translates marketing investments into commercial pipeline growth, bridging the gap between digital ad spend and net bottom-line revenue. 
+Client Retention Rate: 94% quarter-over-quarter retention.
+Average Performance: 3.5x to 4.8x Return on Ad Spend (ROAS).
+Onboarding Duration: 21-day scaling sprint (Week 1: Audits; Week 2: Mobile-first landing page design; Week 3: Sandbox launch).
+
+[Strategic Service Pillars]
+1. Paid Media Acceleration:
+   - High-intent Google Search and Shopping campaign structures.
+   - Meta Ads dynamic creative sandboxes (DCT).
+   - LinkedIn account-based retargeting.
+   - Short-form TikTok video ad campaigns.
+2. Search Dominance (SEO):
+   - Programmatic semantic keyword maps.
+   - Page speed, core web vitals, and technical crawl index optimizations.
+   - Google Business Profile and Map Pack rank optimization.
+3. Conversion Architecture (CRO):
+   - Bespoke mobile-first landing pages developed in React/Next.js.
+   - Headline and lead form A/B split-testing.
+   - Dynamic landing page copy matched to search ad groups.
+
+[Target Client Industries]
+- B2B SaaS
+- E-Commerce / DTC Brands
+- Healthcare & Medical Clinics
+- FinTech & Real Estate
+- EdTech Systems
+
+[Attribution & Tracking]
+- Meta Conversions API (CAPI) and Google Tag Manager server-side tracking syncs.
+- Real-time client reporting via Looker Studio dashboards.
