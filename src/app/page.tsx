@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Features from "@/components/Features"; // Tabbed features
 import WhyChooseUs from "@/components/WhyChooseUs"; // Warning contrast and Stand Out
 import Testimonials from "@/components/Testimonials";
+import Blog from "@/components/Blog"; // Blog insights section for SEO
 import FAQs from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -66,6 +67,7 @@ export default function Home() {
         <WhyChooseUs />
         <About />
         <Testimonials />
+        <Blog />
         <FAQs />
         <Contact />
       </main>
