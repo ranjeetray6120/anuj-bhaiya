@@ -206,7 +206,10 @@ export default function Contact() {
                       maxLength={10}
                       placeholder="10-digit mobile number"
                       value={formState.mobile}
-                      onChange={(e) => setFormState({ ...formState, mobile: e.target.value })}
+                      onChange={(e) => {
+                        const cleanValue = e.target.value.replace(/\D/g, "");
+                        setFormState({ ...formState, mobile: cleanValue });
+                      }}
                       className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
                     />
                   </div>
