@@ -12,7 +12,44 @@ import Chatbot from "@/components/Chatbot"; // Floating AI Chatbot widget
 
 export const metadata = {
   title: "ADFORGE | Performance Digital Marketing & CRO Funnels",
-  description: "ADFORGE engineers high-converting customer acquisition funnels, Google Search ad setups, Meta campaigns, and programmatic SEO dominance.",
+  description: "ADFORGE engineers high-converting customer acquisition funnels, Google Ads, Meta campaigns, and programmatic SEO dominance.",
+  keywords: ["performance marketing", "Google Ads agency", "Meta Ads scaling", "Conversion Rate Optimization", "programmatic SEO", "CRO funnels", "digital marketing agency"],
+  alternates: {
+    canonical: "https://adforge.agency",
+  },
+  openGraph: {
+    title: "ADFORGE | Performance Digital Marketing & CRO Funnels",
+    description: "ADFORGE engineers high-converting customer acquisition funnels, Google Ads, Meta campaigns, and programmatic SEO dominance.",
+    url: "https://adforge.agency",
+    siteName: "ADFORGE",
+    images: [
+      {
+        url: "https://adforge.agency/assets/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "ADFORGE Agency Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ADFORGE | Performance Digital Marketing & CRO Funnels",
+    description: "ADFORGE engineers high-converting customer acquisition funnels, Google Ads, Meta campaigns, and programmatic SEO dominance.",
+    images: ["https://adforge.agency/assets/images/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function Home() {
