@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -10,12 +11,19 @@ export default function Contact() {
     mobile: "",
     message: "",
   });
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA verification.");
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/send", {
@@ -28,6 +36,7 @@ export default function Contact() {
           email: formState.email,
           phone: formState.mobile,
           details: formState.message,
+          recaptchaToken,
         }),
       });
 
@@ -125,7 +134,7 @@ export default function Contact() {
                         placeholder="John Doe"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-950 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
+                        className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
                       />
                     </div>
                     <div>
@@ -139,7 +148,7 @@ export default function Contact() {
                         placeholder="john@company.com"
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-950 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
+                        className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
                       />
                     </div>
                   </div>
@@ -158,7 +167,7 @@ export default function Contact() {
                       placeholder="10-digit mobile number"
                       value={formState.mobile}
                       onChange={(e) => setFormState({ ...formState, mobile: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-950 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
+                      className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
                     />
                   </div>
 
@@ -174,6 +183,14 @@ export default function Contact() {
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 focus:border-[#ff6a00] rounded-lg px-3.5 py-2.5 text-xs text-slate-955 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#ff6a00] resize-none"
+                    />
+                  </div>
+
+                  {/* Google reCAPTCHA widget */}
+                  <div className="flex justify-center sm:justify-start pt-2">
+                    <ReCAPTCHA
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                      onChange={(token) => setRecaptchaToken(token)}
                     />
                   </div>
 

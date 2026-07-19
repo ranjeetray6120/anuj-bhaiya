@@ -6,11 +6,29 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, phone, details } = await req.json();
+    const { name, email, phone, details, recaptchaToken } = await req.json();
 
-    // Get receiving email from environment variables (important for Resend sandbox mode tests)
+    // 1. Verify Google reCAPTCHA Token server-side
+    if (!recaptchaToken) {
+      return NextResponse.json({ error: "Please complete the reCAPTCHA verification." }, { status: 400 });
+    }
+
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
+
+    const verifyResponse = await fetch(verificationUrl, {
+      method: "POST",
+    });
+    const verifyResult = await verifyResponse.json();
+
+    if (!verifyResult.success) {
+      return NextResponse.json({ error: "reCAPTCHA verification failed. Please try again." }, { status: 400 });
+    }
+
+    // 2. Get receiving email from environment variables (important for Resend sandbox mode tests)
     const toEmail = process.env.RESEND_TO_EMAIL || "growth@adforge.agency";
 
+    // 3. Send email using Resend
     const data = await resend.emails.send({
       from: "ADFORGE Leads <onboarding@resend.dev>",
       to: [toEmail], 
