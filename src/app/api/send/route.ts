@@ -8,12 +8,12 @@ export async function POST(req: Request) {
   try {
     const { name, email, phone, details } = await req.json();
 
-    // Send email using Resend
-    // By default, if domain DNS is not configured, this will send to your registered Resend account email.
-    // Replace 'growth@adforge.agency' with your email to receive submissions.
+    // Get receiving email from environment variables (important for Resend sandbox mode tests)
+    const toEmail = process.env.RESEND_TO_EMAIL || "growth@adforge.agency";
+
     const data = await resend.emails.send({
       from: "ADFORGE Leads <onboarding@resend.dev>",
-      to: ["growth@adforge.agency"], 
+      to: [toEmail], 
       subject: `New Lead Captured: ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #0f172a; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 8px;">
