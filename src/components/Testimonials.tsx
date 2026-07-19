@@ -50,7 +50,7 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-2">
+        <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
             Client Transformations
           </h3>
@@ -58,13 +58,22 @@ export default function Testimonials() {
             Verified Customer Outcomes
           </p>
           
-          <div className="flex justify-center pt-2">
+          <div className="flex flex-col items-center gap-1.5 pt-3">
             <img
-              width="120"
-              src="/assets/icons/google.svg"
+              width="85"
+              src="/assets/icons/google.png"
               alt="Google Rating"
               className="object-contain"
             />
+            <div className="flex items-center gap-1 text-[#ff6a00] font-bold text-xs mt-0.5">
+              <span className="text-slate-900 font-black mr-1">5.0</span>
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-[#ff6a00] text-[#ff6a00]" />
+                ))}
+              </div>
+              <span className="text-slate-400 font-bold ml-1">(120+ Reviews)</span>
+            </div>
           </div>
         </div>
 
@@ -95,7 +104,7 @@ export default function Testimonials() {
                   {/* Author Information */}
                   <div className="flex items-center gap-3">
                     <img
-                      src="/assets/icons/google-icon.svg"
+                      src="/assets/icons/google-icon.png"
                       alt="Google review author"
                       className="w-8 h-8 rounded-full object-contain shadow-sm border border-slate-200 bg-slate-50"
                     />
