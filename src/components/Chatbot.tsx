@@ -95,7 +95,7 @@ export default function Chatbot() {
     }, 650);
   };
 
-  const whatsappUrl = "https://wa.me/917888910945?text=Hi%20ADFORGE,%20I'm%20interested%20in%20scaling%20my%20business!";
+  const whatsappUrl = "https://wa.me/917519010642?text=Hi%20ADFORGE,%20I'm%20interested%2520in%2520getting%2520a%2520free%2520ad%2520account%2520audit%2520and%2520strategy%2520blueprint%2520for%2520my%252520business!";
 
   // Resolve the 2 active suggestions based on current index pointers
   const firstActiveSug = suggestions[activeSuggestionIndexes[0]];
