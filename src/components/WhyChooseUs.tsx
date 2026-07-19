@@ -4,49 +4,49 @@ import { X, Check, Users, DollarSign, Paperclip, FileText } from "lucide-react";
 
 export default function WhyChooseUs() {
   const withoutMarketing = [
-    "Unstructured spend on unmeasured channels",
-    "No server-side conversion tracking setup",
-    "Missing local Google search map visibility",
-    "High CPC costs pointing to generic pages",
-    "Scattered social accounts with low activity",
-    "Prospect leakages directly to competitors",
-    "Frustrated scaling bottlenecks",
+    "Wasting ad spend on the wrong keywords",
+    "No server-side conversion tracking (losing 30% of sales data)",
+    "Not showing up in local Google Maps search queries",
+    "Paying high CPCs only to send traffic to a generic homepage",
+    "Social media accounts that are completely inactive",
+    "Leaking warm leads straight to your competitors",
+    "Stuck at a plateau with no plan to scale budgets",
   ];
 
   const withMarketing = [
-    "Attribution syncs via modern tracking APIs",
-    "Commercial intent keyword ranks on search",
-    "Consistent qualified lead volumes for sales",
-    "Bespoke mobile-first landing page flows",
-    "Retargeting funnels warm visitor segments",
-    "Measurable campaign ROAS improvements",
-    "Predictable pipelines to scale spend",
+    "Tracking every conversion accurately using server-side CAPI",
+    "Ranking on page one of Google for high-intent keywords",
+    "A steady stream of qualified leads sent to your sales team",
+    "Bespoke mobile-first landing pages built to convert",
+    "Active retargeting showing reviews to past visitors",
+    "Clear weekly reports mapping spend directly to revenue",
+    "A scalable framework to grow your ad spend profitably",
   ];
 
   const standOutStats = [
     {
       icon: FileText,
-      text: "Custom landing page designs optimized for conversion rates",
+      text: "Landing pages custom designed to convert ad clicks into sales",
     },
     {
       icon: Users,
-      text: "Live account audits conducted to resolve campaign bottlenecks",
+      text: "Account audits to find where you are currently wasting budget",
     },
     {
       icon: Paperclip,
-      text: "Creative hook assets produced and split tested weekly",
+      text: "New ad creative hooks and headlines tested weekly",
     },
     {
       icon: DollarSign,
-      text: "Client accounts managed under strict ROAS targets",
+      text: "Campaigns run with strict target Cost-Per-Acquisition goals",
     },
   ];
 
   const teamBenefits = [
-    "Attribution experts configuring Google CAPI & analytics",
-    "Looker Studio real-time metrics dashboards",
-    "Conversion rate optimization split test systems",
-    "Weekly visual asset design and copywriting sprints",
+    "Google & Meta experts handling tracking setup",
+    "Looker Studio real-time dashboards for live metrics",
+    "Split tests on landing page headlines and forms",
+    "Weekly visual asset design and copyright updates",
   ];
 
   return (
@@ -77,7 +77,7 @@ export default function WhyChooseUs() {
                 <span className="inline-block px-3 py-1 text-xs font-bold bg-red-500 text-white rounded-full">
                   Unoptimized Setup
                 </span>
-                <h4 className="text-lg font-bold text-slate-900 font-sans">The Static Model</h4>
+                <h4 className="text-lg font-bold text-slate-900 font-sans">The Old Agency Model</h4>
               </div>
 
               <ul className="space-y-3 text-left">
@@ -101,9 +101,9 @@ export default function WhyChooseUs() {
                   />
                 </div>
                 <span className="inline-block px-3 py-1 text-xs font-bold bg-[#ff6a00] text-white rounded-full">
-                  Attribution Scaling
+                  Optimized Growth
                 </span>
-                <h4 className="text-lg font-bold text-slate-900 font-sans">The ADFORGE Engine</h4>
+                <h4 className="text-lg font-bold text-slate-900 font-sans">The ADFORGE Growth Engine</h4>
               </div>
 
               <ul className="space-y-3 text-left">
@@ -164,13 +164,13 @@ export default function WhyChooseUs() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-white/90">
-                OUR METHODOLOGY
+                HOW WE EXECUTE
               </span>
               <h4 className="text-2xl sm:text-3xl font-extrabold leading-tight">
-                Partner with certified media buyers and CRO specialists
+                Work directly with seasoned media buyers and design specialists
               </h4>
               <p className="text-sm sm:text-base leading-relaxed text-white/80 font-light font-sans">
-                We focus entirely on metrics that affect your profit margin: qualified leads, customer acquisitions, and cost-per-lead efficiencies. Our media buyers keep your target accounts active with clean execution.
+                We focus entirely on the numbers that affect your bottom line: leads, purchases, and cost-per-acquisition. No account managers playing telephone. You communicate directly with the builders.
               </p>
 
               <div className="space-y-3 pt-2">

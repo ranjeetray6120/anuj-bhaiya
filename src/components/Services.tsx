@@ -6,34 +6,34 @@ export default function Services() {
   const pillars = [
     {
       icon: Target,
-      title: "Paid Media Acceleration",
-      desc: "Architecting intent-based paid media campaigns across search and social channels to capture high-value buyers.",
+      title: "Google & Meta Ads",
+      desc: "We plan, build, and manage high-performing paid campaigns across Search, Shopping, and Social to capture customers who are ready to buy today.",
       bullets: [
-        "Structured Google Search & Shopping campaigns",
-        "Meta Dynamic Creative (DCT) sandboxes",
-        "LinkedIn account-based target modeling",
+        "High-intent Google Search campaigns",
+        "Meta ad testing & creative rotation",
+        "LinkedIn account-based campaigns",
       ],
       iconBg: "bg-orange-50 text-[#ff6a00]",
     },
     {
       icon: Search,
-      title: "Search Dominance (SEO)",
-      desc: "Establishing organic dominance for commercially viable search terms to capture non-paid transactional traffic.",
+      title: "SEO & Google Maps",
+      desc: "We rank your website and Google Maps profile for commercially valuable keywords, driving free, high-intent traffic that actually converts.",
       bullets: [
-        "Semantic keyword clustering & roadmap",
-        "Technical site speed & index optimizations",
-        "Local Map Pack authority scaling",
+        "Targeting buyer-intent keywords",
+        "Speeding up site page loads for rankings",
+        "Optimizing Google Business Profile ranking",
       ],
       iconBg: "bg-blue-50 text-blue-600",
     },
     {
       icon: PenTool,
-      title: "Conversion Architecture",
-      desc: "Designing custom mobile-first landing pages and checkout flows engineered to maximize ROAS efficiency.",
+      title: "High-Converting Pages",
+      desc: "Great ads are useless if your website is slow or confusing. We build clean, mobile-first landing pages engineered to convert clicks into customers.",
       bullets: [
-        "High-converting static landing page layouts",
-        "A/B heading and field split tests",
-        "Dynamic content matches matching ad groups",
+        "Fast, mobile-friendly landing page designs",
+        "Form optimization and A/B split testing",
+        "Matching page copy directly to search queries",
       ],
       iconBg: "bg-green-50 text-green-600",
     },
@@ -46,13 +46,13 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
-            CORE SERVICES
+            WHAT WE DO
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
-            Scale-Focused Acquisition Frameworks
+            How we help you acquire customers
           </h3>
           <p className="text-slate-555 text-sm sm:text-base font-light">
-            We build direct customer acquisition engines that align with your exact cost-per-lead and revenue goals.
+            We focus on building campaigns that deliver real bottom-line revenue, aligned with your target cost-per-lead and acquisition goals.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function Services() {
                     href="#contact"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ff6a00] hover:text-[#e05d00] transition-colors font-mono"
                   >
-                    ACQUISITION DEPLOYMENT
+                    LEARN OUR WORKFLOW
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>

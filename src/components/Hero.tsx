@@ -21,9 +21,9 @@ export default function Hero() {
   };
 
   const bullets = [
-    "Google & Meta Certified Specialists",
-    "No Long-Term Contracts Required",
-    "Focus on ROI & Revenue Growth",
+    "Certified Google & Meta Specialists",
+    "No Long-Term Contracts",
+    "Focus on Leads & Revenue",
   ];
 
   return (
@@ -34,15 +34,14 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Hero Left Content - Focuses on direct email strategy request */}
+          {/* Hero Left Content - Conversational copy */}
           <div className="lg:col-span-7 space-y-8 text-left z-10">
             <div className="space-y-4">
-             
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase text-slate-900">
-                WE ENGINEER <span className="text-[#ff6a00]">PREDICTABLE SCALING</span> FOR BRANDS
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase text-slate-900 font-sans">
+                We scale Google & Meta ads <span className="text-[#ff6a00]">without wasting</span> your budget.
               </h1>
-              <p className="text-base sm:text-lg text-slate-655 font-light leading-relaxed max-w-2xl">
-                Data-driven search engine optimization, Google Ads, and Meta campaigns designed to convert clicks into sales and scale your marketing budget profitably.
+              <p className="text-base sm:text-lg text-slate-655 font-light leading-relaxed max-w-2xl font-sans">
+                Tired of agencies reporting on "clicks" and "impressions" while your phone isn't ringing? We focus on what actually moves the needle: high-quality leads, real sales, and profitable campaigns.
               </p>
             </div>
 
@@ -114,7 +113,7 @@ export default function Hero() {
               {/* Progress visual bar */}
               <div className="space-y-2 bg-white border border-slate-200 p-4 rounded-xl">
                 <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-slate-550">Return on Ad Spend (ROAS)</span>
+                  <span className="text-slate-555">Return on Ad Spend (ROAS)</span>
                   <span className="text-[#ff6a00]">4.8x ROAS</span>
                 </div>
                 <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">

@@ -9,11 +9,11 @@ export default function Features() {
   const tabs = [
     {
       id: "ppc",
-      label: "Paid Search & Social Campaigns",
+      label: "Google & Meta Ads",
     },
     {
       id: "social",
-      label: "Retargeting & Brand Nurturing",
+      label: "Retargeting Past Traffic",
     },
     {
       id: "seo",
@@ -23,49 +23,49 @@ export default function Features() {
 
   const content = {
     ppc: {
-      title: "Scale Acquisition Safely with Paid Campaign Funnels",
-      desc: "Target active buyer intent on search engines and social feeds. We design matching landing pages directly to campaign ad sets to reduce cost-per-lead.",
+      title: "Launch campaigns targeting buyers who are ready to purchase",
+      desc: "We don't waste budget guessing. We target active search terms and social demographics, sending them directly to custom landing pages built for conversions.",
       image: "/assets/images/pay-per-click.jpg",
       bullets: [
         {
-          title: "Attribution Syncing",
-          text: "Configuring server-side tracking (CAPI) and Google Tag Manager variables for exact pixel measurement.",
+          title: "Server-Side Tracking",
+          text: "We configure Conversions API (CAPI) and Google Tag Manager server streams so you have exact numbers, bypassing ad-blockers and iOS tracking limits.",
         },
         {
-          title: "Creative sandboxing",
-          text: "Deploying weekly ad variations (images, headlines, and angles) to identify high-performing targets without wasting ad budget.",
+          title: "Ad Creative Sandbox",
+          text: "We test multiple hook angles, headlines, and visuals in small budget tests first to identify the winner before scaling.",
         },
       ],
       ctaStyle: "bg-[#ff6a00] hover:bg-[#e05d00] text-white shadow-sm",
     },
     social: {
-      title: "Build Retargeting Channels to Capture Drop-off Traffic",
-      desc: "Re-engage past website visitors and warm up cold prospects. We manage social assets to keep your brand visible and lower total customer acquisition costs.",
+      title: "Re-engage past visitors who left without purchasing",
+      desc: "Nearly 96% of website visitors leave without buying. We build custom retargeting campaigns to stay top-of-mind and bring them back to finish their transaction.",
       image: "/assets/images/social-media-marketing.png",
       bullets: [
         {
-          title: "Custom Audience Segments",
-          text: "Structuring multi-tier remarketing ads on Meta and LinkedIn based on specific landing page views.",
+          title: "Custom Audience Funnels",
+          text: "We set up multi-tiered retargeting on Meta and LinkedIn based on specific pages your prospects visited.",
         },
         {
-          title: "Content Authority",
-          text: "Publishing clean visual assets, customer review formats, and feature charts to establish brand trust.",
+          title: "Social Proof Assets",
+          text: "We retarget prospects with customer video reviews, comparison charts, and security trust badges to build authority.",
         },
       ],
       ctaStyle: "bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 shadow-sm",
     },
     seo: {
-      title: "Rank For Commercial Search Queries Organically",
-      desc: "Establish stable, non-paid customer pipelines. We optimize technical core web vitals and write search-optimized content to rank for commercial intent keywords.",
+      title: "Rank organically for search terms your competitors pay for",
+      desc: "Stop paying for every single click. We audit site speed, resolve technical crawl blocks, and write helpful guides to get you ranked on page one.",
       image: "/assets/images/search-engine-optimization.png",
       bullets: [
         {
-          title: "Programmatic Keyword Maps",
-          text: "Structuring comprehensive semantic hubs targeting keywords your competitors are paying for in PPC.",
+          title: "Keyword Mapping",
+          text: "We identify transactional keywords with high search volumes and low ranking barriers, mapping out a plan to rank above your competitors.",
         },
         {
-          title: "Local Map Dominance",
-          text: "Optimizing Google Business profiles and directory citations to capture local search map pack positions.",
+          title: "Google Maps Domination",
+          text: "We optimize your Google Business profile and listing citations to rank in local search Map Pack listings.",
         },
       ],
       ctaStyle: "bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 shadow-sm",

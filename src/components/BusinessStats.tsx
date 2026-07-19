@@ -5,11 +5,11 @@ import { CheckCircle } from "lucide-react";
 export default function BusinessStats() {
   const stats = [
     {
-      value: "2.4k+",
-      label: "Performance Campaigns Launched",
+      value: "500+",
+      label: "Ad Audits Conducted",
     },
     {
-      value: "98.7%",
+      value: "94%",
       label: "Quarter-over-Quarter Retention",
     },
   ];
@@ -32,24 +32,24 @@ export default function BusinessStats() {
           {/* Right Column: Copy & Stats */}
           <div className="lg:col-span-6 space-y-6 text-left order-1 lg:order-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#ff6a00] font-mono">
-              WHO WE ARE
+              ABOUT US
             </span>
             
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight font-sans">
-              We translate marketing investments into commercial pipeline growth
+              We run your marketing like a business, not a creative project.
             </h3>
 
             <div className="space-y-4">
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="w-5 h-5 text-[#ff6a00] flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-slate-600 font-light">
-                  ADFORGE bridges the gap between digital media spend and net bottom-line revenue. We build custom-engineered funnels that turn cold search clicks into verified transactions.
+                  Most agencies want to make pretty graphics. We care about what actually affects your bank account: qualified leads, customer signups, and scalable campaigns.
                 </p>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="w-5 h-5 text-[#ff6a00] flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-slate-600 font-light">
-                  From search campaigns on Google to custom Next.js landing pages, our systems focus on high-intent buyer acquisition with complete attribution tracking.
+                  We look at your entire sales funnel. From the search ad that gets clicked to the page they land on, we optimize every step to keep your customer acquisition cost low.
                 </p>
               </div>
             </div>
