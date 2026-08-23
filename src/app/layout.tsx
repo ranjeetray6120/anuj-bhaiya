@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   title: "AdForge | Ads that forge growth",
   description:
     "AdForge engineers high-converting campaigns, Google Ads, Meta Ads, and SEO strategies that deliver measurable ROI for your business.",
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({

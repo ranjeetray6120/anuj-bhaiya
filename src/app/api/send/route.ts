@@ -115,7 +115,7 @@ export async function POST(req: Request) {
               </div>
 
               <div class="footer">
-                © 2024 AdForge Agency • Lead Notification Engine
+                © 2026 AdForge Agency • Lead Notification Engine
               </div>
             </div>
           </body>
