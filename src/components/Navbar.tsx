@@ -36,13 +36,13 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 shadow-xs transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 sm:h-24 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center group py-2">
+        <Link href="/" className="flex items-center group py-1">
           <Image
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="AdForge Logo"
-            width={260}
-            height={80}
-            className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-xs"
+            width={280}
+            height={85}
+            className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             priority
           />
         </Link>

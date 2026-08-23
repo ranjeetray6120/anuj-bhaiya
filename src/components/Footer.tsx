@@ -24,11 +24,11 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Link href="/" className="inline-block bg-white p-2.5 rounded-xl w-fit shadow-md">
               <Image
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="AdForge Logo"
-                width={160}
-                height={50}
-                className="h-10 w-auto object-contain"
+                width={180}
+                height={55}
+                className="h-11 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-white/90 leading-relaxed font-medium">
