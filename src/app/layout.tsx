@@ -75,6 +75,8 @@ export const metadata: Metadata = {
     title: "AdForge | Performance Driven Digital Marketing Agency",
     description:
       "Ads that forge growth. Performance marketing, Google Ads & Meta Ads engineered for measurable ROI.",
+    site: "@AdForgetech",
+    creator: "@AdForgetech",
     images: ["/logo.jpeg"],
   },
   robots: {
@@ -117,9 +119,9 @@ const jsonLd = {
       },
       sameAs: [
         "https://www.facebook.com/adforgeofficial",
+        "https://instagram.com/adforge.marketing",
+        "https://x.com/AdForgetech",
         "https://linkedin.com",
-        "https://instagram.com",
-        "https://youtube.com",
       ],
     },
     {
