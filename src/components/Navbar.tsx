@@ -1,136 +1,250 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+const servicesList = [
+  {
+    title: "SEO Services",
+    href: "/seo",
+    desc: "Technical SEO, topical authority & organic revenue growth",
+  },
+  {
+    title: "Google Ads (PPC)",
+    href: "/pay-per-click",
+    desc: "Performance Max, Search ads & high-converting YouTube funnels",
+  },
+  {
+    title: "Meta Ads (FB & IG)",
+    href: "/meta-ads",
+    desc: "Advantage+ Shopping, creative testing & ROAS scaling",
+  },
+  {
+    title: "Web & CRO Development",
+    href: "/development",
+    desc: "High-converting landing pages & SEO-friendly custom websites",
+  },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "HOME", href: "#home", active: true },
-    { name: "SERVICES", href: "#services" },
-    { name: "ABOUT US", href: "#about" },
-    { name: "FEATURES", href: "#features" },
-    { name: "TESTIMONIALS", href: "#testimonials" },
-    { name: "BLOG", href: "#blog" },
-    { name: "FAQs", href: "#faq" },
-    { name: "CONTACT US", href: "#contact" },
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "py-3 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm"
-          : "py-5 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo - ADFORGE */}
-          <a href="#" className="flex items-center gap-3">
-            <svg className="w-8 h-8 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 80 L50 20 L80 80" stroke="#0f172a" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M50 45 L85 45" stroke="#ff6a00" strokeWidth="12" strokeLinecap="round" />
-              <path d="M50 65 L78 65" stroke="#ff6a00" strokeWidth="12" strokeLinecap="round" />
-            </svg>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 shadow-xs transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.jpeg"
+            alt="AdForge Logo"
+            width={180}
+            height={55}
+            className="h-12 w-auto object-contain"
+            priority
+          />
+        </Link>
 
-            <div className="flex flex-col text-left leading-none">
-              <span className="text-lg font-black tracking-tight text-slate-900 font-sans">
-                AD<span className="text-[#ff6a00]">FORGE</span>
-              </span>
-              <span className="text-[6.5px] font-bold tracking-[0.25em] text-[#ff6a00] mt-0.5 font-mono">
-                FORGE YOUR GROWTH.
-              </span>
-            </div>
-          </a>
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center gap-7">
+          <Link
+            href="/"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Home
+          </Link>
 
-          {/* Desktop Links */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-xs font-bold tracking-wider hover:text-[#ff6a00] transition-colors relative py-1.5 ${
-                  link.active ? "text-[#ff6a00]" : "text-slate-655"
+          <Link
+            href="/who-we-are"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Who We Are
+          </Link>
+
+          {/* Services Hover Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesDropdownOpen(true)}
+            onMouseLeave={() => setServicesDropdownOpen(false)}
+          >
+            <button
+              className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase py-2 cursor-pointer"
+              onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+            >
+              Services
+              <span
+                className={`text-[10px] transition-transform duration-200 ${
+                  servicesDropdownOpen ? "rotate-180" : ""
                 }`}
               >
-                {link.name}
-                {link.active && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#ff6a00]" />
-                )}
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Action Button */}
-          <div className="hidden lg:flex items-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 px-4.5 py-2 bg-[#ff6a00] hover:bg-[#e05d00] text-white text-xs font-extrabold tracking-wider rounded transition-colors cursor-pointer"
-            >
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" />
-              GET A FREE STRATEGY CALL
-            </a>
-          </div>
-
-          {/* Mobile menu toggler */}
-          <div className="flex lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-lg text-slate-550 hover:text-[#ff6a00] focus:outline-none"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                ▼
+              </span>
             </button>
+
+            {/* Dropdown Menu */}
+            {servicesDropdownOpen && (
+              <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-3 px-2 flex flex-col gap-1 transition-all duration-200 animate-fadeIn">
+                {servicesList.map((service) => (
+                  <Link
+                    key={service.title}
+                    href={service.href}
+                    onClick={() => setServicesDropdownOpen(false)}
+                    className="p-3 rounded-xl hover:bg-blue-50/80 group transition-colors"
+                  >
+                    <p className="text-sm font-bold text-slate-900 group-hover:text-[#046BD2] transition-colors">
+                      {service.title}
+                    </p>
+                    <p className="text-xs text-slate-500 font-medium mt-0.5 leading-snug">
+                      {service.desc}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
+          <Link
+            href="/#process"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Process
+          </Link>
+
+          <Link
+            href="/blogs"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Blogs
+          </Link>
+
+          <Link
+            href="/contact-us"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Contact Us
+          </Link>
         </div>
+
+        {/* Right CTA Button */}
+        <div className="hidden lg:flex items-center">
+          <Link
+            href="/#contact"
+            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-md shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+          >
+            GET A FREE QUOTE
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          className="lg:hidden p-2 text-slate-800 hover:text-slate-600 focus:outline-none cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <div className="w-6 flex flex-col gap-1.5">
+            <span
+              className={`h-0.5 bg-slate-800 transition-all ${
+                menuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 bg-slate-800 transition-all ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 bg-slate-800 transition-all ${
+                menuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </div>
+        </button>
       </div>
 
-      {/* Mobile Menu dropdown - Light theme layout */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100 py-3 shadow-inner">
-          <div className="px-4 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2 rounded-md text-xs font-bold tracking-wider hover:bg-slate-50 ${
-                  link.active ? "text-[#ff6a00]" : "text-slate-600"
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-3 mt-2 border-t border-slate-100">
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#ff6a00] hover:bg-[#e05d00] text-white text-xs font-extrabold rounded"
-              >
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" />
-                GET A FREE STRATEGY CALL
-              </a>
-            </div>
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 flex flex-col gap-3 shadow-lg max-h-[85vh] overflow-y-auto">
+          <Link
+            href="/"
+            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/who-we-are"
+            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            onClick={() => setMenuOpen(false)}
+          >
+            Who We Are
+          </Link>
+
+          {/* Mobile Services Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="w-full flex items-center justify-between text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5 cursor-pointer"
+            >
+              <span>Services</span>
+              <span className="text-xs">{mobileServicesOpen ? "▲" : "▼"}</span>
+            </button>
+
+            {mobileServicesOpen && (
+              <div className="pl-4 py-2 flex flex-col gap-2 border-l-2 border-blue-100 ml-1">
+                {servicesList.map((service) => (
+                  <Link
+                    key={service.title}
+                    href={service.href}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setMobileServicesOpen(false);
+                    }}
+                    className="text-xs font-semibold text-slate-700 hover:text-[#046BD2] py-1"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
+
+          <Link
+            href="/#process"
+            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            onClick={() => setMenuOpen(false)}
+          >
+            Process
+          </Link>
+
+          <Link
+            href="/blogs"
+            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            onClick={() => setMenuOpen(false)}
+          >
+            Blogs
+          </Link>
+
+          <Link
+            href="/contact-us"
+            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact Us
+          </Link>
+
+          <Link
+            href="/#contact"
+            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-md text-center mt-2 shadow-sm"
+            onClick={() => setMenuOpen(false)}
+          >
+            GET A FREE QUOTE
+          </Link>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
+

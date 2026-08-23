@@ -1,56 +1,156 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialize Resend with the environment variable
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
-    const { name, email, phone, details, recaptchaToken } = await req.json();
+    const body = await req.json();
+    const {
+      name,
+      email,
+      phone,
+      website = "N/A",
+      service = "General Inquiry",
+      monthlyBudget = "N/A",
+      message = "No message provided",
+      source = "Website Lead Form",
+      recaptchaToken,
+    } = body;
 
-    // 1. Verify Google reCAPTCHA v3 Token server-side
-    if (!recaptchaToken) {
-      return NextResponse.json({ error: "Please complete the verification." }, { status: 400 });
+    if (!name || !email) {
+      return NextResponse.json(
+        { error: "Name and Email are required fields." },
+        { status: 400 }
+      );
     }
 
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
-
-    const verifyResponse = await fetch(verificationUrl, {
-      method: "POST",
-    });
-    const verifyResult = await verifyResponse.json();
-
-    // Google reCAPTCHA v3 returns a score (0.0 to 1.0). 0.5 is the standard threshold.
-    if (!verifyResult.success || (verifyResult.score !== undefined && verifyResult.score < 0.5)) {
-      return NextResponse.json({ error: "reCAPTCHA verification failed (Low score). Please try again." }, { status: 400 });
+    // Verify Google reCAPTCHA v2 if secret key & token are available
+    if (recaptchaToken && process.env.RECAPTCHA_SECRET_KEY) {
+      try {
+        const verifyRes = await fetch(
+          "https://www.google.com/recaptcha/api/siteverify",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+          }
+        );
+        const verifyData = await verifyRes.json();
+        if (!verifyData.success) {
+          console.warn("reCAPTCHA verification failed:", verifyData["error-codes"]);
+        }
+      } catch (captchaErr) {
+        console.error("reCAPTCHA verification error:", captchaErr);
+      }
     }
 
-    // 2. Get receiving email from environment variables (important for Resend sandbox mode tests)
-    const toEmail = process.env.RESEND_TO_EMAIL || "growth@adforge.agency";
+    const apiKey = process.env.RESEND_API_KEY;
+    const recipientEmail = process.env.RESEND_TO_EMAIL || "adfordge.marketing@gmail.com";
 
-    // 3. Send email using Resend
-    const data = await resend.emails.send({
-      from: "ADFORGE Leads <onboarding@resend.dev>",
-      to: [toEmail], 
-      subject: `New Lead Captured: ${name}`,
-      html: `
-        <div style="font-family: sans-serif; padding: 20px; color: #0f172a; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 8px;">
-          <h2 style="color: #ff6a00; border-bottom: 2px solid #ff6a00; padding-bottom: 10px; margin-top: 0;">New Lead Captured</h2>
-          <p style="margin: 15px 0;"><strong>Name:</strong> ${name}</p>
-          <p style="margin: 15px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #1e6ecc; text-decoration: none;">${email}</a></p>
-          <p style="margin: 15px 0;"><strong>Phone:</strong> <a href="tel:${phone}" style="color: #1e6ecc; text-decoration: none;">${phone}</a></p>
-          <div style="margin: 20px 0; padding: 15px; bg-color: #f8f9fa; border-left: 4px solid #ff6a00; background-color: #f8f9fa; border-radius: 4px;">
-            <p style="margin: 0; font-weight: bold; padding-bottom: 5px;">Requirements / Message:</p>
-            <p style="margin: 0; font-style: italic; color: #475569;">${details || "No custom details provided."}</p>
-          </div>
-          <p style="font-size: 11px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px;">Submitted from ADFORGE Strategy Capture form.</p>
-        </div>
-      `,
-    });
+    // If API key is available and configured
+    if (apiKey && apiKey !== "re_replace_this_with_your_actual_resend_api_key") {
+      const resend = new Resend(apiKey);
 
-    return NextResponse.json({ success: true, data });
-  } catch (error) {
-    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 24px; }
+              .card { background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+              .header { border-bottom: 2px solid #046BD2; padding-bottom: 16px; margin-bottom: 24px; }
+              .badge { background: #046BD2; color: #ffffff; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 10px; border-radius: 9999px; display: inline-block; }
+              .title { font-size: 22px; font-weight: 800; color: #0f172a; margin: 12px 0 4px 0; }
+              .table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+              .table td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+              .label { font-weight: 700; color: #64748b; width: 35%; }
+              .value { font-weight: 600; color: #0f172a; }
+              .btn { display: inline-block; background: #D82C5E; color: #ffffff !important; font-weight: bold; font-size: 13px; text-decoration: none; padding: 12px 24px; border-radius: 8px; margin-top: 24px; }
+              .footer { font-size: 12px; color: #94a3b8; text-align: center; margin-top: 24px; }
+            </style>
+          </head>
+          <body>
+            <div class="card">
+              <div class="header">
+                <span class="badge">${source}</span>
+                <h1 class="title">🔥 New Lead Submitted</h1>
+                <p style="margin:0;font-size:13px;color:#64748b;">Submitted via AdForge Website</p>
+              </div>
+
+              <table class="table">
+                <tr>
+                  <td class="label">Full Name:</td>
+                  <td class="value">${name}</td>
+                </tr>
+                <tr>
+                  <td class="label">Email Address:</td>
+                  <td class="value"><a href="mailto:${email}" style="color:#046BD2;">${email}</a></td>
+                </tr>
+                <tr>
+                  <td class="label">Phone / WhatsApp:</td>
+                  <td class="value"><a href="tel:${phone}" style="color:#046BD2;">${phone || "N/A"}</a></td>
+                </tr>
+                <tr>
+                  <td class="label">Service Required:</td>
+                  <td class="value">${service}</td>
+                </tr>
+                <tr>
+                  <td class="label">Monthly Budget:</td>
+                  <td class="value">${monthlyBudget}</td>
+                </tr>
+                <tr>
+                  <td class="label">Website / Goals:</td>
+                  <td class="value">${website}</td>
+                </tr>
+                <tr>
+                  <td class="label">Message / Details:</td>
+                  <td class="value">${message}</td>
+                </tr>
+              </table>
+
+              <div style="text-align: center;">
+                <a href="mailto:${email}?subject=Regarding%20your%20AdForge%20inquiry" class="btn">
+                  REPLY TO LEAD DIRECTLY →
+                </a>
+              </div>
+
+              <div class="footer">
+                © 2024 AdForge Agency • Lead Notification Engine
+              </div>
+            </div>
+          </body>
+        </html>
+      `;
+
+      // Resend sender email (use onboarding@resend.dev for test/sandbox mode or verified domain)
+      const data = await resend.emails.send({
+        from: "AdForge Leads <onboarding@resend.dev>",
+        to: [recipientEmail],
+        replyTo: email,
+        subject: `🔥 New AdForge Lead: ${name} (${service})`,
+        html: htmlContent,
+      });
+
+      return NextResponse.json({ success: true, data });
+    } else {
+      // Graceful fallback for local development if Resend API key is pending
+      console.log("Mock Email Sent (Resend Key not configured yet):", {
+        name,
+        email,
+        phone,
+        service,
+        message,
+      });
+      return NextResponse.json({
+        success: true,
+        message: "Lead recorded (Resend simulation mode).",
+      });
+    }
+  } catch (error: any) {
+    console.error("Resend Email Error:", error);
+    return NextResponse.json(
+      { error: error?.message || "Failed to send email via Resend" },
+      { status: 500 }
+    );
   }
 }

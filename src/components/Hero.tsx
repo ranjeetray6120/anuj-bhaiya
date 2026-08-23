@@ -1,134 +1,164 @@
 "use client";
+import Link from "next/link";
 
-import { useState } from "react";
-import { Rocket, Check, Mail } from "lucide-react";
+const resultsData = [
+  {
+    brand: "DOON DEFENCE DREAMERS",
+    sub: "Pvt. Ltd.",
+    conversions: "+ 644%",
+    cost: "- 45%",
+  },
+  {
+    brand: "URBAN PITARA",
+    sub: "E-Commerce",
+    conversions: "+ 458%",
+    cost: "- 33%",
+  },
+  {
+    brand: "COORG WILDERNESS",
+    sub: "Resort & Spa",
+    conversions: "+ 482%",
+    cost: "- 69%",
+  },
+  {
+    brand: "EduQuadz",
+    sub: "EdTech Platform",
+    conversions: "+ 950%",
+    cost: "- 42%",
+  },
+];
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setTimeout(() => {
-        const contactForm = document.getElementById("contact");
-        if (contactForm) {
-          contactForm.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 1000);
-    }
-  };
-
-  const bullets = [
-    "Certified Google & Meta Specialists",
-    "No Long-Term Contracts",
-    "Focus on Leads & Revenue",
-  ];
-
   return (
     <section
+      className="relative min-h-[92vh] flex items-center px-4 sm:px-6 lg:px-12 pt-24 pb-16 overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
+      }}
       id="home"
-      className="relative min-h-screen pt-32 pb-16 flex items-center bg-white text-slate-900 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Hero Left Content - Conversational copy */}
-          <div className="lg:col-span-7 space-y-8 text-left z-10">
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase text-slate-900 font-sans">
-                We scale Google & Meta ads <span className="text-[#ff6a00]">without wasting</span> your budget.
-              </h1>
-              <p className="text-base sm:text-lg text-slate-655 font-light leading-relaxed max-w-2xl font-sans">
-                Tired of agencies reporting on "clicks" and "impressions" while your phone isn't ringing? We focus on what actually moves the needle: high-quality leads, real sales, and profitable campaigns.
-              </p>
+      {/* Background subtle diagonal gradient rays */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+        {/* Left Column: Headings & CTA */}
+        <div className="lg:col-span-6 flex flex-col gap-5 text-left">
+          <h1 className="text-2xl sm:text-3xl lg:text-[2.4rem] font-extrabold text-white leading-[1.2] tracking-tight">
+            Grow your Business &amp; Revenue with the champions of{" "}
+            <span className="text-[#FFDE59] inline-block font-extrabold drop-shadow-xs">
+              Digital Marketing.
+            </span>
+          </h1>
+
+          <p className="text-sm sm:text-base text-white/90 leading-relaxed font-normal max-w-xl">
+            From leads to Sales we are here to deliver the transformative Results.
+          </p>
+
+          <div className="pt-2">
+            <Link
+              href="/#contact"
+              className="inline-block bg-[#D82C5E] hover:bg-[#c02250] !text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            >
+              GET A FREE QUOTE NOW
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column: Real Results Card with Growth Arrow */}
+        <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
+          <div className="relative w-full max-w-xl">
+            {/* Upward 3D Golden Growth Arrow (SVG) */}
+            <div className="absolute -top-12 -right-4 sm:-right-8 w-72 sm:w-96 h-96 pointer-events-none select-none z-0 opacity-95">
+              <svg
+                viewBox="0 0 300 350"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full drop-shadow-2xl"
+              >
+                {/* 3D Arrow Shadow/Bevel */}
+                <path
+                  d="M100 320 L270 40 L230 40 L285 20 L295 80 L260 60 L140 330 Z"
+                  fill="#D4A017"
+                  opacity="0.6"
+                />
+                {/* Main Arrow Body */}
+                <path
+                  d="M110 310 L260 50 L220 50 L280 25 L290 85 L250 65 L130 320 Z"
+                  fill="url(#goldGradient)"
+                />
+                <defs>
+                  <linearGradient id="goldGradient" x1="100" y1="320" x2="280" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#F5D061" />
+                    <stop offset="0.5" stopColor="#E6B800" />
+                    <stop offset="1" stopColor="#FFDE59" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
 
-            {/* Quick Email capture to contact form */}
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-xl">
-                <div className="relative flex-grow">
-                  <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your work email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-250 focus:border-[#ff6a00] rounded px-10 py-3.5 text-xs text-slate-950 placeholder-slate-450 focus:outline-none focus:ring-1 focus:ring-[#ff6a00]"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="px-6 py-3.5 bg-[#ff6a00] hover:bg-[#e05d00] text-white font-extrabold text-xs tracking-wider rounded transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-md shadow-orange-500/10 whitespace-nowrap"
-                >
-                  <Rocket className="w-4 h-4 fill-current" />
-                  GET MY GROWTH STRATEGY
-                </button>
-              </form>
-            ) : (
-              <div className="bg-[#ff6a00]/10 border border-[#ff6a00]/20 rounded p-4 max-w-xl text-slate-800 text-xs font-bold flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#ff6a00] text-white flex items-center justify-center font-mono">✓</span>
-                <span>Thank you! Directing you to the project scheduler below...</span>
-              </div>
-            )}
+            {/* "Real Client Results" cursive badge */}
+            <div className="relative z-10 mb-3 flex items-center justify-start sm:justify-center lg:justify-start">
+              <span
+                className="text-2xl sm:text-3xl text-white font-serif italic font-bold tracking-wide drop-shadow-md"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
+                Real Client Results
+              </span>
+            </div>
 
-            {/* Simple value bullets */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
-              {bullets.map((bullet, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
-                  <Check className="w-4 h-4 text-[#ff6a00] stroke-[3]" />
-                  <span>{bullet}</span>
+            {/* Results Table Card */}
+            <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-3 border border-white/20 shadow-2xl">
+              {/* Header Row */}
+              <div className="grid grid-cols-12 gap-2 mb-2">
+                <div className="col-span-5" />
+                <div className="col-span-3 bg-white rounded-lg py-2.5 px-1 text-center shadow-sm">
+                  <span className="text-[11px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
+                    Conversions
+                  </span>
                 </div>
-              ))}
+                <div className="col-span-4 bg-white rounded-lg py-2.5 px-1 text-center shadow-sm">
+                  <span className="text-[11px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
+                    Cost-Per-Conversion
+                  </span>
+                </div>
+              </div>
+
+              {/* Data Rows */}
+              <div className="flex flex-col gap-2">
+                {resultsData.map((item, idx) => (
+                  <div key={idx} className="grid grid-cols-12 gap-2 items-center">
+                    {/* Brand Badge */}
+                    <div className="col-span-5 bg-white rounded-lg p-2.5 shadow-sm border border-slate-100 min-h-[56px] flex flex-col justify-center">
+                      <p className="text-[11px] sm:text-xs font-extrabold text-slate-800 uppercase tracking-tight truncate leading-tight">
+                        {item.brand}
+                      </p>
+                      <p className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">
+                        {item.sub}
+                      </p>
+                    </div>
+
+                    {/* Conversion Increase Badge */}
+                    <div className="col-span-3 bg-white rounded-lg py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[56px] flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-extrabold text-[#16a34a] tracking-tight">
+                        {item.conversions}
+                      </span>
+                    </div>
+
+                    {/* Cost Reduction Badge */}
+                    <div className="col-span-4 bg-white rounded-lg py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[56px] flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-extrabold text-[#dc2626] tracking-tight">
+                        {item.cost}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Hero Right Content - Showcases a large clean client analytics metrics card */}
-          <div className="lg:col-span-5 relative w-full flex items-center justify-center z-10">
-            <div className="w-full max-w-md bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-xl space-y-6 text-left">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900">Campaign Scaling Performance</h3>
-                  <p className="text-[10px] text-slate-450 font-semibold uppercase tracking-wider mt-0.5">Rolling Live Account Audits</p>
-                </div>
-                <span className="px-2.5 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">
-                  +184% Growth
-                </span>
-              </div>
-
-              {/* Stat grid */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white border border-slate-200 p-4 rounded-xl">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Total Ad Spend</span>
-                  <span className="text-xl font-extrabold text-slate-900 mt-1 block">$48,290</span>
-                </div>
-                <div className="bg-white border border-slate-200 p-4 rounded-xl">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Sales Revenue</span>
-                  <span className="text-xl font-extrabold text-slate-900 mt-1 block">$231,792</span>
-                </div>
-              </div>
-
-              {/* Progress visual bar */}
-              <div className="space-y-2 bg-white border border-slate-200 p-4 rounded-xl">
-                <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-slate-555">Return on Ad Spend (ROAS)</span>
-                  <span className="text-[#ff6a00]">4.8x ROAS</span>
-                </div>
-                <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-[#ff6a00] h-full w-[85%] rounded-full" />
-                </div>
-              </div>
-
-              <div className="text-[10px] text-slate-500 font-light flex items-center justify-center gap-1">
-                <span>Verified client data audited via Looker Studio dashboard.</span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
   );
 }
+
+
