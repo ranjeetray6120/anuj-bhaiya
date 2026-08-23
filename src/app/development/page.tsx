@@ -47,7 +47,7 @@ export default function DevelopmentPage() {
     <div className="min-h-screen bg-white text-slate-900 flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-24">
         {/* Hero Section */}
         <section
           className="relative py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-center text-white"

@@ -80,7 +80,7 @@ export default function ContactUsPage() {
     <div className="min-h-screen bg-white text-slate-900 flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-24">
         {/* Header Hero */}
         <section
           className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white"

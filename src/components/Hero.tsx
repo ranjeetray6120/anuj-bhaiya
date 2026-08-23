@@ -31,7 +31,7 @@ const resultsData = [
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[92vh] flex items-center px-4 sm:px-6 lg:px-12 pt-24 pb-16 overflow-hidden"
+      className="relative min-h-[92vh] flex items-center px-4 sm:px-6 lg:px-12 pt-28 sm:pt-32 pb-16 overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
       }}
