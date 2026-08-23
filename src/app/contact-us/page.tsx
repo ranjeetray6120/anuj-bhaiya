@@ -135,6 +135,11 @@ export default function ContactUsPage() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Office Location</span>
+                  <p className="text-base font-bold text-slate-800">Gurugram, Haryana, India</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Official Partnerships</span>
                   <p className="text-sm font-semibold text-slate-800">Google Official Partner • Meta Business Partner</p>
                 </div>

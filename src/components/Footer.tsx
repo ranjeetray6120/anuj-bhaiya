@@ -124,7 +124,7 @@ export default function Footer() {
             <div className="flex items-start gap-2">
               <span className="text-white mt-0.5 flex-shrink-0">📍</span>
               <p className="leading-relaxed">
-                B-1/5 / Sangam Chauraha, Sector J Aliganj, Near Chandrashwer Mahadev Mandir, Aliganj, Lucknow 226024
+                Gurugram, Haryana, India
               </p>
             </div>
 
