@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import FloatingWidgets from "@/components/FloatingWidgets";
@@ -96,8 +96,15 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#168ed3",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
+
   "@graph": [
     {
       "@type": "Organization",
@@ -176,6 +183,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
       <head>
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
