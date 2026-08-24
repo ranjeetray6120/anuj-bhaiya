@@ -31,7 +31,7 @@ const resultsData = [
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[92vh] flex items-center px-4 sm:px-6 lg:px-12 pt-28 sm:pt-32 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center px-4 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-12 sm:pb-16 overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
       }}
@@ -40,9 +40,9 @@ export default function Hero() {
       {/* Background subtle diagonal gradient rays */}
       <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center relative z-10">
         {/* Left Column: Headings & CTA */}
-        <div className="lg:col-span-6 flex flex-col gap-5 text-left">
+        <div className="lg:col-span-6 flex flex-col gap-5 text-center sm:text-left">
           <h1 className="text-2xl sm:text-3xl lg:text-[2.4rem] font-extrabold text-white leading-[1.2] tracking-tight">
             Grow your Business &amp; Revenue with the champions of{" "}
             <span className="text-[#FFDE59] inline-block font-extrabold drop-shadow-xs">
@@ -50,11 +50,11 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-white/90 leading-relaxed font-normal max-w-xl">
+          <p className="text-sm sm:text-base text-white/90 leading-relaxed font-normal max-w-xl mx-auto sm:mx-0">
             From leads to Sales we are here to deliver the transformative Results.
           </p>
 
-          <div className="pt-2">
+          <div className="pt-2 flex justify-center sm:justify-start">
             <Link
               href="/#contact"
               className="inline-block bg-[#D82C5E] hover:bg-[#c02250] !text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
@@ -66,9 +66,9 @@ export default function Hero() {
 
         {/* Right Column: Real Results Card with Growth Arrow */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
-          <div className="relative w-full max-w-xl">
-            {/* Upward 3D Golden Growth Arrow (SVG) */}
-            <div className="absolute -top-12 -right-4 sm:-right-8 w-72 sm:w-96 h-96 pointer-events-none select-none z-0 opacity-95">
+          <div className="relative w-full max-w-sm sm:max-w-xl">
+            {/* Upward 3D Golden Growth Arrow (SVG) - hidden on small mobile */}
+            <div className="hidden sm:block absolute -top-12 -right-4 sm:-right-8 w-56 sm:w-96 h-72 sm:h-96 pointer-events-none select-none z-0 opacity-95">
               <svg
                 viewBox="0 0 300 350"
                 fill="none"
@@ -97,9 +97,9 @@ export default function Hero() {
             </div>
 
             {/* "Real Client Results" cursive badge */}
-            <div className="relative z-10 mb-3 flex items-center justify-start sm:justify-center lg:justify-start">
+            <div className="relative z-10 mb-3 flex items-center justify-center lg:justify-start">
               <span
-                className="text-2xl sm:text-3xl text-white font-serif italic font-bold tracking-wide drop-shadow-md"
+                className="text-xl sm:text-2xl lg:text-3xl text-white font-serif italic font-bold tracking-wide drop-shadow-md"
                 style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
               >
                 Real Client Results
@@ -109,44 +109,44 @@ export default function Hero() {
             {/* Results Table Card */}
             <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-3 border border-white/20 shadow-2xl">
               {/* Header Row */}
-              <div className="grid grid-cols-12 gap-2 mb-2">
+              <div className="grid grid-cols-12 gap-1.5 sm:gap-2 mb-2">
                 <div className="col-span-5" />
-                <div className="col-span-3 bg-white rounded-lg py-2.5 px-1 text-center shadow-sm">
-                  <span className="text-[11px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
+                <div className="col-span-3 bg-white rounded-lg py-2 px-1 text-center shadow-sm">
+                  <span className="text-[9px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
                     Conversions
                   </span>
                 </div>
-                <div className="col-span-4 bg-white rounded-lg py-2.5 px-1 text-center shadow-sm">
-                  <span className="text-[11px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
-                    Cost-Per-Conversion
+                <div className="col-span-4 bg-white rounded-lg py-2 px-1 text-center shadow-sm">
+                  <span className="text-[9px] sm:text-xs font-extrabold text-slate-900 tracking-tight block">
+                    Cost/Conv.
                   </span>
                 </div>
               </div>
 
               {/* Data Rows */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5 sm:gap-2">
                 {resultsData.map((item, idx) => (
-                  <div key={idx} className="grid grid-cols-12 gap-2 items-center">
+                  <div key={idx} className="grid grid-cols-12 gap-1.5 sm:gap-2 items-center">
                     {/* Brand Badge */}
-                    <div className="col-span-5 bg-white rounded-lg p-2.5 shadow-sm border border-slate-100 min-h-[56px] flex flex-col justify-center">
-                      <p className="text-[11px] sm:text-xs font-extrabold text-slate-800 uppercase tracking-tight truncate leading-tight">
+                    <div className="col-span-5 bg-white rounded-lg p-1.5 sm:p-2.5 shadow-sm border border-slate-100 min-h-[44px] sm:min-h-[56px] flex flex-col justify-center">
+                      <p className="text-[8px] sm:text-[11px] font-extrabold text-slate-800 uppercase tracking-tight truncate leading-tight">
                         {item.brand}
                       </p>
-                      <p className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">
+                      <p className="text-[7px] sm:text-[9px] text-slate-500 font-medium truncate">
                         {item.sub}
                       </p>
                     </div>
 
                     {/* Conversion Increase Badge */}
-                    <div className="col-span-3 bg-white rounded-lg py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[56px] flex items-center justify-center">
-                      <span className="text-sm sm:text-base font-extrabold text-[#16a34a] tracking-tight">
+                    <div className="col-span-3 bg-white rounded-lg py-2 sm:py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[44px] sm:min-h-[56px] flex items-center justify-center">
+                      <span className="text-xs sm:text-base font-extrabold text-[#16a34a] tracking-tight">
                         {item.conversions}
                       </span>
                     </div>
 
                     {/* Cost Reduction Badge */}
-                    <div className="col-span-4 bg-white rounded-lg py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[56px] flex items-center justify-center">
-                      <span className="text-sm sm:text-base font-extrabold text-[#dc2626] tracking-tight">
+                    <div className="col-span-4 bg-white rounded-lg py-2 sm:py-3 px-1 text-center shadow-sm border border-slate-100 min-h-[44px] sm:min-h-[56px] flex items-center justify-center">
+                      <span className="text-xs sm:text-base font-extrabold text-[#dc2626] tracking-tight">
                         {item.cost}
                       </span>
                     </div>

@@ -44,7 +44,7 @@ export default function ComparisonTable() {
           <div className="mt-2.5 mx-auto w-12 h-1 bg-green-500 rounded-full" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-          <div className="bg-white p-6 sm:p-8">
+          <div className="bg-white p-5 sm:p-8">
             <div className="flex items-center gap-2 mb-5">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-green-500" />
               <h3 className="text-lg font-bold text-slate-900">AdForge</h3>
@@ -58,10 +58,10 @@ export default function ComparisonTable() {
               ))}
             </ul>
           </div>
-          <div className="bg-slate-900 flex items-center justify-center px-5 py-6 md:py-0">
+          <div className="bg-slate-900 flex items-center justify-center px-5 py-4 md:py-0">
             <span className="text-white font-black text-2xl tracking-widest select-none">vs.</span>
           </div>
-          <div className="bg-rose-50/60 p-6 sm:p-8">
+          <div className="bg-rose-50/60 p-5 sm:p-8">
             <div className="flex items-center gap-2 mb-5">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-rose-400" />
               <h3 className="text-lg font-bold text-slate-900">Other Agencies</h3>
