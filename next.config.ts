@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000, // 1 year
   },
 
+  // Security & Best Practices
+  poweredByHeader: false,
+  reactStrictMode: true,
+
   // Compression
   compress: true,
 
@@ -26,16 +30,6 @@ const nextConfig: NextConfig = {
       {
         // Cache static assets for 1 year
         source: "/(.*)\\.(jpg|jpeg|png|webp|avif|gif|svg|ico|woff|woff2|ttf|eot|otf)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        // Cache JS/CSS for 1 year (Next.js hashes them)
-        source: "/_next/static/(.*)",
         headers: [
           {
             key: "Cache-Control",

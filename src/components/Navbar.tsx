@@ -139,11 +139,13 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className="lg:hidden p-2 text-slate-800 hover:text-slate-600 focus:outline-none cursor-pointer"
+          className="lg:hidden p-2 text-slate-800 hover:text-slate-600 focus:outline-none focus:ring-2 focus:ring-[#046BD2] focus:ring-offset-2 rounded-md cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
-          <div className="w-6 flex flex-col gap-1.5">
+          <div className="w-6 flex flex-col gap-1.5" aria-hidden="true">
             <span
               className={`h-0.5 bg-slate-800 transition-all ${
                 menuOpen ? "rotate-45 translate-y-2" : ""
@@ -165,7 +167,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 flex flex-col gap-3 shadow-lg max-h-[85vh] overflow-y-auto">
+        <div id="mobile-menu" className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 flex flex-col gap-3 shadow-lg max-h-[85vh] overflow-y-auto" role="menu">
           <Link
             href="/"
             className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"

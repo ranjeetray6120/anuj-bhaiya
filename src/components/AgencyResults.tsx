@@ -31,7 +31,7 @@ export default function AgencyResults() {
             {resultsChecklist.map((item, idx) => (
               <div key={idx} className="flex items-start gap-2.5">
                 <div className="w-4 h-4 rounded-full bg-[#168ed3] flex items-center justify-center flex-shrink-0 text-white shadow-xs mt-0.5">
-                  <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -100,7 +100,7 @@ export default function AgencyResults() {
 
             {/* Organic Growth SVG Wave Chart */}
             <div className="mt-3 pt-2">
-              <svg viewBox="0 0 400 65" className="w-full h-16 text-[#168ed3]" fill="none">
+              <svg viewBox="0 0 400 65" className="w-full h-16 text-[#168ed3]" fill="none" aria-hidden="true">
                 <path
                   d="M0 60 Q 40 55, 80 45 T 160 35 T 240 22 T 320 12 T 400 5"
                   stroke="#168ed3"

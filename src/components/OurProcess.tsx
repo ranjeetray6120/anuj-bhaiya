@@ -35,20 +35,26 @@ function ProcessFlowchart({
         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
           Live Flow Pipeline
         </span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5" role="tablist" aria-label="Process steps">
           {[1, 2, 3, 4, 5, 6].map((num) => (
             <button
               key={num}
               onClick={() => setActiveStep(num)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                activeStep === num
-                  ? "w-6 bg-[#046BD2]"
-                  : activeStep > num
-                  ? "bg-[#046BD2]/50"
-                  : "bg-slate-300"
-              }`}
-              aria-label={`Jump to step ${num}`}
-            />
+              className="p-2 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#046BD2] rounded-full cursor-pointer"
+              aria-label={`Jump to process step ${num}`}
+              aria-selected={activeStep === num}
+              role="tab"
+            >
+              <span
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeStep === num
+                    ? "w-6 bg-[#046BD2]"
+                    : activeStep > num
+                    ? "w-2 bg-[#046BD2]/50"
+                    : "w-2 bg-slate-300"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

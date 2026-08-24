@@ -68,12 +68,13 @@ export default function Hero() {
         <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
           <div className="relative w-full max-w-sm sm:max-w-xl">
             {/* Upward 3D Golden Growth Arrow (SVG) - hidden on small mobile */}
-            <div className="hidden sm:block absolute -top-12 -right-4 sm:-right-8 w-56 sm:w-96 h-72 sm:h-96 pointer-events-none select-none z-0 opacity-95">
+            <div className="hidden sm:block absolute -top-12 -right-4 sm:-right-8 w-56 sm:w-96 h-72 sm:h-96 pointer-events-none select-none z-0 opacity-95" aria-hidden="true">
               <svg
                 viewBox="0 0 300 350"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full drop-shadow-2xl"
+                aria-hidden="true"
               >
                 {/* 3D Arrow Shadow/Bevel */}
                 <path

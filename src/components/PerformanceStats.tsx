@@ -23,7 +23,7 @@ const servicesData = [
   },
   {
     icon: (
-      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="none">
+      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="none" aria-hidden="true">
         {/* Google Ads Polygon */}
         <polygon points="50,10 90,80 70,80 40,25" fill="#4285F4" />
         <polygon points="50,10 10,80 30,80 60,25" fill="#FBBC05" />
@@ -42,7 +42,7 @@ const servicesData = [
   },
   {
     icon: (
-      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="#046BD2">
+      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="#046BD2" aria-hidden="true">
         {/* Meta Infinity Icon */}
         <path d="M72.2 27.5C64.6 27.5 57.6 32.8 50 41.2C42.4 32.8 35.4 27.5 27.8 27.5C14.7 27.5 5 37.9 5 50.8C5 63.7 14.7 74.1 27.8 74.1C35.4 74.1 42.4 68.8 50 60.4C57.6 68.8 64.6 74.1 72.2 74.1C85.3 74.1 95 63.7 95 50.8C95 37.9 85.3 27.5 72.2 27.5ZM27.8 64.6C19.7 64.6 13.9 58.4 13.9 50.8C13.9 43.2 19.7 37 27.8 37C33.4 37 39.4 42 45.4 50.8C39.4 59.6 33.4 64.6 27.8 64.6ZM72.2 64.6C66.6 64.6 60.6 59.6 54.6 50.8C60.6 42 66.6 37 72.2 37C80.3 37 86.1 43.2 86.1 50.8C86.1 58.4 80.3 64.6 72.2 64.6Z" />
       </svg>
@@ -58,7 +58,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex flex-col items-center justify-center p-2 text-center">
+      <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex flex-col items-center justify-center p-2 text-center" aria-hidden="true">
         <div className="flex gap-1 mb-0.5">
           <span className="text-amber-400 text-[10px]">★</span>
           <span className="text-amber-400 text-[10px]">★</span>
@@ -132,7 +132,7 @@ export default function PerformanceStats() {
                     {card.items.map((item, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <div className="w-3.5 h-3.5 rounded-full bg-[#168ed3] flex items-center justify-center flex-shrink-0 text-white">
-                          <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
@@ -149,6 +149,7 @@ export default function PerformanceStats() {
               <div className="mt-6 pt-3">
                 <Link
                   href={card.href}
+                  aria-label={`Learn more about our ${card.title} services`}
                   className="inline-block text-[11px] font-extrabold uppercase tracking-widest text-slate-900 hover:text-[#168ed3] transition-colors duration-200"
                 >
                   Learn More

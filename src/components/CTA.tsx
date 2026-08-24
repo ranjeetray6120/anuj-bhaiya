@@ -147,10 +147,11 @@ export default function CTA() {
                 <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label htmlFor="cta-name" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                         Your Name / Brand Name *
                       </label>
                       <input
+                        id="cta-name"
                         type="text"
                         required
                         placeholder="e.g. Rahul Sharma"
@@ -161,10 +162,11 @@ export default function CTA() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label htmlFor="cta-email" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                         Business Email *
                       </label>
                       <input
+                        id="cta-email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -177,10 +179,11 @@ export default function CTA() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label htmlFor="cta-phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                         Phone / WhatsApp *
                       </label>
                       <input
+                        id="cta-phone"
                         type="tel"
                         required
                         placeholder="+91 81788 02368"
@@ -191,10 +194,11 @@ export default function CTA() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label htmlFor="cta-website" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                         Website / Store Link
                       </label>
                       <input
+                        id="cta-website"
                         type="text"
                         placeholder="yourbrand.com"
                         value={formData.website}
@@ -205,10 +209,11 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    <label htmlFor="cta-budget" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                       Current Monthly Ad Spend
                     </label>
                     <select
+                      id="cta-budget"
                       value={formData.monthlySpend}
                       onChange={(e) => setFormData({ ...formData, monthlySpend: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 focus:border-[#046BD2] focus:bg-white text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
