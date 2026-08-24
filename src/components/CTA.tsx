@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function CTA() {
@@ -14,6 +14,12 @@ export default function CTA() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [captchaLoaded, setCaptchaLoaded] = useState(false);
+
+  // Only load reCAPTCHA when user starts interacting with form
+  const handleFormFocus = useCallback(() => {
+    if (!captchaLoaded) setCaptchaLoaded(true);
+  }, [captchaLoaded]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -138,7 +144,7 @@ export default function CTA() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -214,12 +220,14 @@ export default function CTA() {
                     </select>
                   </div>
 
-                  {/* Google reCAPTCHA v2 Invisible */}
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    size="invisible"
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6Lc0BVstAAAAAO2_FNzwyuFZ-aUgivoGJLFkXW8f"}
-                  />
+                  {/* Google reCAPTCHA v2 Invisible — lazy loaded on form focus */}
+                  {captchaLoaded && (
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      size="invisible"
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6Lc0BVstAAAAAO2_FNzwyuFZ-aUgivoGJLFkXW8f"}
+                    />
+                  )}
 
                   <button
                     type="submit"
