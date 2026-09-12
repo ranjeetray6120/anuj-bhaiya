@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
+
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function CTA() {
@@ -63,14 +65,18 @@ export default function CTA() {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200"
+      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column – Value Proposition & Trust Badges */}
-          <div className="lg:col-span-6 flex flex-col gap-6 text-left">
-           
-
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex flex-col gap-6 text-left"
+          >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
               Ready to Scale Your Brand with{" "}
               <span className="text-[#046BD2]">Predictable ROI?</span>
@@ -90,43 +96,31 @@ export default function CTA() {
                 "Conversion Rate Optimization (CRO) Quick Wins",
                 "Custom 90-Day Scalability Roadmap",
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#046BD2] flex-shrink-0" />
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.08 }}
+                  className="flex items-center gap-3"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#046BD2] flex-shrink-0 shadow-xs" />
                   <span className="text-sm font-semibold text-slate-800">{item}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Partner Proof Badges */}
-            <div className="pt-5 flex flex-wrap items-center gap-6 border-t border-slate-200">
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-blue-50 text-[#046BD2] font-black text-xs flex items-center justify-center border border-blue-100">
-                  G
-                </span>
-                <div>
-                  <p className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
-                    Google Official Partner
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">Certified Specialists</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-indigo-50 text-[#0866ff] font-black text-xs flex items-center justify-center border border-indigo-100">
-                  M
-                </span>
-                <div>
-                  <p className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
-                    Meta Business Partner
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">Recognized Scale Agency</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
 
           {/* Right Column – Instant Lead Capture Form */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200/90 relative">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex justify-center lg:justify-end"
+          >
+            <div className="w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200/90 relative">
               <div className="text-center mb-6">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
                   Claim Your Free Growth Audit
@@ -137,12 +131,19 @@ export default function CTA() {
               </div>
 
               {submitted ? (
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 rounded-2xl text-center flex flex-col items-center gap-3">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 rounded-2xl text-center flex flex-col items-center gap-3"
+                >
+                  <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                    ✓
+                  </div>
                   <h4 className="text-lg font-bold">Audit Request Received!</h4>
                   <p className="text-xs sm:text-sm text-emerald-700">
                     Thank you, <span className="font-bold">{formData.name}</span>. Our growth strategist will review your brand ({formData.website || "your site"}) and contact you at {formData.phone} shortly.
                   </p>
-                </div>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -234,13 +235,15 @@ export default function CTA() {
                     />
                   )}
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#D82C5E] hover:bg-[#bf204d] disabled:opacity-75 !text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg shadow-pink-500/20 transition-all duration-200 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer mt-2"
+                    className="w-full bg-[#D82C5E] hover:bg-[#bf204d] disabled:opacity-75 !text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg shadow-pink-500/20 transition-all duration-200 hover:shadow-xl cursor-pointer mt-2"
                   >
                     {loading ? "SENDING AUDIT REQUEST..." : "GET FREE GROWTH AUDIT NOW →"}
-                  </button>
+                  </motion.button>
 
                   <p className="text-[10px] text-center text-slate-500">
                     🔒 100% Privacy Protected. We respect your data confidentiality.
@@ -248,7 +251,7 @@ export default function CTA() {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,13 +1,11 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-export const metadata = {
-  title: "Software, Web & Mobile App Development Services | AdForge",
-  description:
-    "End-to-end software development: modern React & Next.js web applications, Android & iOS mobile apps, Java Spring Boot backends, REST APIs, AI agents, custom business software, and production DevOps.",
-};
 
 const capabilities = [
   {
@@ -213,22 +211,22 @@ const techStack = [
   {
     category: "Frontend",
     description: "Modern client-side frameworks and languages",
-    technologies: ["React", "Next.js", "JavaScript", "TypeScript", "HTML", "CSS","High-Performance Landing Pages","Responsive Design","SEO Optimization","CTA Optimization","Analytics Integration","Performance Optimization","Web Application Development","Next.js Development","Custom Web Applications","Enterprise Web Apps","Scalable Web Apps","UI Development","UX Design","Frontend Development","React Development","Next.js Development"],
+    technologies: ["React", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Responsive UI", "SEO Optimization", "Performance Optimization"],
   },
   {
     category: "Backend",
     description: "Enterprise-grade server architecture & APIs",
-    technologies: ["Java", "Spring Boot", "REST APIs","SQL", "MongoDB","Node.js","Python","APIs","Webhooks","Database","Data Modeling","CRUD Operations","Relationships","Query Optimization","Application Data Management","Billing Applications","CRM Systems","Management Systems","Admin Panels","Inventory Systems","Business Dashboards","Internal Tools","Workflow Applications","Mobile UI","API Integration","Authentication","Push Notifications","Backend Integration","App Deployment","Google Play Store Deployment"],
+    technologies: ["Java", "Spring Boot", "REST APIs", "SQL", "MongoDB", "Node.js", "Python", "Webhooks", "Database Design"],
   },
   {
     category: "AI",
     description: "Intelligent systems, models & agent protocols",
-    technologies: ["LLM APIs", "Open-Source AI Models", "AI Agents", "MCP","AI Chat Applications","LLM Integration","AI Assistants","AI Agents","MCP-Based Integrations","AI-Powered Workflows","Open-Source AI Models","AI APIs","AI Development","LLM Integration","AI Chat Applications","AI Assistants","AI Agents","MCP Integrations","AI-Powered Workflows","Open-Source Models","RAG Systems"],
+    technologies: ["LLM APIs", "Open-Source AI Models", "AI Agents", "MCP Tooling", "AI-Powered Workflows", "RAG Systems"],
   },
   {
     category: "DevOps",
     description: "Production infrastructure, hosting & deployment",
-    technologies: ["Linux", "Nginx", "PM2", "Git", "GitHub", "SSL", "DNS", "Linux VPS Deployment", "Git / GitHub", "Nginx", "PM2", "SSL Configuration", "DNS Configuration", "Domain Configuration", "Production Deployment", "Application Monitoring", "Server Configuration","Linux VPS","Git & GitHub","Nginx Web Server","PM2 Process Manager","SSL Certificate Setup","DNS Management","Domain Configuration","Production Deployment","Application Monitoring","Server Hardening","Security Configuration"],
+    technologies: ["Linux VPS", "Git / GitHub", "Nginx", "PM2", "SSL Certificates", "DNS Setup", "Server Hardening", "Monitoring"],
   },
 ];
 
@@ -319,12 +317,18 @@ export default function DevelopmentPage() {
       <main className="flex-1 pt-24">
         {/* 1. Hero Section */}
         <section
-          className="relative py-12 lg:py-16 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="relative py-16 lg:py-20 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto flex flex-col items-center gap-5 relative z-10"
+          >
+
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               We Build Scalable{" "}
               <span className="text-[#FFDE59]">Web, Mobile &amp; Software Solutions</span>
@@ -333,74 +337,96 @@ export default function DevelopmentPage() {
               From high-performance websites and mobile applications to custom business software, backend systems, APIs, AI solutions, and production deployment, we build complete digital products tailored to your business.
             </p>
             <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
-              >
-                START YOUR PROJECT
-              </Link>
-              <Link
-                href="#services"
-                className="inline-block bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md backdrop-blur-md border border-white/30 transition-all duration-200 hover:scale-105"
-              >
-                VIEW OUR SERVICES
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 cursor-pointer"
+                >
+                  START YOUR PROJECT
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="#services"
+                  className="inline-block bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md backdrop-blur-md border border-white/30 transition-all duration-200 cursor-pointer"
+                >
+                  VIEW OUR SERVICES
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* 2. Key Capabilities / Highlights */}
-        <section className="py-12 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200">
+        <section className="py-12 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cap, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="p-6 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     {cap.icon}
                   </div>
                   <span className="text-xs font-extrabold uppercase tracking-widest text-[#046BD2] block mb-1">
                     {cap.category}
                   </span>
-                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug group-hover:text-[#046BD2] transition-colors">
                     {cap.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {cap.desc}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* 3. Core Development Services */}
-        <section id="services" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+        <section id="services" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 What We Build
               </h2>
-            </div>
+              <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-slate-50 rounded-2xl p-7 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-slate-50 rounded-3xl p-7 sm:p-8 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-4">
                       <span className="text-xs font-extrabold text-slate-400 font-mono">
                         {service.num}
                       </span>
-                      <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100">
+                      <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 group-hover:bg-[#046BD2] group-hover:text-white transition-colors">
                         {service.tag}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#046BD2] transition-colors">{service.title}</h3>
                     <p className="text-sm text-slate-600 leading-relaxed mb-6">{service.desc}</p>
                   </div>
 
@@ -412,26 +438,30 @@ export default function DevelopmentPage() {
                       {service.items.map((item, itemIdx) => (
                         <span
                           key={itemIdx}
-                          className="inline-flex items-center text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                          className="inline-flex items-center text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-lg"
                         >
                           {item}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* 4. Technology Stack */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-b border-slate-200">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-b border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Our Stack
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 Technology We Work With
               </h2>
@@ -439,16 +469,21 @@ export default function DevelopmentPage() {
                 Battle-tested, modern technologies and tools we use to build reliable, high-performance software.
               </p>
               <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {techStack.map((stack, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-1">{stack.category}</h3>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-[#046BD2] transition-colors">{stack.category}</h3>
                     <p className="text-xs text-slate-500 mb-5">{stack.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {stack.technologies.map((tech, techIdx) => (
@@ -461,60 +496,74 @@ export default function DevelopmentPage() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* 5. End-to-End Development Process */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Development Lifecycle
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 From Idea to Production
               </h2>
               <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-2 leading-relaxed">
                 A structured 6-step lifecycle to turn requirements into reliable production software.
               </p>
-            </div>
+              <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {processSteps.map((step, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="relative p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="w-10 h-10 rounded-xl bg-[#046BD2] text-white font-extrabold text-sm flex items-center justify-center shadow-xs">
+                      <span className="w-10 h-10 rounded-2xl bg-[#046BD2] text-white font-extrabold text-sm flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
                         {step.step}
                       </span>
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                         Phase {step.step}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#046BD2] transition-colors">{step.title}</h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* 6. Custom Solutions Section */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-b border-slate-200">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-b border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Customized Software
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl mx-auto text-center mb-12"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 Have a Specific Business Requirement?
               </h2>
@@ -522,83 +571,59 @@ export default function DevelopmentPage() {
                 We can build custom software around your workflow instead of forcing your business to adapt to an off-the-shelf solution.
               </p>
               <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
               {customSolutions.map((sol, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="p-6 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-3">
+                    <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-3 group-hover:bg-[#046BD2] group-hover:text-white transition-colors">
                       {sol.badge}
                     </span>
-                    <h3 className="text-base font-bold text-slate-900 mb-2">{sol.title}</h3>
+                    <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-[#046BD2] transition-colors">{sol.title}</h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {sol.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             <div className="text-center">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-md transition-all duration-200 hover:scale-105"
-              >
-                LET&apos;S BUILD IT
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* 7. Why Choose Us */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Our Advantages
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
-                Why Work With Us
-              </h2>
-              <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-2 leading-relaxed">
-                We focus on building reliable software tailored directly to your operational workflows.
-              </p>
-              <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {whyUsPoints.map((point, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 hover:bg-white hover:shadow-md hover:border-[#046BD2]/40 transition-all duration-200"
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-md transition-all duration-200 cursor-pointer"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-7 h-7 rounded-lg bg-blue-100 text-[#046BD2] font-black text-xs flex items-center justify-center flex-shrink-0">
-                      ✓
-                    </span>
-                    <h3 className="text-lg font-bold text-slate-900">{point.title}</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-10">
-                    {point.desc}
-                  </p>
-                </div>
-              ))}
+                  LET&apos;S BUILD IT
+                </Link>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* 8. Actionable Pre-CTA Section */}
+        {/* 7. Actionable Pre-CTA Section */}
         <section
-          className="py-16 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="py-16 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-3xl mx-auto flex flex-col items-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto flex flex-col items-center gap-4 relative z-10"
+          >
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Have an Idea? Let&apos;s Build It.
             </h2>
@@ -606,20 +631,24 @@ export default function DevelopmentPage() {
               Tell us what you want to build. We&apos;ll help you turn the idea into a working web, mobile, AI, or business application.
             </p>
             <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
-              >
-                START YOUR PROJECT
-              </Link>
-              <Link
-                href="/contact-us"
-                className="inline-block bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md backdrop-blur-md border border-white/30 transition-all duration-200 hover:scale-105"
-              >
-                TALK TO US
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 cursor-pointer"
+                >
+                  START YOUR PROJECT
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/contact-us"
+                  className="inline-block bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md backdrop-blur-md border border-white/30 transition-all duration-200 cursor-pointer"
+                >
+                  TALK TO US
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 

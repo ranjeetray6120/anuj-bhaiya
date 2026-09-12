@@ -33,16 +33,16 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 shadow-xs transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 sm:h-24 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group py-1">
           <Image
             src="/logo.png"
             alt="AdForge Logo"
-            width={280}
-            height={85}
-            className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            width={240}
+            height={65}
+            className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             priority
           />
         </Link>
@@ -106,6 +106,13 @@ export default function Navbar() {
           </div>
 
           <Link
+            href="/#tools"
+            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
+          >
+            Tools
+          </Link>
+
+          <Link
             href="/#process"
             className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
           >
@@ -131,7 +138,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <Link
             href="/#contact"
-            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-md shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
           >
             GET A FREE QUOTE
           </Link>
@@ -165,46 +172,43 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Drawer Menu */}
       {menuOpen && (
-        <div id="mobile-menu" className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 flex flex-col gap-3 shadow-lg max-h-[85vh] overflow-y-auto" role="menu">
+        <div id="mobile-menu" className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 animate-fadeIn">
           <Link
             href="/"
-            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
             onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
           >
             Home
           </Link>
-
           <Link
             href="/who-we-are"
-            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
             onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
           >
             Who We Are
           </Link>
 
-          {/* Mobile Services Accordion */}
           <div>
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="w-full flex items-center justify-between text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5 cursor-pointer"
+              className="w-full flex items-center justify-between py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase cursor-pointer"
             >
-              <span>Services</span>
-              <span className="text-xs">{mobileServicesOpen ? "▲" : "▼"}</span>
+              Services
+              <span className={`text-xs transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}>
+                ▼
+              </span>
             </button>
 
             {mobileServicesOpen && (
-              <div className="pl-4 py-2 flex flex-col gap-2 border-l-2 border-blue-100 ml-1">
+              <div className="pl-4 space-y-2 py-2">
                 {servicesList.map((service) => (
                   <Link
                     key={service.title}
                     href={service.href}
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setMobileServicesOpen(false);
-                    }}
-                    className="text-xs font-semibold text-slate-700 hover:text-[#046BD2] py-1"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-1.5 text-xs font-semibold text-slate-600 hover:text-[#046BD2]"
                   >
                     {service.title}
                   </Link>
@@ -214,39 +218,48 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/#process"
-            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
+            href="/#tools"
             onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
+          >
+            Tools
+          </Link>
+
+          <Link
+            href="/#process"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
           >
             Process
           </Link>
 
           <Link
             href="/blogs"
-            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
             onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
           >
             Blogs
           </Link>
 
           <Link
             href="/contact-us"
-            className="text-sm font-bold text-slate-800 hover:text-[#046BD2] transition-colors py-1.5"
             onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
           >
             Contact Us
           </Link>
 
-          <Link
-            href="/#contact"
-            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-md text-center mt-2 shadow-sm"
-            onClick={() => setMenuOpen(false)}
-          >
-            GET A FREE QUOTE
-          </Link>
+          <div className="pt-2">
+            <Link
+              href="/#contact"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-center bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider py-3 rounded-lg shadow-sm"
+            >
+              GET A FREE QUOTE
+            </Link>
+          </div>
         </div>
       )}
     </nav>
   );
 }
-

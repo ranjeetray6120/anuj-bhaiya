@@ -1,13 +1,12 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
+
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Meta Ads Agency | Facebook & Instagram Ads Scaling | AdForge",
-  description:
-    "Scale your D2C brand and lead generation with official Meta Business Partner agency. Advantage+ Shopping Campaigns, creative testing matrices, and high-ROAS funnels.",
-};
+import { motion } from "framer-motion";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const metaSolutions = [
   {
@@ -50,15 +49,18 @@ export default function MetaAdsPage() {
       <main className="flex-1 pt-24">
         {/* Hero Section */}
         <section
-          className="relative py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="relative py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-5">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30">
-              Official Meta Business Partner
-            </span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto flex flex-col items-center gap-5 relative z-10"
+          >
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               Scale with a Leading{" "}
               <span className="text-[#FFDE59]">Facebook &amp; Instagram Ads</span> Agency
@@ -67,65 +69,110 @@ export default function MetaAdsPage() {
               We turn Facebook &amp; Instagram Ads into high-margin revenue engines for D2C brands, lead-gen businesses, and service providers.
             </p>
             <div className="pt-2">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
-              >
-                CLAIM FREE META ADS AUDIT
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 cursor-pointer"
+                >
+                  CLAIM FREE META ADS AUDIT
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
-        {/* Highlights */}
-        <section className="py-12 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200">
+        {/* Highlights with Animated Numbers */}
+        <section className="py-12 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-xs">
-              <p className="text-2xl sm:text-3xl font-black text-[#046BD2]">4.8x</p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <p className="text-2xl sm:text-3xl font-black text-[#046BD2] tracking-tight group-hover:scale-105 transition-transform">
+                <AnimatedCounter value="4.8x" duration={2} />
+              </p>
               <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Average D2C Blended ROAS</p>
-            </div>
-            <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-xs">
-              <p className="text-2xl sm:text-3xl font-black text-[#046BD2]">-45%</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <p className="text-2xl sm:text-3xl font-black text-[#046BD2] tracking-tight group-hover:scale-105 transition-transform">
+                <AnimatedCounter value="-45%" duration={2} />
+              </p>
               <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Reduction in Customer CPA</p>
-            </div>
-            <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-xs">
-              <p className="text-2xl sm:text-3xl font-black text-[#046BD2]">200M+</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <p className="text-2xl sm:text-3xl font-black text-[#046BD2] tracking-tight group-hover:scale-105 transition-transform">
+                <AnimatedCounter value="200M+" duration={2.2} />
+              </p>
               <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Monthly Ad Impressions</p>
-            </div>
-            <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-xs">
-              <p className="text-2xl sm:text-3xl font-black text-[#046BD2]">Meta</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <p className="text-2xl sm:text-3xl font-black text-[#046BD2] tracking-tight group-hover:scale-105 transition-transform">Meta</p>
               <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Official Scale Partner</p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+        {/* Services Grid with Card Hover Animations */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Our Expertise
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 Engineered for High-ROAS Performance
               </h2>
               <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {metaSolutions.map((sol, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-slate-50 rounded-2xl p-7 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-slate-50 rounded-3xl p-7 sm:p-8 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-4">
+                    <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-4 group-hover:bg-[#046BD2] group-hover:text-white transition-colors">
                       {sol.tag}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{sol.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#046BD2] transition-colors">{sol.title}</h3>
                     <p className="text-sm text-slate-600 leading-relaxed">{sol.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

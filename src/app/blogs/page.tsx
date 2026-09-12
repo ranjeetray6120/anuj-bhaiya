@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+
 import Navbar from "@/components/Navbar";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -144,16 +146,19 @@ export default function BlogsPage() {
       <main className="flex-1 pt-24">
         {/* Hero Header */}
         <section
-          className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background:
               "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30">
-              AdForge Knowledge Hub
-            </span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto flex flex-col items-center gap-4 relative z-10"
+          >
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               Insights, Strategies &amp;{" "}
               <span className="text-[#FFDE59]">Growth Guides</span>
@@ -170,10 +175,10 @@ export default function BlogsPage() {
                 placeholder="Search guides, strategies, or topics..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white text-slate-800 placeholder-slate-400 px-5 py-3.5 rounded-xl shadow-lg border-0 focus:ring-2 focus:ring-[#FFDE59] text-sm outline-none"
+                className="w-full bg-white text-slate-800 placeholder-slate-400 px-5 py-3.5 rounded-xl shadow-lg border-0 focus:ring-2 focus:ring-[#FFDE59] text-sm outline-none transition-all"
               />
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Category Pills Bar */}
@@ -186,7 +191,7 @@ export default function BlogsPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`text-xs sm:text-sm font-semibold px-4 py-2 rounded-full whitespace-nowrap transition-all duration-150 cursor-pointer ${
                     selectedCategory === cat
-                      ? "bg-[#046BD2] text-white shadow-sm"
+                      ? "bg-[#046BD2] text-white shadow-sm scale-105"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                   }`}
                 >
@@ -198,17 +203,25 @@ export default function BlogsPage() {
         </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Featured Article Card */}
+          {/* Featured Article Card with Motion */}
           {selectedCategory === "All" && !searchQuery && (
-            <div className="mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-14"
+            >
               <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#D82C5E]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D82C5E] animate-pulse" />
                 <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Featured Breakdown
                 </h2>
               </div>
 
-              <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group">
+              <motion.div
+                whileHover={{ y: -4, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+                className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-lg transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
+              >
                 {/* Visual side */}
                 <div
                   className={`lg:col-span-6 bg-gradient-to-br ${featuredPost.gradient} p-8 sm:p-12 flex flex-col justify-between text-white relative overflow-hidden min-h-[280px]`}
@@ -223,20 +236,20 @@ export default function BlogsPage() {
                   </div>
 
                   <div className="z-10 mt-12">
-                    <span className="text-white/80 text-xs font-semibold tracking-wider uppercase block mb-1">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">
                       {featuredPost.category}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight drop-shadow-sm">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug mt-2">
                       {featuredPost.title}
                     </h3>
                   </div>
 
-                  {/* Decorative background glow */}
+                  {/* Ambient glowing circles */}
                   <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
                 </div>
 
                 {/* Content side */}
-                <div className="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between">
+                <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between">
                   <div>
                     <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
                       {featuredPost.excerpt}
@@ -257,7 +270,7 @@ export default function BlogsPage() {
 
                   <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                     <Link
-                      href="#contact"
+                      href="/#contact"
                       className="inline-flex items-center gap-2 text-[#046BD2] hover:text-[#045CB4] font-bold text-sm group-hover:translate-x-1 transition-all duration-200"
                     >
                       Read Full Case Study →
@@ -268,8 +281,8 @@ export default function BlogsPage() {
                     </span>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           )}
 
           {/* Grid of Articles */}
@@ -301,67 +314,84 @@ export default function BlogsPage() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPosts.map((post) => (
-                  <article
-                    key={post.id}
-                    className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col overflow-hidden group"
-                  >
-                    {/* Top graphic block */}
-                    <div
-                      className={`h-48 bg-gradient-to-br ${post.gradient} p-6 flex flex-col justify-between text-white relative overflow-hidden`}
+              <motion.div
+                layout
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                <AnimatePresence>
+                  {filteredPosts.map((post, idx) => (
+                    <motion.article
+                      key={post.id}
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer"
                     >
-                      <div className="flex justify-between items-start z-10">
-                        <span className="bg-white/20 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/20">
-                          {post.badge}
-                        </span>
-                        <span className="bg-[#FFDE59] text-slate-900 text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-xs">
-                          {post.stats}
-                        </span>
-                      </div>
-
-                      <div className="z-10">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-white/80">
-                          {post.category}
-                        </span>
-                      </div>
-
-                      {/* Subtle pattern */}
-                      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none" />
-                    </div>
-
-                    {/* Body */}
-                    <div className="p-6 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-lg font-bold text-slate-900 leading-snug mb-3 group-hover:text-[#046BD2] transition-colors">
-                          {post.title}
-                        </h3>
-                        <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
-                          {post.excerpt}
-                        </p>
-                      </div>
-
-                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                        <div className="flex items-center gap-2">
-                          <span className="font-semibold text-slate-700">
-                            {post.author}
+                      {/* Top graphic block */}
+                      <div
+                        className={`h-48 bg-gradient-to-br ${post.gradient} p-6 flex flex-col justify-between text-white relative overflow-hidden`}
+                      >
+                        <div className="flex justify-between items-start z-10">
+                          <span className="bg-white/20 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/20">
+                            {post.badge}
                           </span>
-                          <span>•</span>
-                          <span>{post.readTime}</span>
+                          <span className="bg-[#FFDE59] text-slate-900 text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-xs">
+                            {post.stats}
+                          </span>
                         </div>
-                        <span className="text-[#046BD2] font-bold group-hover:translate-x-1 transition-transform">
-                          →
-                        </span>
+
+                        <div className="z-10">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-white/80">
+                            {post.category}
+                          </span>
+                        </div>
+
+                        {/* Subtle pattern */}
+                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none" />
                       </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
+
+                      {/* Body */}
+                      <div className="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-lg font-bold text-slate-900 leading-snug mb-3 group-hover:text-[#046BD2] transition-colors">
+                            {post.title}
+                          </h3>
+                          <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                            {post.excerpt}
+                          </p>
+                        </div>
+
+                        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                          <div className="flex items-center gap-2">
+                            <span className="font-semibold text-slate-700">
+                              {post.author}
+                            </span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
+                          </div>
+                          <span className="text-[#046BD2] font-bold group-hover:translate-x-1.5 transition-transform">
+                            →
+                          </span>
+                        </div>
+                      </div>
+                    </motion.article>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
             )}
           </div>
 
           {/* Newsletter / Free Growth Audit CTA Box */}
-          <section className="mt-20 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-8 sm:p-14 relative overflow-hidden shadow-2xl">
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-8 sm:p-14 relative overflow-hidden shadow-2xl"
+          >
             <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center gap-5">
               <span className="bg-[#D82C5E] !text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full">
                 Stay Ahead of Algorithms
@@ -393,12 +423,14 @@ export default function BlogsPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-slate-800/90 text-white placeholder-slate-400 px-5 py-3.5 rounded-xl border border-slate-700 focus:outline-none focus:ring-2 focus:ring-[#168ed3] text-sm"
                   />
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
                     type="submit"
-                    className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-lg transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
+                    className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-lg transition-all cursor-pointer whitespace-nowrap"
                   >
                     Subscribe Free
-                  </button>
+                  </motion.button>
                 </form>
               )}
 
@@ -410,7 +442,7 @@ export default function BlogsPage() {
             {/* Ambient background glows */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-[#168ed3]/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#D82C5E]/20 rounded-full blur-3xl pointer-events-none" />
-          </section>
+          </motion.section>
         </div>
       </main>
 

@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Contact Us | Book a Free Growth Audit & Strategy Call | AdForge",
   description:
     "Get in touch with AdForge's senior performance specialists in Gurugram. Request a complimentary 90-day growth roadmap and ad account audit.",
+  alternates: {
+    canonical: "/contact-us",
+  },
   openGraph: {
     title: "Contact AdForge | Free Growth Strategy Call",
     description:

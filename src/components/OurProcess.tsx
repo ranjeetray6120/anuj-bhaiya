@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const steps = [
   { number: 1, title: "Defining Objective", desc: "KPIs, CPA targets & revenue milestones" },
@@ -29,18 +31,19 @@ function ProcessFlowchart({
   setActiveStep: (step: number) => void;
 }) {
   return (
-    <div className="w-full max-w-md mx-auto bg-slate-50/90 border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs relative">
+    <div className="w-full max-w-md mx-auto bg-slate-50/90 border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xl relative">
       {/* Progress pill header */}
-      <div className="flex items-center justify-between mb-2 px-1">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center justify-between mb-3 px-1">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#046BD2] animate-ping" />
           Live Flow Pipeline
         </span>
-        <div className="flex items-center gap-0.5" role="tablist" aria-label="Process steps">
+        <div className="flex items-center gap-1" role="tablist" aria-label="Process steps">
           {[1, 2, 3, 4, 5, 6].map((num) => (
             <button
               key={num}
               onClick={() => setActiveStep(num)}
-              className="p-2 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#046BD2] rounded-full cursor-pointer"
+              className="p-1.5 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#046BD2] rounded-full cursor-pointer"
               aria-label={`Jump to process step ${num}`}
               aria-selected={activeStep === num}
               role="tab"
@@ -182,10 +185,10 @@ function ProcessFlowchart({
                 {node.short}
               </text>
 
-              {/* Step Label Text */}
+              {/* Label */}
               <text
-                x={node.labelPos === "left" ? -28 : node.labelPos === "right" ? 28 : 0}
-                y={node.labelPos === "bottom" ? 36 : 4}
+                x={node.labelPos === "left" ? "-32" : node.labelPos === "right" ? "32" : "0"}
+                y={node.labelPos === "bottom" ? "38" : "4"}
                 textAnchor={
                   node.labelPos === "left"
                     ? "end"
@@ -194,8 +197,8 @@ function ProcessFlowchart({
                     : "middle"
                 }
                 fill={isActive ? "#046BD2" : isPassed ? "#1E293B" : "#64748B"}
-                fontSize={isActive ? "12" : "11"}
-                fontWeight={isActive ? "800" : "600"}
+                fontSize="10"
+                fontWeight={isActive ? "bold" : "600"}
                 fontFamily="sans-serif"
                 className="transition-all duration-300"
               >
@@ -219,44 +222,57 @@ export default function OurProcess() {
 
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev % 6) + 1);
-    }, 2200);
+    }, 2400);
 
     return () => clearInterval(interval);
   }, [isPaused]);
 
   return (
     <section
-      className="py-10 sm:py-12 px-4 sm:px-6 lg:px-12 bg-white border-t border-slate-100 select-none"
+      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white border-t border-slate-100 select-none overflow-hidden"
       id="process"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Title */}
-        <div className="text-center mb-6 sm:mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 sm:mb-12"
+        >
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our <span className="text-[#046BD2]">Process:</span>
+            Our <span className="text-[#046BD2]">Process</span>
           </h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-[#046BD2] rounded-full" />
-        </div>
+        </motion.div>
 
         {/* 2-Column Synchronized Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Interactive Numbered List & CTA */}
-          <div className="lg:col-span-6 flex flex-col justify-center">
-            <div className="flex flex-col gap-2">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex flex-col justify-center"
+          >
+            <div className="flex flex-col gap-2.5">
               {steps.map((step) => {
                 const isActive = activeStep === step.number;
                 const isPassed = activeStep > step.number;
 
                 return (
-                  <div
+                  <motion.div
                     key={step.number}
                     onClick={() => setActiveStep(step.number)}
-                    className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl cursor-pointer transition-all duration-300 ${
+                    whileHover={{ scale: 1.015, x: 4 }}
+                    className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl cursor-pointer transition-all duration-300 ${
                       isActive
-                        ? "bg-blue-50/90 border border-blue-200 shadow-sm translate-x-1"
-                        : "hover:bg-slate-50/80 border border-transparent"
+                        ? "bg-blue-50/90 border border-blue-200 shadow-md translate-x-1"
+                        : "hover:bg-slate-50/80 border border-slate-100"
                     }`}
                   >
                     <div className="flex items-center gap-3.5">
@@ -286,49 +302,63 @@ export default function OurProcess() {
                         >
                           {step.title}
                         </p>
-                        {isActive && (
-                          <p className="text-[11px] sm:text-xs text-slate-500 font-medium animate-fadeIn">
-                            {step.desc}
-                          </p>
-                        )}
+                        <AnimatePresence>
+                          {isActive && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5"
+                            >
+                              {step.desc}
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
                       </div>
                     </div>
 
                     {/* Active pulse icon */}
                     {isActive && (
-                      <span className="text-[#046BD2] font-extrabold text-xs hidden sm:inline-flex items-center gap-1 bg-white px-2 py-0.5 rounded-md shadow-xs border border-blue-100">
+                      <span className="text-[#046BD2] font-extrabold text-xs hidden sm:inline-flex items-center gap-1 bg-white px-2.5 py-1 rounded-lg shadow-xs border border-blue-100">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#046BD2] animate-ping" />
                         Active
                       </span>
                     )}
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
 
-            <div className="mt-4 sm:mt-5 pl-2.5 flex items-center gap-4">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-7 py-3 rounded-md shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95"
-              >
-                GET A FREE QUOTE NOW
-              </Link>
+            <div className="mt-6 pl-1 flex items-center gap-4 flex-wrap">
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-md shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
+                >
+                  GET A FREE QUOTE NOW
+                </Link>
+              </motion.div>
               <span className="text-[11px] text-slate-400 font-medium">
                 Auto-advancing • Hover to pause
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Synchronized Visual Flowchart */}
-          <div className="lg:col-span-6 flex justify-center items-center">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex justify-center items-center"
+          >
             <ProcessFlowchart
               activeStep={activeStep}
               setActiveStep={setActiveStep}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-

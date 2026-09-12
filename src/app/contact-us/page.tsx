@@ -2,6 +2,8 @@
 
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { motion } from "framer-motion";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -83,15 +85,18 @@ export default function ContactUsPage() {
       <main className="flex-1 pt-24">
         {/* Header Hero */}
         <section
-          className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white/20 text-white backdrop-blur-md border border-white/30">
-              Get In Touch
-            </span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto flex flex-col items-center gap-4 relative z-10"
+          >
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               Ready to Amplify Your{" "}
               <span className="text-[#FFDE59]">Digital Journey?</span>
@@ -99,18 +104,22 @@ export default function ContactUsPage() {
             <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
               Book a 1-on-1 growth strategy session with our senior performance specialists. We respond within 2 hours.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Contact Form & Info Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Contact Info */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 flex flex-col gap-8"
+            >
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                  Let&#39;s Connect
-                </span>
+
                 <h2 className="text-3xl font-extrabold text-slate-900 mt-1 leading-tight">
                   Speak Directly with a Growth Strategist
                 </h2>
@@ -120,34 +129,40 @@ export default function ContactUsPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</span>
                   <a href="mailto:adfordge.marketing@gmail.com" className="text-base font-bold text-[#046BD2] hover:underline">
                     adfordge.marketing@gmail.com
                   </a>
-                </div>
+                </motion.div>
 
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Phone / WhatsApp</span>
                   <a href="tel:+918178802368" className="text-base font-bold text-[#046BD2] hover:underline">
                     +91 81788 02368
                   </a>
-                </div>
+                </motion.div>
 
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Office Location</span>
                   <p className="text-base font-bold text-slate-800">Gurugram, Haryana, India</p>
-                </div>
+                </motion.div>
 
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Official Partnerships</span>
                   <p className="text-sm font-semibold text-slate-800">Google Official Partner • Meta Business Partner</p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Contact Form */}
-            <div className="lg:col-span-7 bg-slate-50 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7 bg-slate-50 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl"
+            >
               <div className="mb-6">
                 <h3 className="text-2xl font-extrabold text-slate-900">Request a Free Growth Audit</h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -156,12 +171,19 @@ export default function ContactUsPage() {
               </div>
 
               {submitted ? (
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-8 rounded-2xl text-center flex flex-col items-center gap-3">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-8 rounded-2xl text-center flex flex-col items-center gap-3"
+                >
+                  <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                    ✓
+                  </div>
                   <h4 className="text-xl font-bold">Inquiry Received!</h4>
                   <p className="text-sm text-emerald-700">
                     Thank you, <span className="font-bold">{formData.name}</span>. Our growth team will review your requirements and reach out via email ({formData.email}) or phone ({formData.phone}) within 2 hours.
                   </p>
-                </div>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -262,35 +284,50 @@ export default function ContactUsPage() {
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6Lc0BVstAAAAAO2_FNzwyuFZ-aUgivoGJLFkXW8f"}
                   />
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#D82C5E] hover:bg-[#bf204d] disabled:opacity-75 !text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all duration-200 hover:scale-[1.01] cursor-pointer"
+                    className="w-full bg-[#D82C5E] hover:bg-[#bf204d] disabled:opacity-75 !text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all duration-200 cursor-pointer"
                   >
                     {loading ? "SENDING INQUIRY..." : "SUBMIT AUDIT REQUEST →"}
-                  </button>
+                  </motion.button>
                 </form>
               )}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <section className="py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Got Questions?
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+
               <h2 className="text-3xl font-extrabold text-slate-900 mt-1">Frequently Asked Questions</h2>
-            </div>
+              <div className="mt-3 mx-auto w-12 h-1 bg-[#046BD2] rounded-full" />
+            </motion.div>
 
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200"
+                >
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{faq.a}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

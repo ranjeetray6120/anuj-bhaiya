@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Growth Insights & Case Studies | Performance Marketing Blog | AdForge",
   description:
     "Explore actionable playbooks, case studies, and advanced strategies on Google Ads, Meta Ads (Facebook & Instagram), SEO, and conversion optimization.",
+  alternates: {
+    canonical: "/blogs",
+  },
   openGraph: {
     title: "Growth Insights & Case Studies | AdForge Blog",
     description:

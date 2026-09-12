@@ -1,13 +1,11 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
+
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-
-export const metadata = {
-  title: "SEO Services | Organic Traffic & Revenue Growth | AdForge",
-  description:
-    "Scale organic search rankings, traffic, and e-commerce revenue with AdForge's data-driven technical SEO, topical authority, and link building services.",
-};
+import { motion } from "framer-motion";
 
 const seoServices = [
   {
@@ -57,13 +55,18 @@ export default function SEOPage() {
       <main className="flex-1 pt-24">
         {/* Hero Section */}
         <section
-          className="relative py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-center text-white"
+          className="relative py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-5">
-        
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto flex flex-col items-center gap-5 relative z-10"
+          >
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               Scale Your Organic Traffic &amp; Sales with{" "}
               <span className="text-[#FFDE59]">Predictable ROI</span>
@@ -72,73 +75,93 @@ export default function SEOPage() {
               We engineer revenue-focused SEO campaigns that outrank competitors, build defensible domain authority, and turn organic search into your most profitable acquisition channel.
             </p>
             <div className="pt-2">
-              <Link
-                href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 hover:scale-105"
-              >
-                GET FREE SEO AUDIT
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/#contact"
+                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg transition-all duration-200 cursor-pointer"
+                >
+                  GET FREE SEO AUDIT
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Services Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Our Capabilities
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 What Do Our SEO Services Include?
               </h2>
               <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {seoServices.map((service, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-slate-50 rounded-2xl p-7 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-slate-50 rounded-3xl p-7 sm:p-8 border border-slate-200 hover:border-[#046BD2]/50 hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-4">
+                    <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#046BD2] border border-blue-100 mb-4 group-hover:bg-[#046BD2] group-hover:text-white transition-colors">
                       {service.tag}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#046BD2] transition-colors">{service.title}</h3>
                     <p className="text-sm text-slate-600 leading-relaxed">{service.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* 4-Step Process Section */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
-                Methodology
-              </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
                 Our 4-Phase Organic Growth Framework
               </h2>
               <div className="mt-3 mx-auto w-14 h-1 bg-[#046BD2] rounded-full" />
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {seoProcess.map((p) => (
-                <div
+              {seoProcess.map((p, idx) => (
+                <motion.div
                   key={p.step}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col gap-3"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col gap-3 group"
                 >
-                  <span className="w-10 h-10 rounded-xl bg-blue-50 text-[#046BD2] font-black text-sm flex items-center justify-center border border-blue-100">
+                  <span className="w-10 h-10 rounded-2xl bg-blue-50 text-[#046BD2] font-black text-sm flex items-center justify-center border border-blue-100 group-hover:bg-[#046BD2] group-hover:text-white transition-colors">
                     {p.step}
                   </span>
-                  <h3 className="text-lg font-bold text-slate-900">{p.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#046BD2] transition-colors">{p.title}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{p.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

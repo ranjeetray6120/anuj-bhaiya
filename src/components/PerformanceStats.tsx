@@ -1,14 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+
 
 const servicesData = [
   {
     icon: (
-      <div className="flex items-center justify-center font-extrabold text-3xl tracking-tight select-none">
-        <span className="text-[#4285F4]">S</span>
-        <span className="text-[#EA4335]">E</span>
-        <span className="text-[#FBBC05]">O</span>
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+        {/* Official Google 4-Color G Logo */}
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z" fill="#4285F4"/>
+          <path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24Z" fill="#34A853"/>
+          <path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.97 0 12c0 2.03.45 3.84 1.25 5.42l4.03-3.15Z" fill="#FBBC05"/>
+          <path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98Z" fill="#EA4335"/>
+        </svg>
       </div>
     ),
     title: "SEO",
@@ -20,15 +26,18 @@ const servicesData = [
       "Enterprise SEO",
     ],
     href: "/seo",
+    gradient: "from-blue-500/10 to-indigo-500/10",
   },
   {
     icon: (
-      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        {/* Google Ads Polygon */}
-        <polygon points="50,10 90,80 70,80 40,25" fill="#4285F4" />
-        <polygon points="50,10 10,80 30,80 60,25" fill="#FBBC05" />
-        <circle cx="70" cy="80" r="14" fill="#34A853" />
-      </svg>
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+        {/* Official Google Ads Logo */}
+        <svg className="w-9 h-9" viewBox="0 0 192 192" fill="none" aria-hidden="true">
+          <path d="M33.88 120.47 78.43 43.3c7.22-12.5 23.23-16.78 35.73-9.56 12.5 7.22 16.78 23.23 9.56 35.73L79.17 146.64c-7.22 12.5-23.23 16.78-35.73 9.56-12.5-7.22-16.78-23.23-9.56-35.73z" fill="#FBBC04"/>
+          <path d="M149.88 43.3c12.5-7.22 28.51-2.94 35.73 9.56 7.22 12.5 2.94 28.51-9.56 35.73l-44.55 77.17c-7.22 12.5-23.23 16.78-35.73 9.56-12.5-7.22-16.78-23.23-9.56-35.73L149.88 43.3z" fill="#4285F4"/>
+          <circle cx="56.57" cy="133.58" r="26.15" fill="#34A853"/>
+        </svg>
+      </div>
     ),
     title: "Google Ads",
     desc: "Let our experts take charge of your PPC campaign. Don't Settle For LESS, Achieve BIG With Our Performance Marketing Strategies",
@@ -39,13 +48,24 @@ const servicesData = [
       "Planning & Strategies",
     ],
     href: "/pay-per-click",
+    gradient: "from-amber-500/10 to-blue-500/10",
   },
   {
     icon: (
-      <svg className="w-14 h-14 mx-auto" viewBox="0 0 100 100" fill="#046BD2" aria-hidden="true">
-        {/* Meta Infinity Icon */}
-        <path d="M72.2 27.5C64.6 27.5 57.6 32.8 50 41.2C42.4 32.8 35.4 27.5 27.8 27.5C14.7 27.5 5 37.9 5 50.8C5 63.7 14.7 74.1 27.8 74.1C35.4 74.1 42.4 68.8 50 60.4C57.6 68.8 64.6 74.1 72.2 74.1C85.3 74.1 95 63.7 95 50.8C95 37.9 85.3 27.5 72.2 27.5ZM27.8 64.6C19.7 64.6 13.9 58.4 13.9 50.8C13.9 43.2 19.7 37 27.8 37C33.4 37 39.4 42 45.4 50.8C39.4 59.6 33.4 64.6 27.8 64.6ZM72.2 64.6C66.6 64.6 60.6 59.6 54.6 50.8C60.6 42 66.6 37 72.2 37C80.3 37 86.1 43.2 86.1 50.8C86.1 58.4 80.3 64.6 72.2 64.6Z" />
-      </svg>
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+        {/* Official Meta Infinity Logo */}
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="metaRealGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stopColor="#0064E0"/>
+              <stop offset="45%" stopColor="#0072F5"/>
+              <stop offset="85%" stopColor="#0081FB"/>
+              <stop offset="100%" stopColor="#0064E0"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#metaRealGrad)" d="M23.6 7.6c-2.6 0-4.8 1.4-6.4 3.4-1.6-2-3.8-3.4-6.4-3.4C6 7.6 2 11.6 2 16.8c0 5.2 4 9.2 8.8 9.2 2.6 0 4.8-1.4 6.4-3.4 1.6 2 3.8 3.4 6.4 3.4 4.8 0 8.8-4 8.8-9.2 0-5.2-4-9.2-8.8-9.2zm-12.8 15c-3.1 0-5.4-2.5-5.4-5.8s2.3-5.8 5.4-5.8c2.2 0 4.2 1.8 5.4 4.6-1.2 2.8-3.2 7-5.4 7zm12.8 0c-2.2 0-4.2-4.2-5.4-7 1.2-2.8 3.2-4.6 5.4-4.6 3.1 0 5.4 2.5 5.4 5.8s-2.3 5.8-5.4 5.8z"/>
+        </svg>
+      </div>
     ),
     title: "Meta Ads",
     desc: "From Generating leads from the businesses to Generating sales at better ROAS for your business. We exactly know how meta ecosystem works now.",
@@ -55,111 +75,155 @@ const servicesData = [
       "Instagram Ads",
     ],
     href: "/meta-ads",
+    gradient: "from-blue-600/10 to-sky-500/10",
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-50 border border-amber-200 flex flex-col items-center justify-center p-2 text-center" aria-hidden="true">
-        <div className="flex gap-1 mb-0.5">
-          <span className="text-amber-400 text-[10px]">★</span>
-          <span className="text-amber-400 text-[10px]">★</span>
-          <span className="text-amber-400 text-[10px]">★</span>
-        </div>
-        <span className="text-xs font-black text-amber-700">CRO</span>
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+        {/* Full-Stack Web Development & CRO Icon */}
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M16 18L22 12L16 6" stroke="#0284C7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 6L2 12L8 18" stroke="#0284C7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M14 4L10 20" stroke="#F59E0B" strokeWidth="2.2" strokeLinecap="round"/>
+        </svg>
       </div>
     ),
     title: "Development",
-    desc: "We understand the Concept of CRO for Landing Pages. We know How to make a webiste SEO Friendly. Get our Web Development Services. We create websites and Landing Pages that can generate ROI.",
+    desc: "We understand the Concept of CRO for Landing Pages. We know How to make a website SEO Friendly. Get our Web Development Services. We create websites and Landing Pages that can generate ROI.",
     items: [
       "High Converting Landing Page",
       "SEO Friendly Websites.",
       "Custom Coded Websites",
     ],
     href: "/development",
+    gradient: "from-amber-500/10 to-orange-500/10",
   },
 ];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function PerformanceStats() {
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden" id="services">
-      {/* Horizontal Blue Banner Band behind cards */}
-      <div className="absolute top-[40%] left-0 right-0 h-44 sm:h-52 bg-[#168ed3] pointer-events-none z-0" />
+      {/* Decorative background horizontal gradient strip */}
+      <div
+        className="absolute top-1/2 left-0 right-0 h-48 -translate-y-1/2 pointer-events-none -z-0 opacity-90 hidden lg:block"
+        style={{
+          background: "linear-gradient(90deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-slate-900 tracking-tight leading-tight">
-            Our ROI driven Services for both Ecommerce as well as
-            <span className="text-[#168ed3] block mt-1 font-black">
-              Lead Generation Businesses!
-            </span>
+        {/* Section Heading with Framer Motion reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold text-slate-900 leading-tight">
+            Our ROI driven Services for both Ecommerce as well as{" "}
+            <span className="text-[#046BD2]">Lead Generation Businesses!</span>
           </h2>
-          <p className="mt-2.5 text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium">
+
+          <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3">
             Honest, 100% transparency and Data Driven Approach is how we operate.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {servicesData.map((card, idx) => (
-            <div
+        {/* 4 Cards Grid with Staggered Entrance & 3D Hover Lift */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {servicesData.map((s, idx) => (
+            <motion.div
               key={idx}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-slate-100 p-6 flex flex-col justify-between text-center transition-all duration-300 hover:-translate-y-1.5"
+              variants={cardVariants}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200/80 p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
             >
+              {/* Top Accent Gradient Line on Hover */}
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
               <div>
                 {/* Icon Container */}
-                <div className="h-14 flex items-center justify-center mb-3">
-                  {card.icon}
+                <div className="mb-5 group-hover:scale-110 transition-transform duration-300">
+                  {s.icon}
                 </div>
 
-                {/* Card Title */}
-                <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-2">
-                  {card.title}
+                {/* Title */}
+                <h3 className="text-xl font-extrabold text-slate-900 text-center mb-3 group-hover:text-[#046BD2] transition-colors">
+                  {s.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-slate-600 leading-relaxed min-h-[85px]">
-                  {card.desc}
+                <p className="text-xs text-slate-600 text-center leading-relaxed mb-6">
+                  {s.desc}
                 </p>
 
-                {/* "Start with..." Subheading */}
-                <div className="mt-5 pt-3 border-t border-slate-100 text-left">
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2.5">
+                {/* Checklist Section */}
+                <div className="border-t border-slate-100 pt-4 mb-6">
+                  <p className="text-xs font-bold text-slate-800 mb-3 text-left">
                     Start with...
-                  </h4>
-
-                  {/* Checklist */}
+                  </p>
                   <ul className="space-y-2">
-                    {card.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <div className="w-3.5 h-3.5 rounded-full bg-[#168ed3] flex items-center justify-center flex-shrink-0 text-white">
-                          <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span className="text-xs font-semibold text-slate-700">
-                          {item}
+                    {s.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-2 text-xs text-slate-700 font-medium"
+                      >
+                        <span className="w-4 h-4 rounded-full bg-blue-100 text-[#046BD2] flex items-center justify-center text-[10px] font-bold flex-shrink-0">
+                          ✓
                         </span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              {/* Bottom Learn More Link */}
-              <div className="mt-6 pt-3">
+              {/* Action Link with Animated Arrow */}
+              <div className="text-center pt-2 border-t border-slate-100">
                 <Link
-                  href={card.href}
-                  aria-label={`Learn more about our ${card.title} services`}
-                  className="inline-block text-[11px] font-extrabold uppercase tracking-widest text-slate-900 hover:text-[#168ed3] transition-colors duration-200"
+                  href={s.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-900 hover:text-[#046BD2] uppercase tracking-wider transition-colors py-1 group/link"
                 >
                   Learn More
+                  <span className="transition-transform group-hover/link:translate-x-1 duration-200">
+                    →
+                  </span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
