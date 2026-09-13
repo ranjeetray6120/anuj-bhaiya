@@ -7,6 +7,7 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 // Dynamic imports for below-fold components — reduces TBT dramatically
 const PerformanceStats = dynamic(() => import("@/components/PerformanceStats"));
 const AgencyResults = dynamic(() => import("@/components/AgencyResults"));
+const ClientsSection = dynamic(() => import("@/components/ClientsSection"));
 const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"));
 const Partners = dynamic(() => import("@/components/Partners"));
 const ToolsSection = dynamic(() => import("@/components/ToolsSection"));
@@ -31,6 +32,7 @@ export default function Home() {
       <MarqueeTicker />
       <PerformanceStats />
       <AgencyResults />
+      <ClientsSection />
       <ComparisonTable />
       <Partners />
       <ToolsSection />

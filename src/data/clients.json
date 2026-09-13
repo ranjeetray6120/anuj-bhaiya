@@ -1,0 +1,109 @@
+[
+  {
+    "id": "fk-sports",
+    "name": "FK Sports",
+    "category": "Sports & Fitness E-commerce",
+    "work": ["Performance Marketing", "Google Ads", "E-commerce Growth"],
+    "tools": ["Google Ads", "GA4", "GTM", "Merchant Center", "Shopify"],
+    "website": "https://www.fksports.co.uk/",
+    "domain": "fksports.co.uk",
+    "description": "Managed and optimized digital advertising activities for a UK-based sports and fitness e-commerce brand, with a focus on product advertising, campaign performance and e-commerce growth."
+  },
+  {
+    "id": "kiduno",
+    "name": "Kiduno",
+    "category": "Baby & Family E-commerce",
+    "work": ["Performance Marketing", "E-commerce Advertising"],
+    "tools": ["Google Ads", "GA4", "GTM", "Merchant Center", "Shopify"],
+    "website": "https://www.kiduno.co.uk/",
+    "domain": "kiduno.co.uk",
+    "description": "Supported digital advertising and performance marketing activities for a UK-focused e-commerce brand offering baby, children's and family products."
+  },
+  {
+    "id": "nattyx",
+    "name": "Nattyx",
+    "category": "Gym & Fitness Equipment",
+    "work": ["Performance Marketing", "E-commerce Advertising"],
+    "tools": ["Google Ads", "GA4", "GTM", "Merchant Center", "Shopify"],
+    "website": "https://nattyx.co.uk/",
+    "domain": "nattyx.co.uk",
+    "description": "Supported digital advertising and performance marketing activities for a UK-focused fitness and gym equipment e-commerce brand."
+  },
+  {
+    "id": "communication-solutions",
+    "name": "Communication Solutions",
+    "category": "Financial Services & Consulting",
+    "work": ["Financial Consulting", "Strategic Growth"],
+    "tools": ["Google Ads", "GA4", "GTM"],
+    "website": "https://www.agilecapitalservices.com/",
+    "domain": "agilecapitalservices.com",
+    "description": "Supported digital marketing and consulting visibility activities for client corporate communication channels."
+  },
+  {
+    "id": "lexvi",
+    "name": "Lexvi",
+    "category": "Fashion & Lifestyle E-commerce",
+    "work": ["Performance Marketing", "E-commerce Advertising"],
+    "tools": ["Google Ads", "GA4", "GTM", "Merchant Center", "Shopify"],
+    "website": "https://lxvie.com/",
+    "domain": "lxvie.com",
+    "description": "Scalable digital advertising, shopping campaign management, and feed optimizations for modern lifestyle apparel."
+  },
+  {
+    "id": "aims-india",
+    "name": "AIMs India Pvt. Ltd.",
+    "category": "Corporate Consulting & Services",
+    "work": ["Performance Marketing", "Lead Generation", "Digital Advertising"],
+    "tools": ["Meta Ads", "GTM", "GA4"],
+    "website": "https://www.aimincorp.com/",
+    "domain": "aimincorp.com",
+    "description": "Marketing and multi-channel lead generation campaigns to drive verified enterprise service inquiries."
+  },
+  {
+    "id": "agile-capital-services",
+    "name": "Agile Capital Services",
+    "category": "Financial Consulting & Advisory",
+    "work": ["Performance Marketing", "Lead Generation", "Digital Advertising"],
+    "tools": ["Google Ads", "GA4", "GTM", "Google Business Profile"],
+    "website": "https://www.agilecapitalservices.com/",
+    "domain": "agilecapitalservices.com",
+    "description": "Supported digital marketing and performance advertising activities for an India-based financial services and consulting firm, with a focus on generating relevant enquiries and improving online visibility."
+  },
+  {
+    "id": "crossace",
+    "name": "Crossace",
+    "category": "Full Performance Marketing",
+    "work": ["Full Performance Marketing", "Paid Social"],
+    "tools": ["Meta Ads", "GTM", "GA4"],
+    "website": "https://www.crossace.com/",
+    "domain": "crossace.com",
+    "description": "End-to-end performance marketing, creative testing, and multi-channel customer acquisition funnels."
+  },
+  {
+    "id": "younity",
+    "name": "Younity",
+    "category": "Community & Student Growth",
+    "work": ["Community Growth", "Digital Marketing"],
+    "description": "Supported community acquisition and digital engagement campaigns."
+  },
+  {
+    "id": "marketdojo",
+    "name": "Marketdojo",
+    "category": "Procurement & B2B Solutions",
+    "work": ["Full Performance Marketing", "Lead Generation"],
+    "tools": ["Meta Ads", "GTM", "GA4"],
+    "website": "https://marketdojo.in/",
+    "domain": "marketdojo.in",
+    "description": "Targeted B2B lead generation campaigns and full-funnel digital advertising engineered for procurement software prospects."
+  },
+  {
+    "id": "advorth",
+    "name": "Advorth",
+    "category": "Digital Growth & Consulting",
+    "work": ["Full Performance Marketing", "Lead Generation"],
+    "tools": ["Meta Ads", "GTM", "GA4"],
+    "website": "https://www.advorth.in/",
+    "domain": "advorth.in",
+    "description": "Full performance marketing strategy and targeted multi-channel lead acquisition for consulting services."
+  }
+]
