@@ -19,100 +19,7 @@ const categories = [
   "AI Marketing",
 ];
 
-const blogPosts = [
-  {
-    id: "scaling-pmax-google-ads",
-    title: "The Ultimate Blueprint to Scaling Google PMax Campaigns Past ₹50L/mo",
-    excerpt:
-      "Discover the exact audience signal framework, asset group structuring, and negative keyword strategies we use to scale Google Ads profitably.",
-    category: "Google Ads",
-    author: "AdForge Growth Team",
-    date: "Oct 18, 2024",
-    readTime: "6 min read",
-    featured: true,
-    gradient: "from-[#046BD2] to-[#0A1628]",
-    badge: "Case Study",
-    stats: "+320% ROAS",
-  },
-  {
-    id: "advantage-plus-meta-ads",
-    title: "How We Cut CPA by 45% for a D2C Fashion Brand Using Meta ASC+",
-    excerpt:
-      "Stop micro-managing ad sets. Learn how broad targeting and creative diversification in Meta Advantage+ Shopping Campaigns unlock unprecedented scale.",
-    category: "Meta Ads",
-    author: "Performance Lead",
-    date: "Oct 12, 2024",
-    readTime: "5 min read",
-    gradient: "from-indigo-600 to-slate-900",
-    badge: "Strategy",
-    stats: "-45% CPA",
-  },
-  {
-    id: "seo-in-ai-search-era",
-    title: "SEO in the Age of AI: How to Rank in Google SGE & ChatGPT Search",
-    excerpt:
-      "Traditional keyword stuffing is dead. Here is how entity-based optimization and topical authority capture top spots in modern AI-assisted search engines.",
-    category: "SEO & Organic",
-    author: "SEO Director",
-    date: "Sep 28, 2024",
-    readTime: "8 min read",
-    gradient: "from-emerald-700 to-slate-900",
-    badge: "SEO Guide",
-    stats: "7.6M Clicks",
-  },
-  {
-    id: "creative-testing-matrix-roas",
-    title: "The 10x Creative Testing Matrix: Hook, Body & CTA Variations",
-    excerpt:
-      "Creative fatigue kills ad accounts. Use this systematic sprint system to test 30+ UGC and motion design variations every single week.",
-    category: "Meta Ads",
-    author: "Creative Director",
-    date: "Sep 20, 2024",
-    readTime: "4 min read",
-    gradient: "from-rose-600 to-slate-900",
-    badge: "Creatives",
-    stats: "4.8x ROAS",
-  },
-  {
-    id: "landing-page-cro-framework",
-    title: "7 Landing Page Teardowns: Why These Pages Convert at 8.4%",
-    excerpt:
-      "A deep dive into above-the-fold value propositions, social proof placement, sticky mobile CTAs, and frictionless one-page checkouts.",
-    category: "Conversion Rate",
-    author: "CRO Specialist",
-    date: "Sep 15, 2024",
-    readTime: "7 min read",
-    gradient: "from-amber-600 to-slate-900",
-    badge: "CRO",
-    stats: "8.4% Conv. Rate",
-  },
-  {
-    id: "d2c-retention-email-whatsapp",
-    title: "From First Purchase to 40% Repeat Rate: The D2C Retention Engine",
-    excerpt:
-      "Acquisition brings the customer; retention prints the profit. Build automated WhatsApp & Email flows that drive consistent 90-day LTV expansion.",
-    category: "D2C Growth",
-    author: "Retention Lead",
-    date: "Sep 08, 2024",
-    readTime: "5 min read",
-    gradient: "from-cyan-700 to-slate-900",
-    badge: "Retention",
-    stats: "40% Repeat Rate",
-  },
-  {
-    id: "ai-marketing-workflows-2024",
-    title: "Automating B2B Lead Gen with AI Agents and Custom Scraping",
-    excerpt:
-      "How forward-thinking agencies are leveraging custom AI pipelines to enrich lead lists, write hyper-personalized pitches, and book qualified demos.",
-    category: "AI Marketing",
-    author: "AdForge Tech",
-    date: "Aug 30, 2024",
-    readTime: "6 min read",
-    gradient: "from-purple-700 to-slate-900",
-    badge: "AI & Automation",
-    stats: "45,000+ Leads",
-  },
-];
+import { blogPosts } from "@/data/blogPosts";
 
 export default function BlogsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -262,7 +169,7 @@ export default function BlogsPage() {
 
                   <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                     <Button
-                      href="/#contact"
+                      href={`/blogs/${featuredPost.id}`}
                       variant="primary"
                       size="md"
                       rightIcon={<ArrowRight className="w-4 h-4" />}
@@ -305,9 +212,9 @@ export default function BlogsPage() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between transition-colors hover:border-[#046BD2]"
+                      className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between transition-colors hover:border-[#046BD2] group"
                     >
-                      <div className="flex-1 flex flex-col justify-between">
+                      <Link href={`/blogs/${post.id}`} className="flex-1 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between gap-2 mb-3">
                             <span className="text-xs font-bold uppercase tracking-wider text-[#046BD2]">
@@ -319,7 +226,7 @@ export default function BlogsPage() {
                               </span>
                             )}
                           </div>
-                          <h3 className="text-base font-bold text-slate-900 leading-snug mb-2.5">
+                          <h3 className="text-base font-bold text-slate-900 leading-snug mb-2.5 group-hover:text-[#046BD2] transition-colors">
                             {post.title}
                           </h3>
                           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
@@ -335,11 +242,11 @@ export default function BlogsPage() {
                             <span>•</span>
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#046BD2] font-bold">
-                            →
+                          <span className="text-[#046BD2] font-bold group-hover:translate-x-1 transition-transform">
+                            Read →
                           </span>
                         </div>
-                      </div>
+                      </Link>
                     </motion.article>
                   ))}
                 </AnimatePresence>

@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
   const currentDate = new Date().toISOString();
 
-  const routes = [
+  const coreRoutes = [
     {
       url: `${baseUrl}/`,
       lastModified: currentDate,
@@ -55,5 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return routes;
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blogs/${post.id}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...coreRoutes, ...blogRoutes];
 }
