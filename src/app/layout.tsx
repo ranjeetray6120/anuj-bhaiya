@@ -188,13 +188,20 @@ const jsonLd = {
         {
           "@type": "SiteNavigationElement",
           position: 6,
+          name: "Our Clients & Portfolio",
+          description: "Verified performance marketing client partnerships.",
+          url: `${siteUrl}/clients`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 7,
           name: "Blogs & Playbooks",
           description: "Actionable performance marketing blueprints and case studies.",
           url: `${siteUrl}/blogs`,
         },
         {
           "@type": "SiteNavigationElement",
-          position: 7,
+          position: 8,
           name: "Contact Us",
           description: "Book a 1-on-1 growth strategy audit with our senior team.",
           url: `${siteUrl}/contact-us`,
