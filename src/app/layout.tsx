@@ -17,7 +17,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforge.agency";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
