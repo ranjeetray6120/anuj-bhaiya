@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const companyLinks = [
   { label: "Home", href: "/" },
@@ -17,8 +19,8 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#168ed3] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16">
+    <footer className="bg-[#0A1628] text-white border-t border-slate-800 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
           {/* Column 1: Brand & Social */}
           <div className="flex flex-col gap-4">
@@ -28,12 +30,12 @@ export default function Footer() {
                 alt="AdForge Logo"
                 width={180}
                 height={55}
-                className="h-11 w-auto object-contain"
+                className="h-10 w-auto object-contain"
                 loading="lazy"
               />
             </Link>
-            <p className="text-sm text-white/90 leading-relaxed font-medium">
-              Ads that forge growth. Performance marketing, Google Ads &amp; Meta Ads engineered for measurable ROI.
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Ads that forge sustainable growth. Performance marketing, Google Ads &amp; Meta Ads engineered for measurable ROI.
             </p>
 
             {/* Social Media Icons */}
@@ -43,7 +45,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow AdForge on Facebook"
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-110 backdrop-blur-xs"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -54,7 +56,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow AdForge on Instagram"
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#D82C5E] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-110 backdrop-blur-xs"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#E11D48] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
@@ -65,7 +67,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow AdForge on Twitter X"
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-black flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-110 backdrop-blur-xs"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-black flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -76,7 +78,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow AdForge on LinkedIn"
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#046BD2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-110 backdrop-blur-xs"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#046BD2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -87,13 +89,13 @@ export default function Footer() {
 
           {/* Column 2: Company */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-lg font-bold text-white tracking-tight">Company</h4>
+            <h4 className="text-base font-bold text-white tracking-tight">Company</h4>
             <ul className="flex flex-col gap-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-white hover:text-blue-200 font-medium transition-colors duration-150 inline-block hover:translate-x-0.5"
+                    className="text-xs sm:text-sm text-slate-300 hover:text-white font-medium transition-colors duration-150 inline-block hover:translate-x-1"
                   >
                     {link.label}
                   </Link>
@@ -104,13 +106,13 @@ export default function Footer() {
 
           {/* Column 3: Services */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-lg font-bold text-white tracking-tight">Services</h4>
+            <h4 className="text-base font-bold text-white tracking-tight">Services</h4>
             <ul className="flex flex-col gap-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-white hover:text-blue-200 font-medium transition-colors duration-150 inline-block hover:translate-x-0.5"
+                    className="text-xs sm:text-sm text-slate-300 hover:text-white font-medium transition-colors duration-150 inline-block hover:translate-x-1"
                   >
                     {link.label}
                   </Link>
@@ -120,46 +122,48 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact & Office Info */}
-          <div className="flex flex-col gap-3 text-xs sm:text-[13px] text-white/90">
-            <h4 className="text-lg font-bold text-white tracking-tight">Contact Us</h4>
-            <div className="flex items-start gap-2">
-              <span className="text-white mt-0.5 flex-shrink-0">📍</span>
+          <div className="flex flex-col gap-3.5 text-xs sm:text-sm text-slate-300">
+            <h4 className="text-base font-bold text-white tracking-tight">Contact Us</h4>
+            <div className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-[#046BD2] mt-0.5 shrink-0" />
               <p className="leading-relaxed">
                 Gurugram, Haryana, India
               </p>
             </div>
 
-            <div className="flex items-center gap-2 pt-1">
-              <span className="text-white flex-shrink-0">📞</span>
-              <a href="tel:+918178802368" className="hover:text-white font-semibold transition-colors">
-                +91-8178802368
+            <div className="flex items-center gap-2.5">
+              <Phone className="w-4 h-4 text-[#046BD2] shrink-0" />
+              <a href="tel:+918178802368" className="hover:text-white font-medium transition-colors">
+                +91 81788 02368
               </a>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="text-white flex-shrink-0">✉️</span>
-              <a href="mailto:adfordge.marketing@gmail.com" className="hover:text-white font-semibold transition-colors truncate">
+            <div className="flex items-center gap-2.5">
+              <Mail className="w-4 h-4 text-[#046BD2] shrink-0" />
+              <a href="mailto:adfordge.marketing@gmail.com" className="hover:text-white font-medium transition-colors truncate">
                 adfordge.marketing@gmail.com
               </a>
             </div>
 
             <div className="pt-2">
-              <Link
+              <Button
                 href="/#contact"
-                className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-[11px] uppercase tracking-wider px-5 py-2.5 rounded-lg shadow-md transition-all hover:scale-105"
+                variant="primary"
+                size="sm"
+                rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
               >
-                GET A FREE QUOTE →
-              </Link>
+                Claim Free Audit
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Copyright Strip */}
-      <div className="border-t border-white/20 px-4 sm:px-8 lg:px-12 py-5 bg-black/10">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/80">
+      <div className="border-t border-slate-800/80 px-4 sm:px-8 lg:px-12 py-5 bg-[#060D1F]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <p>© 2026 AdForge. All rights reserved.</p>
-          <p className="font-semibold text-white">Ads that forge growth</p>
+          <p className="font-semibold text-slate-300">Data-driven performance marketing</p>
         </div>
       </div>
     </footer>

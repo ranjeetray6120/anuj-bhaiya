@@ -1,35 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  /* ── Primary Brand Colors (from utdigitalmedia.com) ── */
-  --color-primary:        #046BD2;   /* Main blue – buttons, links, CTA */
-  --color-primary-hover:  #045CB4;   /* Hover state blue */
-  --color-primary-light:  #F0F5FA;   /* Light blue bg sections */
+  /* ── AdForge Centralized Design System Tokens ── */
+  
+  /* Primary & Brand Accents */
+  --color-primary:          #046BD2;   /* Main AdForge Blue */
+  --color-primary-hover:    #0356A8;   /* Primary Darker Blue */
+  --color-primary-light:    #F0F6FF;   /* Subtle Blue Background Tint */
+  --color-primary-fg:       #FFFFFF;   /* Foreground on Primary */
 
-  /* ── Text Colors ── */
-  --color-heading:  #1E293B;   /* Dark headings */
-  --color-body:     #334155;   /* Body text */
-  --color-muted:    #64748B;   /* Muted / secondary text */
+  --color-accent:           #168ED3;   /* Bright Cyan Blue Accent */
+  --color-accent-hover:     #1277B2;
+  --color-accent-light:     #EFF8FF;
 
-  /* ── Background Colors ── */
-  --color-bg-white:  #FFFFFF;
-  --color-bg-light:  #F0F5FA;
-  --color-bg-dark:   #0a1628;  /* Dark sections (hero, footer, numbers) */
-  --color-bg-darker: #060d1f;  /* Darkest sections */
+  --color-accent-warm:      #E11D48;   /* High-Conversion Warm CTA (Rose/Ruby) */
+  --color-accent-warm-hover:#BE123C;
 
-  /* ── Border / Divider ── */
-  --color-border: #D1D5DB;
+  /* Surfaces & Backgrounds */
+  --background:             #FFFFFF;
+  --foreground:             #0F172A;   /* Slate 900 */
+  --color-surface:          #F8FAFC;   /* Slate 50 Surface */
+  --color-surface-card:     #FFFFFF;   /* Elevated Card Surface */
+  --color-surface-muted:    #F1F5F9;   /* Slate 100 */
+  --color-surface-dark:     #0A1628;   /* Navy Dark Sections */
+  --color-surface-darker:   #060D1F;   /* Deepest Navy */
 
-  /* ── Background ── */
-  --background: #ffffff;
-  --foreground: #1E293B;
+  /* Text Typography Hierarchy */
+  --color-text-heading:     #0F172A;   /* Slate 900 */
+  --color-text-body:        #334155;   /* Slate 700 */
+  --color-text-muted:       #64748B;   /* Slate 500 */
+  --color-text-subtle:      #94A3B8;   /* Slate 400 */
+
+  /* Borders & Dividers */
+  --color-border:           #E2E8F0;   /* Slate 200 (Standard) */
+  --color-border-subtle:    #F1F5F9;   /* Slate 100 (Hairline) */
+  --color-border-strong:    #CBD5E1;   /* Slate 300 (Hover/Focus) */
+
+  /* Semantic Status Signals */
+  --color-success:          #10B981;   /* Emerald 500 */
+  --color-success-light:    #ECFDF5;
+  --color-warning:          #F59E0B;   /* Amber 500 */
+  --color-warning-light:    #FFFBEB;
+  --color-error:            #EF4444;   /* Red 500 */
+  --color-error-light:      #FEF2F2;
+  --color-info:             #046BD2;   /* Blue 500 */
+  --color-info-light:       #EFF6FF;
+
+  /* Radii */
+  --radius-sm:              6px;
+  --radius-md:              10px;
+  --radius-lg:              14px;
+  --radius-xl:              20px;
+  --radius-full:            9999px;
+
+  /* Transition Durations */
+  --duration-fast:          150ms;
+  --duration-normal:        250ms;
+  --duration-slow:          400ms;
 }
 
 @theme inline {
-  --color-primary:        var(--color-primary);
-  --color-primary-hover:  var(--color-primary-hover);
-  --color-background:     var(--background);
-  --color-foreground:     var(--foreground);
+  --color-primary:          var(--color-primary);
+  --color-primary-hover:    var(--color-primary-hover);
+  --color-primary-light:    var(--color-primary-light);
+  --color-accent:           var(--color-accent);
+  --color-accent-warm:      var(--color-accent-warm);
+  --color-background:       var(--background);
+  --color-foreground:       var(--foreground);
+  --color-surface:          var(--color-surface);
+  --color-surface-dark:     var(--color-surface-dark);
+  --color-border:           var(--color-border);
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-montserrat), sans-serif;
 }
@@ -39,7 +79,7 @@
   scroll-behavior: smooth;
 }
 
-/* Respect prefers-reduced-motion — required for accessibility */
+/* Accessibility: Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -49,40 +89,38 @@
   }
 }
 
-/* Focus visible for keyboard navigation — accessibility */
+/* Accessibility: Standardized visible focus ring */
 :focus-visible {
-  outline: 2px solid #046BD2;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-montserrat), sans-serif;
-    color: var(--color-heading);
-    font-weight: 700;
-  }
-
-  a {
-    transition: color 0.2s;
+    color: var(--color-text-heading);
+    letter-spacing: -0.02em;
   }
 }
 
 /* ── Custom Scrollbar ── */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-bg-light); }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--color-surface); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-strong); }
 
-/* ── Selection ── */
+/* ── Text Selection ── */
 ::selection {
   background-color: var(--color-primary);
   color: #ffffff;

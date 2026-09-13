@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 const servicesList = [
   {
@@ -85,7 +86,7 @@ export default function Navbar() {
 
             {/* Dropdown Menu */}
             {servicesDropdownOpen && (
-              <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-3 px-2 flex flex-col gap-1 transition-all duration-200 animate-fadeIn">
+              <div className="absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-slate-200 py-3 px-2 flex flex-col gap-1 transition-all duration-200 animate-fadeIn">
                 {servicesList.map((service) => (
                   <Link
                     key={service.title}
@@ -136,12 +137,13 @@ export default function Navbar() {
 
         {/* Right CTA Button */}
         <div className="hidden lg:flex items-center">
-          <Link
+          <Button
             href="/#contact"
-            className="bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+            variant="primary"
+            size="sm"
           >
-            GET A FREE QUOTE
-          </Link>
+            Get Free Quote
+          </Button>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -250,13 +252,15 @@ export default function Navbar() {
           </Link>
 
           <div className="pt-2">
-            <Link
+            <Button
               href="/#contact"
+              variant="primary"
+              size="md"
+              fullWidth
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center bg-[#D82C5E] hover:bg-[#bf204d] !text-white text-xs font-bold uppercase tracking-wider py-3 rounded-lg shadow-sm"
             >
-              GET A FREE QUOTE
-            </Link>
+              Get Free Quote
+            </Button>
           </div>
         </div>
       )}

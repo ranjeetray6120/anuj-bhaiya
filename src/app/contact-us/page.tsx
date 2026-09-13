@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { motion } from "framer-motion";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { HeroSection } from "@/components/adforge/HeroSection";
+import { LeadForm } from "@/components/adforge/LeadForm";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Mail, Phone, MapPin, ShieldCheck, Clock } from "lucide-react";
 
 const faqs = [
   {
@@ -27,307 +29,148 @@ const faqs = [
 ];
 
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "All (Google + Meta + SEO)",
-    monthlyBudget: "₹1 Lakh – ₹5 Lakh",
-    message: "",
-  });
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) return;
-
-    setLoading(true);
-    try {
-      let token = "";
-      if (recaptchaRef.current) {
-        try {
-          token = (await recaptchaRef.current.executeAsync()) || "";
-        } catch (cErr) {
-          console.warn("reCAPTCHA execute error:", cErr);
-        }
-      }
-
-      await fetch("/api/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          monthlyBudget: formData.monthlyBudget,
-          message: formData.message,
-          source: "Contact Us Dedicated Page",
-          recaptchaToken: token,
-        }),
-      });
-      recaptchaRef.current?.reset();
-      setSubmitted(true);
-    } catch (err) {
-      console.error(err);
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-24">
+      <main className="flex-1 pt-20">
         {/* Header Hero */}
-        <section
-          className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center text-white overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-4xl mx-auto flex flex-col items-center gap-4 relative z-10"
-          >
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-              Ready to Amplify Your{" "}
-              <span className="text-[#FFDE59]">Digital Journey?</span>
-            </h1>
-            <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
-              Book a 1-on-1 growth strategy session with our senior performance specialists. We respond within 2 hours.
-            </p>
-          </motion.div>
-        </section>
+        <HeroSection
+          badge="GET IN TOUCH"
+          title="Ready to Amplify Your Brand's Revenue Growth?"
+          highlight="Revenue Growth"
+          subtitle="Book a 1-on-1 growth strategy session with our senior performance specialists. We analyze your unit economics and reply within 2 hours."
+          primaryCtaText="Claim Free Growth Audit"
+          primaryCtaHref="#contact-form"
+          secondaryCtaText="Read Client FAQs"
+          secondaryCtaHref="#faqs"
+          trustPoints={[
+            "Direct Access to Senior Media Buyers",
+            "Confidential Audit & Unit Economics Analysis",
+            "Response Guaranteed Within 2 Hours",
+          ]}
+        />
 
         {/* Contact Form & Info Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section id="contact-form" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5 flex flex-col gap-8"
-            >
+            <div className="lg:col-span-5 flex flex-col gap-8 text-left">
               <div>
-
-                <h2 className="text-3xl font-extrabold text-slate-900 mt-1 leading-tight">
-                  Speak Directly with a Growth Strategist
+                <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2] block mb-2">
+                  DIRECT CONSULTATION
+                </span>
+                <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">
+                  Speak Directly with a Senior Growth Strategist
                 </h2>
                 <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-                  No pushy sales reps. You will speak directly with a performance specialist who manages multi-lakh monthly ad budgets.
+                  No junior account reps or aggressive sales scripts. You will speak directly with an experienced media buyer who manages multi-lakh monthly ad budgets.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</span>
-                  <a href="mailto:adfordge.marketing@gmail.com" className="text-base font-bold text-[#046BD2] hover:underline">
-                    adfordge.marketing@gmail.com
-                  </a>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Phone / WhatsApp</span>
-                  <a href="tel:+918178802368" className="text-base font-bold text-[#046BD2] hover:underline">
-                    +91 81788 02368
-                  </a>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Office Location</span>
-                  <p className="text-base font-bold text-slate-800">Gurugram, Haryana, India</p>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-1 shadow-xs transition-transform">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Official Partnerships</span>
-                  <p className="text-sm font-semibold text-slate-800">Google Official Partner • Meta Business Partner</p>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Right: Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-7 bg-slate-50 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl"
-            >
-              <div className="mb-6">
-                <h3 className="text-2xl font-extrabold text-slate-900">Request a Free Growth Audit</h3>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Fill out the form below to receive your custom 90-day scaling roadmap.
-                </p>
-              </div>
-
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-8 rounded-2xl text-center flex flex-col items-center gap-3"
-                >
-                  <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
-                    ✓
+                <Card interactive surface="muted" className="p-5 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#046BD2] flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <h4 className="text-xl font-bold">Inquiry Received!</h4>
-                  <p className="text-sm text-emerald-700">
-                    Thank you, <span className="font-bold">{formData.name}</span>. Our growth team will review your requirements and reach out via email ({formData.email}) or phone ({formData.phone}) within 2 hours.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Your Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Rahul Sharma"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Business Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Phone / WhatsApp *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 98765 43210"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Primary Service Needed
-                      </label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                      >
-                        <option value="All (Google + Meta + SEO)">All (Omnichannel Scaling)</option>
-                        <option value="Google Ads / PPC">Google Ads / PPC</option>
-                        <option value="Meta Ads (FB & IG)">Meta Ads (Facebook &amp; Instagram)</option>
-                        <option value="Search Engine Optimization">Search Engine Optimization (SEO)</option>
-                      </select>
-                    </div>
-                  </div>
-
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                      Monthly Ad Budget
-                    </label>
-                    <select
-                      value={formData.monthlyBudget}
-                      onChange={(e) => setFormData({ ...formData, monthlyBudget: e.target.value })}
-                      className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Email Address
+                    </span>
+                    <a
+                      href="mailto:adfordge.marketing@gmail.com"
+                      className="block text-base font-bold text-[#046BD2] hover:underline mt-0.5"
                     >
-                      <option value="< ₹1 Lakh">&lt; ₹1 Lakh / month</option>
-                      <option value="₹1 Lakh – ₹5 Lakh">₹1 Lakh – ₹5 Lakh / month</option>
-                      <option value="₹5 Lakh – ₹20 Lakh">₹5 Lakh – ₹20 Lakh / month</option>
-                      <option value="₹20 Lakh+">₹20 Lakh+ / month (Enterprise)</option>
-                    </select>
+                      adfordge.marketing@gmail.com
+                    </a>
                   </div>
+                </Card>
 
+                <Card interactive surface="muted" className="p-5 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#046BD2] flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                      Website URL &amp; Goals
-                    </label>
-                    <textarea
-                      rows={3}
-                      placeholder="Tell us about your brand, website URL, and current growth bottlenecks..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-white border border-slate-300 focus:border-[#046BD2] text-slate-900 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                    />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Phone / WhatsApp
+                    </span>
+                    <a
+                      href="tel:+918178802368"
+                      className="block text-base font-bold text-[#046BD2] hover:underline mt-0.5"
+                    >
+                      +91 81788 02368
+                    </a>
                   </div>
+                </Card>
 
-                  {/* Google reCAPTCHA v2 Invisible */}
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    size="invisible"
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6Lc0BVstAAAAAO2_FNzwyuFZ-aUgivoGJLFkXW8f"}
-                  />
+                <Card surface="muted" className="p-5 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#046BD2] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Office Location
+                    </span>
+                    <p className="text-base font-bold text-slate-800 mt-0.5">
+                      Gurugram, Haryana, India
+                    </p>
+                  </div>
+                </Card>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-[#D82C5E] hover:bg-[#bf204d] disabled:opacity-75 !text-white font-extrabold text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all duration-200 cursor-pointer"
-                  >
-                    {loading ? "SENDING INQUIRY..." : "SUBMIT AUDIT REQUEST →"}
-                  </motion.button>
-                </form>
-              )}
-            </motion.div>
+                <Card surface="muted" className="p-5 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Official Agency Credentials
+                    </span>
+                    <p className="text-sm font-bold text-slate-800 mt-0.5">
+                      Google Official Partner • Meta Business Partner
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </div>
+
+            {/* Right: Standardized Lead Form */}
+            <div className="lg:col-span-7">
+              <LeadForm
+                source="Contact Us Dedicated Page"
+                title="Request a Free Growth Audit"
+                subtitle="Fill out the form below to receive your custom 90-day scaling roadmap."
+                variant="full"
+              />
+            </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
+        <section id="faqs" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-
-              <h2 className="text-3xl font-extrabold text-slate-900 mt-1">Frequently Asked Questions</h2>
-              <div className="mt-3 mx-auto w-12 h-1 bg-[#046BD2] rounded-full" />
-            </motion.div>
+            <SectionHeader
+              badge="FREQUENTLY ASKED QUESTIONS"
+              badgeVariant="secondary"
+              title="Common Questions Before Getting Started"
+              highlight="Before Getting Started"
+              description="Transparent answers to help you understand our agreements, deliverables, and partnership structure."
+            />
 
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
-                <motion.div
+                <Card
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  whileHover={{ scale: 1.01, y: -2 }}
-                  className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200"
+                  interactive
+                  surface="white"
+                  className="p-6 sm:p-7 flex flex-col gap-2 text-left"
                 >
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{faq.a}</p>
-                </motion.div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    {faq.q}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {faq.a}
+                  </p>
+                </Card>
               ))}
             </div>
           </div>

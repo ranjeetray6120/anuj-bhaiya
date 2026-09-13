@@ -10,10 +10,10 @@ export default function FloatingWidgets() {
     <aside aria-label="Quick Support and Contact" className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 select-none">
       {/* Quick Chat Popup Card when user clicks Chat Button */}
       {chatOpen && (
-        <div className="w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 mb-1 animate-fadeIn text-slate-800">
+        <div className="w-80 bg-white rounded-xl shadow-xl border border-slate-200 p-4 mb-1 animate-fadeIn text-slate-800">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
               <span className="text-xs font-bold text-slate-800">AdForge Growth Team</span>
             </div>
             <button
@@ -26,7 +26,7 @@ export default function FloatingWidgets() {
           </div>
 
           <div className="py-3 text-xs text-slate-600 leading-relaxed">
-            <p className="font-semibold text-slate-900 mb-1">👋 Hi there!</p>
+            <p className="font-semibold text-slate-900 mb-1">Hi there!</p>
             <p>
               Looking to scale your Google Ads, Meta Ads, or SEO revenue? Talk directly with our senior growth strategist.
             </p>
@@ -37,7 +37,7 @@ export default function FloatingWidgets() {
               href="https://wa.me/918178802368?text=Hello%20AdForge,%20I%20want%20to%20scale%20my%20business%20growth"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#25D366] hover:bg-[#20bd5a] !text-white text-xs font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-xs transition-all"
+              className="w-full bg-[#25D366] hover:bg-[#20bd5a] !text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
             >
               <span>Chat on WhatsApp</span>
             </a>
@@ -45,7 +45,7 @@ export default function FloatingWidgets() {
             <Link
               href="/#contact"
               onClick={() => setChatOpen(false)}
-              className="w-full bg-slate-900 hover:bg-slate-800 !text-white text-xs font-bold py-2 px-3 rounded-xl text-center shadow-xs transition-all"
+              className="w-full bg-slate-900 hover:bg-slate-800 !text-white text-xs font-bold py-2 px-3 rounded-lg text-center transition-colors"
             >
               Request Free Growth Audit
             </Link>
@@ -59,10 +59,10 @@ export default function FloatingWidgets() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with AdForge on WhatsApp"
-        className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer ring-2 ring-white/80"
+        className="w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-lg transition-colors cursor-pointer"
       >
         <svg
-          className="w-7 h-7 fill-current"
+          className="w-6 h-6 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -71,26 +71,21 @@ export default function FloatingWidgets() {
         </svg>
       </a>
 
-      {/* Blue Chat Floating Action Button with Red "1" Badge */}
+      {/* Blue Chat Floating Action Button */}
       <button
         onClick={() => setChatOpen(!chatOpen)}
         aria-label={chatOpen ? "Close support chat" : "Open support chat"}
         aria-expanded={chatOpen}
-        className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#1877F2] hover:bg-[#046BD2] text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer relative ring-2 ring-white/80"
+        className="w-12 h-12 rounded-full bg-[#046BD2] hover:bg-[#0356A8] text-white flex items-center justify-center shadow-lg transition-colors cursor-pointer"
       >
         <svg
-          className="w-6 h-6 fill-current"
+          className="w-5 h-5 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
         </svg>
-
-        {/* Red "1" Notification Badge */}
-        <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#EF4444] text-white text-[11px] font-black flex items-center justify-center ring-2 ring-white shadow-md" aria-label="1 unread message">
-          1
-        </span>
       </button>
     </aside>
   );

@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 
 const servicesData = [
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
         {/* Official Google 4-Color G Logo */}
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z" fill="#4285F4"/>
@@ -30,12 +31,18 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
         {/* Official Google Ads Logo */}
-        <svg className="w-9 h-9" viewBox="0 0 192 192" fill="none" aria-hidden="true">
-          <path d="M33.88 120.47 78.43 43.3c7.22-12.5 23.23-16.78 35.73-9.56 12.5 7.22 16.78 23.23 9.56 35.73L79.17 146.64c-7.22 12.5-23.23 16.78-35.73 9.56-12.5-7.22-16.78-23.23-9.56-35.73z" fill="#FBBC04"/>
-          <path d="M149.88 43.3c12.5-7.22 28.51-2.94 35.73 9.56 7.22 12.5 2.94 28.51-9.56 35.73l-44.55 77.17c-7.22 12.5-23.23 16.78-35.73 9.56-12.5-7.22-16.78-23.23-9.56-35.73L149.88 43.3z" fill="#4285F4"/>
-          <circle cx="56.57" cy="133.58" r="26.15" fill="#34A853"/>
+        <svg className="w-9 h-9" viewBox="0 0 256 230" fill="none" aria-hidden="true">
+          <path
+            fill="#FBBC04"
+            d="M5.888 166.405L90.88 20.9c10.796 6.356 65.236 36.484 74.028 42.214L79.916 208.627c-9.295 12.28-85.804-23.587-74.028-42.23z"
+          />
+          <path
+            fill="#4285F4"
+            d="M250.084 166.402L165.092 20.906C153.21 1.132 127.62-6.054 106.601 5.625S79.182 42.462 91.064 63.119l84.992 145.514c11.882 19.765 37.473 26.95 58.492 15.272c20.1-11.68 27.418-37.73 15.536-57.486z"
+          />
+          <ellipse cx="42.664" cy="187.924" fill="#34A853" rx="42.664" ry="41.604" />
         </svg>
       </div>
     ),
@@ -52,7 +59,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
         {/* Official Meta Infinity Logo */}
         <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <defs>
@@ -79,7 +86,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-md group-hover:shadow-lg transition-all">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
         {/* Full-Stack Web Development & CRO Icon */}
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M16 18L22 12L16 6" stroke="#0284C7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -124,35 +131,20 @@ const cardVariants: Variants = {
 
 export default function PerformanceStats() {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden" id="services">
-      {/* Decorative background horizontal gradient strip */}
-      <div
-        className="absolute top-1/2 left-0 right-0 h-48 -translate-y-1/2 pointer-events-none -z-0 opacity-90 hidden lg:block"
-        style={{
-          background: "linear-gradient(90deg, #168ed3 0%, #1a97db 50%, #1f9fe3 100%)",
-        }}
-      />
+    <section className="py-20 px-4 sm:px-6 lg:px-12 bg-white border-t border-slate-100" id="services">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <div className="mb-14">
+          <SectionHeader
+            eyebrow="GROWTH SERVICES"
+            title="Engineered for Ecommerce &"
+            highlight="Lead Generation"
+            subtitle="Honest, 100% transparent, and data-driven performance marketing strategies."
+            align="center"
+          />
+        </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Heading with Framer Motion reveal */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <h2 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold text-slate-900 leading-tight">
-            Our ROI driven Services for both Ecommerce as well as{" "}
-            <span className="text-[#046BD2]">Lead Generation Businesses!</span>
-          </h2>
-
-          <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3">
-            Honest, 100% transparency and Data Driven Approach is how we operate.
-          </p>
-        </motion.div>
-
-        {/* 4 Cards Grid with Staggered Entrance & 3D Hover Lift */}
+        {/* 4 Cards Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -164,43 +156,36 @@ export default function PerformanceStats() {
             <motion.div
               key={idx}
               variants={cardVariants}
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200/80 p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
+              className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between transition-colors hover:border-[#046BD2]"
             >
-              {/* Top Accent Gradient Line on Hover */}
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
               <div>
                 {/* Icon Container */}
-                <div className="mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-5">
                   {s.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-extrabold text-slate-900 text-center mb-3 group-hover:text-[#046BD2] transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 text-center mb-2 tracking-tight">
                   {s.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-slate-600 text-center leading-relaxed mb-6">
+                <p className="text-xs text-slate-600 text-center leading-relaxed mb-5">
                   {s.desc}
                 </p>
 
-                {/* Checklist Section */}
-                <div className="border-t border-slate-100 pt-4 mb-6">
-                  <p className="text-xs font-bold text-slate-800 mb-3 text-left">
-                    Start with...
+                {/* Deliverables Checklist */}
+                <div className="border-t border-slate-100 pt-4 mb-5">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5 text-left">
+                    Capabilities
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5">
                     {s.items.map((item, i) => (
                       <li
                         key={i}
                         className="flex items-center gap-2 text-xs text-slate-700 font-medium"
                       >
-                        <span className="w-4 h-4 rounded-full bg-blue-100 text-[#046BD2] flex items-center justify-center text-[10px] font-bold flex-shrink-0">
-                          ✓
-                        </span>
+                        <span className="text-[#046BD2] font-bold text-xs">✓</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -208,14 +193,14 @@ export default function PerformanceStats() {
                 </div>
               </div>
 
-              {/* Action Link with Animated Arrow */}
-              <div className="text-center pt-2 border-t border-slate-100">
+              {/* Action Link */}
+              <div className="text-center pt-3 border-t border-slate-100">
                 <Link
                   href={s.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-900 hover:text-[#046BD2] uppercase tracking-wider transition-colors py-1 group/link"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046BD2] hover:text-[#0356A8] uppercase tracking-wider transition-colors py-1 group/link"
                 >
-                  Learn More
-                  <span className="transition-transform group-hover/link:translate-x-1 duration-200">
+                  Explore Service
+                  <span className="transition-transform group-hover/link:translate-x-0.5 duration-150">
                     →
                   </span>
                 </Link>

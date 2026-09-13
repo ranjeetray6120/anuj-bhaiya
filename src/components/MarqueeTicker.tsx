@@ -41,9 +41,9 @@ export default function MarqueeTicker() {
           {duplicatedItems.map((label, idx) => (
             <div
               key={idx}
-              className="flex items-center px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-slate-700 hover:border-[#168ed3] hover:text-[#168ed3] hover:bg-sky-50/50 transition-all duration-200 shadow-xs"
+              className="flex items-center px-3.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 hover:border-[#046BD2] hover:text-[#046BD2] transition-colors shadow-xs"
             >
-              <span className="text-xs sm:text-sm font-semibold tracking-wide">
+              <span className="text-xs sm:text-sm font-semibold tracking-tight">
                 {label}
               </span>
             </div>

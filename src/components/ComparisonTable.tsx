@@ -1,128 +1,109 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Check, X } from "lucide-react";
 
 const utAdvantages = [
-  "Total Inhouse Team & Dedicated Strategists",
-  "Strategy session & extensive pre-campaign research",
-  "Official Google & Meta Partner agency credentials",
-  "In depth customisation for individual client requirements – no 'one size fits all' approach",
-  "Top, Certified Team that understands scalable unit economics",
-  "Unbeatable performance milestones",
-  "No hidden fees. 100% data & account ownership is yours",
-  "Let us focus on what we do best, so you can focus on scale",
+  "Total In-House Team & Dedicated Account Strategists",
+  "Extensive Pre-Campaign Research & Unit Economics Analysis",
+  "Official Google Premier & Meta Business Partner Credentials",
+  "Tailored Strategy for Individual Brand Requirements — Zero Templates",
+  "Senior Media Buyers Managing Multi-Lakh Monthly Media Spend",
+  "Strict Performance Milestones Tied to Tracked ROAS and CPA",
+  "100% Data & Ad Account Ownership Remains Yours Forever",
+  "Proactive Weekly Strategic Calls & Real-Time Performance Dashboards",
 ];
 
 const otherNegatives = [
-  "Outsourcing of work to third-party freelancers",
-  "Standard 'package' approach with every service",
-  "Churn & burn approach to client acquisition",
-  "Basic template audit and generic implementation",
-  "Untrained and intern level execution",
-  "Slow or confusing communication with clients",
-  "No performance milestone model when it comes to SEO",
-  "Hidden fees and holding data hostage on their own accounts",
-  "No strategic level implementation – old school tactics",
+  "Outsourcing Client Work to Inexperienced Freelancers",
+  "Generic 'One Size Fits All' Package Approach",
+  "High-Churn Model Focused on Quick Retainers",
+  "Automated Surface Audits with Zero Strategic Context",
+  "Junior Intern-Level Account Management",
+  "Slow, Disorganized Communication and Reactive Reporting",
+  "Zero Accountability for Target Metrics or Lost Budget",
+  "Hidden Markups and Holding Account Access Hostage",
 ];
-
-const CheckIcon = () => (
-  <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
-    ✓
-  </span>
-);
-
-const XIcon = () => (
-  <span className="w-4 h-4 rounded-full bg-rose-100 text-rose-700 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
-    ✕
-  </span>
-);
 
 export default function ComparisonTable() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
+    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <SectionHeader
+          badge="THE ADFORGE ADVANTAGE"
+          title="Why Scaling Brands Choose Us Over Traditional Agencies"
+          highlight="Traditional Agencies"
+          description="We align our incentives with your profitability. Here is how our operational model differs from conventional marketing vendors."
+        />
 
-          <h2 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold text-slate-900 tracking-tight">Why Choose Us?</h2>
-          <div className="mt-3 mx-auto w-12 h-1 bg-[#168ed3] rounded-full" />
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
-          {/* AdForge Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-6 sm:p-9 relative"
-          >
-            <div className="flex items-center gap-2.5 mb-6">
-              <span className="inline-block w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-              <h3 className="text-xl font-black text-slate-900 tracking-tight">AdForge Agency</h3>
-              <span className="ml-auto text-[10px] font-extrabold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                Guaranteed
-              </span>
-            </div>
-            <ul className="space-y-3.5">
-              {utAdvantages.map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: idx * 0.06 }}
-                  className="flex items-start gap-3 group"
-                >
-                  <CheckIcon />
-                  <span className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-snug group-hover:text-[#168ed3] transition-colors">
-                    {item}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 rounded-xl overflow-hidden border border-slate-200 bg-white">
+          {/* AdForge Column */}
+          <div className="bg-white p-6 sm:p-9 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
+                    Our Standard
                   </span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+                  <h3 className="text-xl font-bold text-slate-900 mt-0.5">
+                    AdForge Agency
+                  </h3>
+                </div>
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">
+                  Guaranteed Milestones
+                </span>
+              </div>
 
-          {/* VS Divider */}
-          <div className="bg-slate-900 flex items-center justify-center px-6 py-4 md:py-0 relative">
-            <span className="text-white font-black text-2xl tracking-widest select-none drop-shadow-md">vs.</span>
+              <ul className="space-y-3.5">
+                {utAdvantages.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Other Agencies Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-rose-50/40 p-6 sm:p-9"
-          >
-            <div className="flex items-center gap-2.5 mb-6">
-              <span className="inline-block w-3 h-3 rounded-full bg-rose-400" />
-              <h3 className="text-xl font-bold text-slate-700 tracking-tight">Other Agencies</h3>
+          {/* VS Divider */}
+          <div className="bg-slate-100 flex items-center justify-center px-5 py-3 md:py-0 border-y md:border-y-0 md:border-x border-slate-200">
+            <span className="text-slate-400 font-bold text-xs uppercase tracking-widest select-none">
+              VS
+            </span>
+          </div>
+
+          {/* Other Agencies Column */}
+          <div className="bg-slate-50/60 p-6 sm:p-9 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200/80">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                    Industry Typical
+                  </span>
+                  <h3 className="text-xl font-bold text-slate-600 mt-0.5">
+                    Traditional Agencies
+                  </h3>
+                </div>
+                <span className="text-xs font-semibold text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-md">
+                  Standard Vendor
+                </span>
+              </div>
+
+              <ul className="space-y-3.5">
+                {otherNegatives.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-600 leading-snug">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-3.5">
-              {otherNegatives.map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: idx * 0.06 }}
-                  className="flex items-start gap-3"
-                >
-                  <XIcon />
-                  <span className="text-xs sm:text-[13px] text-slate-600 leading-snug">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

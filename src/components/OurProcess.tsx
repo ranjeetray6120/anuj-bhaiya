@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ArrowRight } from "lucide-react";
 
 
 const steps = [
@@ -31,12 +33,11 @@ function ProcessFlowchart({
   setActiveStep: (step: number) => void;
 }) {
   return (
-    <div className="w-full max-w-md mx-auto bg-slate-50/90 border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xl relative">
-      {/* Progress pill header */}
+    <div className="w-full max-w-md mx-auto bg-white border border-slate-200 rounded-xl p-5 sm:p-6 relative">
+      {/* Progress header */}
       <div className="flex items-center justify-between mb-3 px-1">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#046BD2] animate-ping" />
-          Live Flow Pipeline
+        <span className="text-xs font-bold uppercase tracking-wider text-[#046BD2]">
+          Execution Pipeline
         </span>
         <div className="flex items-center gap-1" role="tablist" aria-label="Process steps">
           {[1, 2, 3, 4, 5, 6].map((num) => (
@@ -140,13 +141,12 @@ function ProcessFlowchart({
               className="cursor-pointer transition-transform duration-300"
               onClick={() => setActiveStep(node.stepNum)}
             >
-              {/* Outer Ripple effect on active */}
+              {/* Outer subtle ring on active */}
               {isActive && (
                 <circle
-                  r="28"
+                  r="26"
                   fill="#046BD2"
-                  opacity="0.2"
-                  className="animate-ping"
+                  opacity="0.12"
                 />
               )}
 
@@ -235,55 +235,51 @@ export default function OurProcess() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Our <span className="text-[#046BD2]">Process</span>
-          </h2>
-          <div className="mt-2 mx-auto w-12 h-1 bg-[#046BD2] rounded-full" />
-        </motion.div>
+        {/* Section Header */}
+        <div className="mb-12 sm:mb-14">
+          <SectionHeader
+            eyebrow="EXECUTION FRAMEWORK"
+            title="Our 6-Step Growth"
+            highlight="Process"
+            subtitle="A structured, data-backed methodology engineered to scale campaigns predictably."
+            align="center"
+          />
+        </div>
 
         {/* 2-Column Synchronized Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Interactive Numbered List & CTA */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-6 flex flex-col justify-center"
           >
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2">
               {steps.map((step) => {
                 const isActive = activeStep === step.number;
                 const isPassed = activeStep > step.number;
 
                 return (
-                  <motion.div
+                  <div
                     key={step.number}
                     onClick={() => setActiveStep(step.number)}
-                    whileHover={{ scale: 1.015, x: 4 }}
-                    className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl cursor-pointer transition-all duration-300 ${
+                    className={`flex items-center justify-between p-3.5 rounded-xl cursor-pointer transition-all duration-200 border ${
                       isActive
-                        ? "bg-blue-50/90 border border-blue-200 shadow-md translate-x-1"
-                        : "hover:bg-slate-50/80 border border-slate-100"
+                        ? "bg-blue-50/70 border-blue-200"
+                        : "bg-white border-slate-200/80 hover:border-slate-300 hover:bg-slate-50/50"
                     }`}
                   >
                     <div className="flex items-center gap-3.5">
                       {/* Step Number Badge */}
                       <div
-                        className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-extrabold text-sm transition-all duration-300 ${
+                        className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs transition-colors duration-200 ${
                           isActive
-                            ? "bg-[#046BD2] text-white ring-4 ring-blue-100 shadow-md scale-105"
+                            ? "bg-[#046BD2] text-white"
                             : isPassed
-                            ? "bg-[#046BD2]/80 text-white"
-                            : "bg-slate-200 text-slate-600"
+                            ? "bg-slate-800 text-white"
+                            : "bg-slate-100 text-slate-500"
                         }`}
                       >
                         {isPassed && !isActive ? "✓" : step.number}
@@ -292,11 +288,11 @@ export default function OurProcess() {
                       {/* Title & Description */}
                       <div>
                         <p
-                          className={`text-sm sm:text-base lg:text-lg font-bold tracking-tight transition-colors duration-300 ${
+                          className={`text-sm sm:text-base font-bold tracking-tight transition-colors duration-200 ${
                             isActive
                               ? "text-[#046BD2]"
                               : isPassed
-                              ? "text-slate-800"
+                              ? "text-slate-900"
                               : "text-slate-600"
                           }`}
                         >
@@ -308,7 +304,7 @@ export default function OurProcess() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5"
+                              className="text-xs text-slate-500 font-medium mt-0.5"
                             >
                               {step.desc}
                             </motion.p>
@@ -317,28 +313,28 @@ export default function OurProcess() {
                       </div>
                     </div>
 
-                    {/* Active pulse icon */}
+                    {/* Active indicator */}
                     {isActive && (
-                      <span className="text-[#046BD2] font-extrabold text-xs hidden sm:inline-flex items-center gap-1 bg-white px-2.5 py-1 rounded-lg shadow-xs border border-blue-100">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#046BD2] animate-ping" />
+                      <span className="text-[#046BD2] font-semibold text-xs hidden sm:inline-flex items-center gap-1.5 bg-white px-2 py-0.5 rounded border border-blue-200">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#046BD2]" />
                         Active
                       </span>
                     )}
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
 
             <div className="mt-6 pl-1 flex items-center gap-4 flex-wrap">
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                <Link
-                  href="/#contact"
-                  className="inline-block bg-[#D82C5E] hover:bg-[#bf204d] !text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-md shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer"
-                >
-                  GET A FREE QUOTE NOW
-                </Link>
-              </motion.div>
-              <span className="text-[11px] text-slate-400 font-medium">
+              <Button
+                href="/#contact"
+                variant="primary"
+                size="lg"
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+              >
+                Claim Free Growth Audit
+              </Button>
+              <span className="text-xs text-slate-400 font-medium">
                 Auto-advancing • Hover to pause
               </span>
             </div>
