@@ -125,3 +125,24 @@ body {
   background-color: var(--color-primary);
   color: #ffffff;
 }
+
+/* ── Infinite Marquee Slider (Left-to-Right) ── */
+@keyframes slide-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-slide-ltr {
+  display: flex;
+  width: max-content;
+  animation: slide-ltr 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-slide-ltr:hover {
+  animation-play-state: paused;
+}

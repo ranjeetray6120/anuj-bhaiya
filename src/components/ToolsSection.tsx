@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Wrench } from "lucide-react";
 
 interface ToolItem {
   id: string;
@@ -503,124 +504,7 @@ const ToolIcon = ({
   </div>
 );
 
-const ToolTag = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium text-slate-600 bg-slate-100/80 border border-slate-200/60 leading-tight">
-    {children}
-  </span>
-);
 
-const ToolStatus = ({
-  text,
-  active = true,
-}: {
-  text: string;
-  active?: boolean;
-}) => (
-  <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-    <span
-      className={`w-1.5 h-1.5 rounded-full ${
-        active ? "bg-emerald-500" : "bg-slate-400"
-      }`}
-    />
-    <span className="truncate max-w-[110px] sm:max-w-none">{text}</span>
-  </div>
-);
-
-const ToolAction = ({ isActive }: { isActive?: boolean }) => (
-  <span
-    className={`inline-flex items-center gap-1 text-xs font-semibold transition-colors duration-150 ${
-      isActive ? "text-blue-600" : "text-slate-700 group-hover:text-blue-600"
-    }`}
-  >
-    <span>Open Tool</span>
-    <svg
-      className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 12L10 8L6 4"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </span>
-);
-
-// =========================================================
-// ONE REUSABLE TOOLCARD COMPONENT
-// =========================================================
-
-interface ToolCardProps {
-  tool: ToolItem;
-  isActive: boolean;
-  onSelect: (id: string) => void;
-}
-
-const ToolCard = ({ tool, isActive, onSelect }: ToolCardProps) => {
-  return (
-    <div
-      onClick={() => onSelect(tool.id)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onSelect(tool.id);
-        }
-      }}
-      className={`bg-white rounded-xl border p-6 flex flex-col justify-between text-left transition-colors duration-150 cursor-pointer ${
-        isActive
-          ? "border-[#046BD2] ring-1 ring-[#046BD2]"
-          : "border-slate-200 hover:border-slate-300"
-      }`}
-    >
-      <div className="flex flex-col gap-3.5">
-        {/* Tool logo */}
-        <div className="w-9 h-9 flex items-center justify-start">
-          <ToolIcon icon={tool.icon} isActive={isActive} />
-        </div>
-
-        {/* Category in clean tracking-widest uppercase */}
-        <div>
-          <p className="text-[11px] font-bold tracking-widest text-[#046BD2] uppercase">
-            {tool.categoryLabel}
-          </p>
-          <h3 className="text-base font-bold text-slate-900 leading-snug mt-1">
-            {tool.name}
-          </h3>
-        </div>
-
-        {/* Short description */}
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
-          {tool.description}
-        </p>
-      </div>
-
-      {/* Footer text link */}
-      <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046BD2] hover:text-[#0356A8] transition-colors">
-          <span>Open Tool</span>
-          <span className="text-sm">→</span>
-        </span>
-      </div>
-    </div>
-  );
-};
-
-// =========================================================
-// REUSABLE TOOLGRID COMPONENT
-// =========================================================
-
-const ToolGrid = ({ children }: { children: React.ReactNode }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-    {children}
-  </div>
-);
 
 // =========================================================
 // NORMALIZED TOOLS DATA (STRICT UNIFORM SCHEMA)
@@ -857,107 +741,72 @@ const allTools: ToolItem[] = [
   },
 ];
 
-const categories = [
-  { id: "all", label: "All Tools", count: allTools.length },
-  {
-    id: "paid",
-    label: "Paid Media",
-    count: allTools.filter((t) => t.category === "paid").length,
-  },
-  {
-    id: "data",
-    label: "Analytics & Tracking",
-    count: allTools.filter((t) => t.category === "data").length,
-  },
-  {
-    id: "seo",
-    label: "Technical SEO",
-    count: allTools.filter((t) => t.category === "seo").length,
-  },
-  {
-    id: "cro",
-    label: "CRO & UX",
-    count: allTools.filter((t) => t.category === "cro").length,
-  },
-];
+// Quadruple tools list for a continuous seamless loop
+const displayTools = [...allTools, ...allTools, ...allTools, ...allTools];
 
 // =========================================================
-// TOOLS SECTION COMPONENT
+// TOOLS SECTION COMPONENT (INFINITE LEFT-TO-RIGHT MARQUEE)
 // =========================================================
 
 export default function ToolsSection() {
-  const [activeTab, setActiveTab] = useState<string>("all");
-  const [selectedToolId, setSelectedToolId] = useState<string>("gsc");
-
-  const filteredTools =
-    activeTab === "all"
-      ? allTools
-      : allTools.filter((tool) => tool.category === activeTab);
-
   return (
     <section
-      className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200"
+      className="py-16 sm:py-20 bg-white border-t border-slate-200 overflow-hidden"
       id="tools"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2] mb-3">
-            TECHNOLOGY STACK
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mb-8">
+        <SectionHeader
+          eyebrow="TECHNOLOGY STACK"
+          title="Enterprise Tools We Deploy"
+          highlight="Tools"
+          subtitle="A unified collection of certified advertising, analytics, and technical auditing tools powering our client campaigns."
+          align="center"
+        />
+      </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Enterprise Tools We Deploy For Maximum ROI
-          </h2>
+      {/* Infinite Marquee Slider: Sliding continuously from Left to Right */}
+      <div className="relative w-full overflow-hidden py-3">
+        {/* Left & Right Smooth Edge Fade Overlays */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed">
-            A unified collection of certified advertising, analytics, and
-            technical auditing tools powering our client campaigns.
-          </p>
+        {/* Sliding Track */}
+        <div className="animate-slide-ltr flex items-center gap-4">
+          {displayTools.map((tool, idx) => (
+            <div
+              key={`${tool.id}-${idx}`}
+              className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-50/80 border border-slate-200 shadow-2xs hover:border-[#046BD2]/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0 group select-none cursor-default"
+            >
+              <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 p-1 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-2xs">
+                {tool.icon}
+              </div>
+              <span className="text-sm font-bold text-slate-800 group-hover:text-[#046BD2] transition-colors whitespace-nowrap">
+                {tool.name}
+              </span>
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Clean Segmented Filter Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="bg-slate-200/70 p-1 rounded-xl border border-slate-200 flex flex-wrap items-center justify-center gap-1">
-            {categories.map((cat) => {
-              const isTabActive = activeTab === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveTab(cat.id)}
-                  className={`px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center gap-2 cursor-pointer select-none ${
-                    isTabActive
-                      ? "bg-white text-slate-900 shadow-2xs"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  <span>{cat.label}</span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded font-medium transition-colors ${
-                      isTabActive
-                        ? "bg-slate-100 text-slate-700"
-                        : "bg-slate-300/60 text-slate-600"
-                    }`}
-                  >
-                    {cat.count}
-                  </span>
-                </button>
-              );
-            })}
+      {/* Bottom Stack Capability Pill Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mt-10">
+        <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-2">
+            <Wrench className="w-4 h-4 text-[#046BD2]" />
+            <span className="font-semibold text-slate-700">
+              Certified Tool Deployments &amp; Direct APIs
+            </span>
+          </div>
+          <div className="flex items-center gap-4 sm:gap-6 font-medium text-slate-500">
+            <span>Google Marketing Platform</span>
+            <span>•</span>
+            <span>Meta Business Suite</span>
+            <span>•</span>
+            <span>Server-Side CAPI</span>
+            <span>•</span>
+            <span>Enterprise SEO Crawlers</span>
           </div>
         </div>
-
-        {/* One Reusable Grid with Uniform ToolCards */}
-        <ToolGrid>
-          {filteredTools.map((tool) => (
-            <ToolCard
-              key={tool.id}
-              tool={tool}
-              isActive={selectedToolId === tool.id}
-              onSelect={(id) => setSelectedToolId(id)}
-            />
-          ))}
-        </ToolGrid>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import clientsData from "@/data/clients.json";
-import { ExternalLink, CheckCircle2, ShieldCheck, Wrench } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 export interface ClientItem {
   id: string;
@@ -18,6 +18,9 @@ export interface ClientItem {
 
 const clients: ClientItem[] = clientsData as ClientItem[];
 
+// Quadruple clients list for a seamless, unbroken infinite loop
+const displayClients = [...clients, ...clients, ...clients, ...clients];
+
 function ClientLogo({ name, domain }: { name: string; domain?: string }) {
   const [hasError, setHasError] = useState(false);
   const initials = name
@@ -29,22 +32,22 @@ function ClientLogo({ name, domain }: { name: string; domain?: string }) {
 
   if (!domain || hasError) {
     return (
-      <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200/80 text-[#046BD2] font-black text-sm flex items-center justify-center shrink-0 select-none shadow-xs">
+      <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200/80 text-[#046BD2] font-black text-xs flex items-center justify-center shrink-0 select-none shadow-2xs">
         {initials}
       </div>
     );
   }
 
   return (
-    <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 p-2 flex items-center justify-center shrink-0 overflow-hidden group-hover:border-blue-200 transition-colors shadow-xs">
+    <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center shrink-0 overflow-hidden group-hover:border-blue-200 transition-colors shadow-2xs">
       <img
         src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`}
         alt={`${name} logo`}
-        width={32}
-        height={32}
+        width={24}
+        height={24}
         loading="lazy"
         onError={() => setHasError(true)}
-        className="w-7 h-7 object-contain"
+        className="w-5 h-5 object-contain"
       />
     </div>
   );
@@ -54,138 +57,75 @@ export default function ClientsSection() {
   return (
     <section
       id="clients"
-      className="py-20 lg:py-28 px-4 sm:px-6 lg:px-12 bg-slate-50/70 border-t border-slate-200/80 overflow-hidden"
+      className="py-16 sm:py-20 bg-slate-50/70 border-t border-slate-200/80 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mb-8">
         <SectionHeader
           eyebrow="PROVEN PARTNERSHIPS"
-          title="Our Clients"
-          highlight="Clients"
-          subtitle="Trusted by businesses to drive growth through performance marketing and digital advertising."
+          title="Brands We Have Scaled"
+          highlight="Scaled"
+          subtitle="Trusted by fast-growing e-commerce and enterprise leaders across the UK and India."
           align="center"
         />
+      </div>
 
-        {/* Client Cards Grid: 4 cols on desktop, 2 on tablet, 1 on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
-          {clients.map((client) => {
+      {/* Infinite Marquee Slider: Sliding continuously from Left to Right */}
+      <div className="relative w-full overflow-hidden py-3">
+        {/* Left & Right Smooth Edge Fade Overlays */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10" />
+
+        {/* Sliding Track */}
+        <div className="animate-slide-ltr flex items-center gap-4">
+          {displayClients.map((client, idx) => {
             const hasWebsite = Boolean(client.website);
+
+            const content = (
+              <>
+                <ClientLogo name={client.name} domain={client.domain} />
+                <span className="text-sm font-bold text-slate-800 group-hover:text-[#046BD2] transition-colors whitespace-nowrap">
+                  {client.name}
+                </span>
+              </>
+            );
+
+            if (hasWebsite) {
+              return (
+                <a
+                  key={`${client.id}-${idx}`}
+                  href={client.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Visit ${client.name}`}
+                  className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#046BD2]/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0 group select-none cursor-pointer"
+                >
+                  {content}
+                </a>
+              );
+            }
 
             return (
               <div
-                key={client.id}
-                className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between hover:border-[#046BD2] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+                key={`${client.id}-${idx}`}
+                className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#046BD2]/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0 group select-none"
               >
-                <div>
-                  {/* Top Row: Logo, Name & External Link */}
-                  <div className="flex items-start justify-between gap-3 mb-3.5">
-                    <div className="flex items-center gap-3">
-                      <ClientLogo name={client.name} domain={client.domain} />
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#046BD2] transition-colors">
-                          {client.name}
-                        </h3>
-                        <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
-                          {client.category}
-                        </p>
-                      </div>
-                    </div>
-
-                    {hasWebsite && (
-                      <a
-                        href={client.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Visit ${client.name} official website (opens in new tab)`}
-                        className="text-slate-400 hover:text-[#046BD2] p-1.5 rounded-lg hover:bg-blue-50 transition-colors shrink-0"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-
-                  {/* Description (if verified) */}
-                  {client.description && (
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
-                      {client.description}
-                    </p>
-                  )}
-
-                  {/* Scope of Work Deliverables */}
-                  <div className="mb-4">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                      Scope of Work
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {client.work.map((w, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-50/80 text-[#046BD2] border border-blue-100"
-                        >
-                          {w}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tools & Stack Deployed */}
-                  {client.tools && client.tools.length > 0 && (
-                    <div className="pt-3 border-t border-slate-100 mb-2">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5 flex items-center gap-1">
-                        <Wrench className="w-3 h-3 text-slate-400" />
-                        <span>Tools Deployed</span>
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {client.tools.map((tool, idx) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200/80"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Footer Action: Verified Link / Status */}
-                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                  {hasWebsite ? (
-                    <a
-                      href={client.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-bold text-[#046BD2] hover:text-[#0356A8] transition-colors py-0.5"
-                    >
-                      <span>Visit Website</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 font-semibold text-slate-500">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Verified Partner</span>
-                    </span>
-                  )}
-
-                  <span className="text-[11px] font-medium text-slate-400">
-                    Portfolio
-                  </span>
-                </div>
+                {content}
               </div>
             );
           })}
         </div>
+      </div>
 
-        {/* Bottom Trust Metric Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600">
+      {/* Subtle Trust Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mt-10">
+        <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-slate-700">
               100% Verified Performance Partnerships
             </span>
           </div>
-          <div className="flex items-center gap-6 font-medium">
+          <div className="flex items-center gap-4 sm:gap-6 font-medium text-slate-500">
             <span>UK &amp; India E-Commerce</span>
             <span>•</span>
             <span>B2B Lead Generation</span>
