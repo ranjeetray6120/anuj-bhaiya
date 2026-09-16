@@ -106,19 +106,6 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link
-            href="/#clients"
-            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
-          >
-            Clients
-          </Link>
-
-          <Link
-            href="/#tools"
-            className="text-xs font-bold tracking-wider text-slate-800 hover:text-[#046BD2] transition-colors uppercase"
-          >
-            Tools
-          </Link>
 
           <Link
             href="/#process"
@@ -226,21 +213,6 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link
-            href="/#clients"
-            onClick={() => setMenuOpen(false)}
-            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
-          >
-            Clients
-          </Link>
-
-          <Link
-            href="/#tools"
-            onClick={() => setMenuOpen(false)}
-            className="block py-2 text-sm font-bold text-slate-800 hover:text-[#046BD2] uppercase"
-          >
-            Tools
-          </Link>
 
           <Link
             href="/#process"
