@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "AdForge Performance Marketing Agency",
-    short_name: "AdForge",
+    name: "AdForge Tech - Digital Growth & Performance Marketing",
+    short_name: "AdForge Tech",
     description:
       "Ads that forge growth. Performance marketing, Google Ads, Meta Ads & SEO engineered for measurable ROI.",
     start_url: "/",

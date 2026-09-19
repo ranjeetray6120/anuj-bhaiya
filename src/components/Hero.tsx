@@ -112,7 +112,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-            AdForge engineers high-converting paid media funnels across Google Ads, Meta Ads, and Technical SEO with one primary objective: <strong className="text-slate-900 font-semibold">measurable unit economics and bottom-line return on ad spend.</strong>
+            AdForge Tech engineers high-converting paid media funnels across Google Ads, Meta Ads, and Technical SEO with one primary objective: <strong className="text-slate-900 font-semibold">measurable unit economics and bottom-line return on ad spend.</strong>
           </p>
 
           {/* Action Buttons */}

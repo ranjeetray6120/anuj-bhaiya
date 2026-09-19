@@ -22,11 +22,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AdForge | Performance Driven Digital Marketing Agency",
-    template: "%s | AdForge",
+    default: "AdForge Tech | Performance Driven Digital Marketing Agency",
+    template: "%s | AdForge Tech",
   },
   description:
-    "AdForge is a premier performance marketing agency in Gurugram. We specialize in Google Ads, Meta Ads (Facebook & Instagram), SEO, and CRO development engineered for maximum ROI.",
+    "AdForge Tech is a premier performance marketing and digital growth agency in Gurugram. We specialize in Google Ads, Meta Ads (Facebook & Instagram), SEO, and CRO development engineered for maximum ROI.",
   keywords: [
     "Performance Marketing Agency",
     "Digital Marketing Agency Gurugram",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     "Lead Generation Marketing",
     "CRO Funnel Development",
   ],
-  authors: [{ name: "AdForge Team", url: siteUrl }],
-  creator: "AdForge",
-  publisher: "AdForge",
+  authors: [{ name: "AdForge Tech Team", url: siteUrl }],
+  creator: "AdForge Tech",
+  publisher: "AdForge Tech",
   formatDetection: {
     email: false,
     address: false,
@@ -62,27 +62,27 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: siteUrl,
-    title: "AdForge | Performance Driven Digital Marketing Agency",
+    title: "AdForge Tech | Performance Driven Digital Marketing Agency",
     description:
       "Ads that forge growth. Scale your business with data-driven Google Ads, Meta Ads, and SEO with guaranteed performance milestones.",
-    siteName: "AdForge",
+    siteName: "AdForge Tech",
     images: [
       {
-        url: "/logo.jpeg",
-        width: 800,
-        height: 600,
-        alt: "AdForge - Performance Marketing Agency",
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "AdForge Tech - Ads that forge growth",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AdForge | Performance Driven Digital Marketing Agency",
+    title: "AdForge Tech | Performance Driven Digital Marketing Agency",
     description:
       "Ads that forge growth. Performance marketing, Google Ads & Meta Ads engineered for measurable ROI.",
     site: "@AdForgetech",
     creator: "@AdForgetech",
-    images: ["/logo.jpeg"],
+    images: ["/og-image.jpeg"],
   },
   robots: {
     index: true,
@@ -110,11 +110,13 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "AdForge",
+      name: "AdForge Tech",
+      legalName: "AdForge Tech",
+      slogan: "Ads that forge growth",
       url: siteUrl,
       logo: `${siteUrl}/logo.jpeg`,
       description:
-        "AdForge is a leading performance marketing agency delivering measurable ROI via Google Ads, Meta Ads, and SEO.",
+        "AdForge Tech is a leading performance marketing and digital growth agency delivering measurable ROI via Google Ads, Meta Ads, and SEO.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Gurugram",
@@ -140,7 +142,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "AdForge",
+      name: "AdForge Tech",
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
@@ -148,13 +150,13 @@ const jsonLd = {
     {
       "@type": "ItemList",
       "@id": `${siteUrl}/#navigation`,
-      name: "AdForge Main Navigation",
+      name: "AdForge Tech Main Navigation",
       itemListElement: [
         {
           "@type": "SiteNavigationElement",
           position: 1,
           name: "Who We Are",
-          description: "Learn about AdForge, our team, and our track record.",
+          description: "Learn about AdForge Tech, our team, and our track record.",
           url: `${siteUrl}/who-we-are`,
         },
         {
@@ -211,7 +213,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}/#service`,
-      name: "AdForge Performance Agency",
+      name: "AdForge Tech",
       url: siteUrl,
       image: `${siteUrl}/logo.jpeg`,
       telephone: "+91-8178802368",

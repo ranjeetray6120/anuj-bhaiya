@@ -24,15 +24,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
           {/* Column 1: Brand & Social */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="inline-block bg-white p-2.5 rounded-xl w-fit shadow-md">
+            <Link href="/" className="flex items-center gap-3 group">
               <Image
-                src="/logo.png"
-                alt="AdForge Logo"
-                width={180}
-                height={55}
-                className="h-10 w-auto object-contain"
+                src="/logo-icon.jpeg"
+                alt="AdForge Tech Logo"
+                width={48}
+                height={48}
+                className="h-11 w-11 rounded-xl object-contain shadow-md transition-transform duration-200 group-hover:scale-105"
                 loading="lazy"
               />
+              <div className="flex flex-col">
+                <span className="text-2xl font-black tracking-tight text-white leading-none">
+                  AdForge <span className="text-[#168ED3]">Tech</span>
+                </span>
+                <span className="text-[10px] font-semibold text-slate-400 tracking-wider uppercase mt-1">
+                  Ads that forge growth
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-slate-300 leading-relaxed">
               Ads that forge sustainable growth. Performance marketing, Google Ads &amp; Meta Ads engineered for measurable ROI.
@@ -44,7 +52,7 @@ export default function Footer() {
                 href="https://www.facebook.com/adforgeofficial"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow AdForge on Facebook"
+                aria-label="Follow AdForge Tech on Facebook"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -55,7 +63,7 @@ export default function Footer() {
                 href="https://instagram.com/adforge.marketing"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow AdForge on Instagram"
+                aria-label="Follow AdForge Tech on Instagram"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#E11D48] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -66,7 +74,7 @@ export default function Footer() {
                 href="https://x.com/AdForgetech"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow AdForge on Twitter X"
+                aria-label="Follow AdForge Tech on Twitter X"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-black flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
@@ -77,7 +85,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow AdForge on LinkedIn"
+                aria-label="Follow AdForge Tech on LinkedIn"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white text-white hover:text-[#046BD2] flex items-center justify-center transition-all duration-200 shadow-xs hover:scale-105"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -162,7 +170,7 @@ export default function Footer() {
       {/* Bottom Copyright Strip */}
       <div className="border-t border-slate-800/80 px-4 sm:px-8 lg:px-12 py-5 bg-[#060D1F]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-          <p>© 2026 AdForge. All rights reserved.</p>
+          <p>© 2026 AdForge Tech. All rights reserved.</p>
           <p className="font-semibold text-slate-300">Data-driven performance marketing</p>
         </div>
       </div>

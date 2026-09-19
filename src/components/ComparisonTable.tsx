@@ -31,7 +31,7 @@ export default function ComparisonTable() {
     <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
-          badge="THE ADFORGE ADVANTAGE"
+          badge="THE ADFORGE TECH ADVANTAGE"
           title="Why Scaling Brands Choose Us Over Traditional Agencies"
           highlight="Traditional Agencies"
           description="We align our incentives with your profitability. Here is how our operational model differs from conventional marketing vendors."
@@ -47,7 +47,7 @@ export default function ComparisonTable() {
                     Our Standard
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mt-0.5">
-                    AdForge Agency
+                    AdForge Tech
                   </h3>
                 </div>
                 <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: "Blog Post Not Found | AdForge",
+      title: "Blog Post Not Found | AdForge Tech",
     };
   }
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const postUrl = `${siteUrl}/blogs/${post.id}`;
 
   return {
-    title: `${post.title} | AdForge Growth Playbooks`,
+    title: `${post.title} | AdForge Tech Growth Playbooks`,
     description: post.excerpt,
     alternates: {
       canonical: `/blogs/${post.id}`,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
-      siteName: "AdForge",
+      siteName: "AdForge Tech",
     },
     twitter: {
       card: "summary_large_image",
@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
     publisher: {
       "@type": "Organization",
-      name: "AdForge",
+      name: "AdForge Tech",
       url: siteUrl,
       logo: `${siteUrl}/android-chrome-192x192.png`,
     },

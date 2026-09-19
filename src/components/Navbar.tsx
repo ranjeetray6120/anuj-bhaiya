@@ -37,15 +37,23 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center group py-1">
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group py-1 select-none">
           <Image
-            src="/logo.png"
-            alt="AdForge Logo"
-            width={240}
-            height={65}
-            className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            src="/logo-icon.jpeg"
+            alt="AdForge Tech Logo"
+            width={44}
+            height={44}
+            className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl object-contain shadow-xs transition-transform duration-200 group-hover:scale-105"
             priority
           />
+          <div className="flex flex-col">
+            <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+              AdForge <span className="text-[#046BD2]">Tech</span>
+            </span>
+            <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-1">
+              Ads that forge growth
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}

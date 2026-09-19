@@ -16,9 +16,9 @@ const CTA = dynamic(() => import("@/components/CTA"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
-  title: "AdForge | Ads that forge growth",
+  title: "AdForge Tech | Ads that forge growth",
   description:
-    "AdForge engineers high-converting campaigns, Google Ads, Meta Ads, and SEO strategies that deliver measurable ROI for your business.",
+    "AdForge Tech engineers high-converting campaigns, Google Ads, Meta Ads, and SEO strategies that deliver measurable ROI for your business.",
   alternates: {
     canonical: "/",
   },

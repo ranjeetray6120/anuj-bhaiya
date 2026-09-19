@@ -74,7 +74,7 @@ export async function POST(req: Request) {
               <div class="header">
                 <span class="badge">${source}</span>
                 <h1 class="title">🔥 New Lead Submitted</h1>
-                <p style="margin:0;font-size:13px;color:#64748b;">Submitted via AdForge Website</p>
+                <p style="margin:0;font-size:13px;color:#64748b;">Submitted via AdForge Tech Website</p>
               </div>
 
               <table class="table">
@@ -109,13 +109,13 @@ export async function POST(req: Request) {
               </table>
 
               <div style="text-align: center;">
-                <a href="mailto:${email}?subject=Regarding%20your%20AdForge%20inquiry" class="btn">
+                <a href="mailto:${email}?subject=Regarding%20your%20AdForge%20Tech%20inquiry" class="btn">
                   REPLY TO LEAD DIRECTLY →
                 </a>
               </div>
 
               <div class="footer">
-                © 2026 AdForge Agency • Lead Notification Engine
+                © 2026 AdForge Tech • Lead Notification Engine
               </div>
             </div>
           </body>
@@ -124,10 +124,10 @@ export async function POST(req: Request) {
 
       // Resend sender email (use onboarding@resend.dev for test/sandbox mode or verified domain)
       const data = await resend.emails.send({
-        from: "AdForge Leads <onboarding@resend.dev>",
+        from: "AdForge Tech Leads <onboarding@resend.dev>",
         to: [recipientEmail],
         replyTo: email,
-        subject: `🔥 New AdForge Lead: ${name} (${service})`,
+        subject: `🔥 New AdForge Tech Lead: ${name} (${service})`,
         html: htmlContent,
       });
 

@@ -75,7 +75,7 @@ export default function WhoWeArePage() {
           badge="THE PERFORMANCE MARKETING COLLECTIVE"
           title="We Don't Just Run Ads — We Build Scalable Growth Engines."
           highlight="Scalable Growth Engines"
-          subtitle="AdForge is a performance marketing agency composed of veteran media buyers, data engineers, technical SEOs, and conversion architects aligned around your bottom line."
+          subtitle="AdForge Tech is a performance marketing agency composed of veteran media buyers, data engineers, technical SEOs, and conversion architects aligned around your bottom line."
           primaryCtaText="Book a Strategy Call"
           primaryCtaHref="/#contact"
           secondaryCtaText="Our Core Principles"
@@ -95,7 +95,7 @@ export default function WhoWeArePage() {
               <div className="relative rounded-xl overflow-hidden shadow-md border border-slate-200">
                 <Image
                   src="/images/about/team-planning.jpg"
-                  alt="AdForge Marketing Team Planning Campaigns"
+                  alt="AdForge Tech Marketing Team Planning Campaigns"
                   width={700}
                   height={450}
                   className="w-full h-80 sm:h-96 object-cover"
@@ -137,7 +137,7 @@ export default function WhoWeArePage() {
               </div>
 
               <p className="text-slate-600 text-base leading-relaxed">
-                In an industry full of vanity metrics and generic playbook tactics, AdForge was founded on a simple premise: <strong className="text-slate-900 font-bold">revenue growth and profitability are the only metrics that matter.</strong>
+                In an industry full of vanity metrics and generic playbook tactics, AdForge Tech was founded on a simple premise: <strong className="text-slate-900 font-bold">revenue growth and profitability are the only metrics that matter.</strong>
               </p>
               <p className="text-slate-600 text-base leading-relaxed">
                 Whether scaling Google Performance Max campaigns, optimizing Meta Advantage+ funnels, or dominating competitive organic keywords through technical SEO, we act as an extension of your in-house leadership team.

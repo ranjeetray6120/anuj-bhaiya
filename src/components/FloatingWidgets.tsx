@@ -14,7 +14,7 @@ export default function FloatingWidgets() {
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span className="text-xs font-bold text-slate-800">AdForge Growth Team</span>
+              <span className="text-xs font-bold text-slate-800">AdForge Tech Growth Team</span>
             </div>
             <button
               onClick={() => setChatOpen(false)}
@@ -34,7 +34,7 @@ export default function FloatingWidgets() {
 
           <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
             <a
-              href="https://wa.me/918178802368?text=Hello%20AdForge,%20I%20want%20to%20scale%20my%20business%20growth"
+              href="https://wa.me/918178802368?text=Hello%20AdForge%20Tech,%20I%20want%20to%20scale%20my%20business%20growth"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-[#25D366] hover:bg-[#20bd5a] !text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
@@ -55,10 +55,10 @@ export default function FloatingWidgets() {
 
       {/* WhatsApp Green Floating Action Button */}
       <a
-        href="https://wa.me/918178802368?text=Hello%20AdForge,%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+        href="https://wa.me/918178802368?text=Hello%20AdForge%20Tech,%20I%20would%20like%20to%20know%20more%20about%20your%20services"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with AdForge on WhatsApp"
+        aria-label="Chat with AdForge Tech on WhatsApp"
         className="w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-lg transition-colors cursor-pointer"
       >
         <svg
