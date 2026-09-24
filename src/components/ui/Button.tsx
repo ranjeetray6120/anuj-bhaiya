@@ -25,13 +25,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#046BD2] hover:bg-[#0356A8] text-white shadow-sm hover:shadow-md hover:shadow-[#046BD2]/20 border border-transparent active:scale-[0.99]",
+    "bg-[#046BD2] hover:bg-[#0356A8] dark:bg-[#168ED3] dark:hover:bg-[#046BD2] text-white shadow-sm hover:shadow-md hover:shadow-[#046BD2]/20 border border-transparent active:scale-[0.99]",
   secondary:
-    "bg-[#0A1628] hover:bg-[#0F1E36] text-white shadow-sm hover:shadow-md border border-slate-800 active:scale-[0.99]",
+    "bg-[#0A1628] hover:bg-[#0F1E36] dark:bg-slate-800 dark:hover:bg-slate-700 text-white shadow-sm hover:shadow-md border border-slate-800 dark:border-slate-700 active:scale-[0.99]",
   outline:
-    "bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-xs active:scale-[0.99]",
+    "bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-xs active:scale-[0.99]",
   ghost:
-    "bg-transparent hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent",
+    "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-transparent",
   accent:
     "bg-[#E11D48] hover:bg-[#BE123C] text-white shadow-sm hover:shadow-md hover:shadow-rose-600/20 border border-transparent active:scale-[0.99]",
   danger:

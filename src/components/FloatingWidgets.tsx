@@ -10,29 +10,29 @@ export default function FloatingWidgets() {
     <aside aria-label="Quick Support and Contact" className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 select-none">
       {/* Quick Chat Popup Card when user clicks Chat Button */}
       {chatOpen && (
-        <div className="w-80 bg-white rounded-xl shadow-xl border border-slate-200 p-4 mb-1 animate-fadeIn text-slate-800">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div className="w-80 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-4 mb-1 animate-fadeIn text-slate-800 dark:text-slate-100 transition-colors">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span className="text-xs font-bold text-slate-800">AdForge Tech Growth Team</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">AdForge Tech Growth Team</span>
             </div>
             <button
               onClick={() => setChatOpen(false)}
-              className="text-slate-400 hover:text-slate-600 text-sm font-bold p-1 cursor-pointer"
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-bold p-1 cursor-pointer"
               aria-label="Close chat"
             >
               ✕
             </button>
           </div>
 
-          <div className="py-3 text-xs text-slate-600 leading-relaxed">
-            <p className="font-semibold text-slate-900 mb-1">Hi there!</p>
+          <div className="py-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="font-semibold text-slate-900 dark:text-white mb-1">Hi there!</p>
             <p>
               Looking to scale your Google Ads, Meta Ads, or SEO revenue? Talk directly with our senior growth strategist.
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
+          <div className="flex flex-col gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
             <a
               href="https://wa.me/918178802368?text=Hello%20AdForge%20Tech,%20I%20want%20to%20scale%20my%20business%20growth"
               target="_blank"
@@ -45,7 +45,7 @@ export default function FloatingWidgets() {
             <Link
               href="/#contact"
               onClick={() => setChatOpen(false)}
-              className="w-full bg-slate-900 hover:bg-slate-800 !text-white text-xs font-bold py-2 px-3 rounded-lg text-center transition-colors"
+              className="w-full bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 !text-white text-xs font-bold py-2 px-3 rounded-lg text-center transition-colors"
             >
               Request Free Growth Audit
             </Link>

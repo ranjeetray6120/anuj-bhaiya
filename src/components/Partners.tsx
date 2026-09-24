@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 interface PartnerCardProps {
   logoSrc: string;
@@ -14,10 +13,10 @@ interface PartnerCardProps {
 }
 
 const PartnerCard = ({ logoSrc, logoAlt, title, subtitle, description }: PartnerCardProps) => (
-  <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 flex flex-col items-center text-center justify-between hover:border-slate-300 transition-colors">
+  <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 flex flex-col items-center text-center justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
     <div className="flex flex-col items-center gap-4">
       {/* Partner Logo */}
-      <div className="h-14 flex items-center justify-center">
+      <div className="h-14 flex items-center justify-center p-2 rounded-lg bg-slate-50/50 dark:bg-slate-800/60">
         <Image
           src={logoSrc}
           alt={logoAlt}
@@ -28,20 +27,20 @@ const PartnerCard = ({ logoSrc, logoAlt, title, subtitle, description }: Partner
       </div>
 
       <div>
-        <p className="text-xs font-bold uppercase tracking-wider text-[#046BD2]">
+        <p className="text-xs font-bold uppercase tracking-wider text-[#046BD2] dark:text-[#38BDF8]">
           {subtitle}
         </p>
-        <h3 className="text-base font-bold text-slate-900 mt-1">
+        <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">
           {title}
         </h3>
       </div>
 
-      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         {description}
       </p>
     </div>
 
-    <div className="pt-6 mt-4 border-t border-slate-100 w-full flex justify-center">
+    <div className="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800 w-full flex justify-center">
       <Button
         href="/#contact"
         variant="outline"
@@ -55,7 +54,7 @@ const PartnerCard = ({ logoSrc, logoAlt, title, subtitle, description }: Partner
 
 export default function Partners() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white border-t border-slate-200 overflow-hidden">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           badge="OFFICIAL AGENCY CREDENTIALS"

@@ -1,72 +1,139 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { HeroSection } from "@/components/adforge/HeroSection";
-import { MetricCard } from "@/components/adforge/MetricCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { TrendingUp, Users, Target, Zap } from "lucide-react";
+import { MetricCard } from "@/components/adforge/MetricCard";
+import { Target, Users, Zap, Award } from "lucide-react";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
+
+export const metadata: Metadata = {
+  title: "About Us | Who We Are | AdForge Tech Leadership & Engineering",
+  description:
+    "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
+  alternates: {
+    canonical: "/who-we-are",
+  },
+  openGraph: {
+    title: "About Us | Who We Are | AdForge Tech Leadership & Engineering",
+    description:
+      "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
+    url: `${siteUrl}/who-we-are`,
+    type: "website",
+    siteName: "AdForge Tech",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "About AdForge Tech Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Who We Are | AdForge Tech",
+    description:
+      "Learn about AdForge Tech — veteran performance marketers and certified media buyers.",
+  },
+};
 
 const milestones = [
   {
     metric: "₹300Cr+",
     label: "Client Revenue Generated",
-    subtext: "Tracked across e-commerce & B2B",
-    icon: <TrendingUp className="w-5 h-5" />,
-    trend: "Verified",
+    subtext: "Verified GA4 and CRM attribution across active partner accounts",
+    trend: "+64% YoY Growth",
+    icon: <Zap className="w-6 h-6" />,
   },
   {
-    metric: "500K+",
-    label: "High-Intent Inquiries Captured",
-    subtext: "Education, real estate & SaaS",
-    icon: <Users className="w-5 h-5" />,
+    metric: "4.8x",
+    label: "Average Blended ROAS",
+    subtext: "Across active e-commerce and lead-gen campaigns in 2025-2026",
+    trend: "Consistently Maintained",
+    icon: <Target className="w-6 h-6" />,
   },
   {
     metric: "100+",
-    label: "Active Enterprise & D2C Brands",
-    subtext: "Retained long-term partnerships",
-    icon: <Target className="w-5 h-5" />,
+    label: "Scaling Brands Managed",
+    subtext: "D2C retailers, enterprise services, and education leaders",
+    trend: "92% Retention Rate",
+    icon: <Users className="w-6 h-6" />,
   },
   {
-    metric: "4.6x",
-    label: "Average Portfolio Blended ROAS",
-    subtext: "Across Google & Meta spend",
-    icon: <Zap className="w-5 h-5" />,
-    trend: "+120% YoY",
+    metric: "8+",
+    label: "Years Growth Engineering",
+    subtext: "Continuous optimization through Google & Meta algorithm shifts",
+    trend: "Premier Tier",
+    icon: <Award className="w-6 h-6" />,
   },
 ];
 
 const coreValues = [
   {
     number: "01",
-    title: "Data-Backed Precision",
-    desc: "We don't guess or rely on intuition. Every budget allocation, bid adjustment, and creative iteration is driven by GA4, CAPI, and verifiable unit economics.",
+    title: "100% Attribution Transparency",
+    desc: "No fabricated metrics. We deploy server-side CAPI and GA4 architectures so every rupee spent is transparently attributed to top-line revenue.",
   },
   {
     number: "02",
-    title: "Radical Transparency",
-    desc: "Zero hidden markups. You own 100% of your ad accounts, pixel data, and creative assets. Real-time dashboards keep you in full control 24/7.",
+    title: "Unit Economics First",
+    desc: "Scaling ad spend without profitable unit margins burns capital. We model contribution margins, blended CAC, and LTV before scaling campaigns.",
   },
   {
     number: "03",
-    title: "Creative Meets Conversion",
-    desc: "Aesthetic visuals without conversion psychology don't drive revenue. We engineer high-CTR video hooks, direct-response UGC, and conversion copy.",
+    title: "Senior Hands on Your Accounts",
+    desc: "Your campaigns are built and managed by battle-tested specialists with 5+ years of live media buying experience, not junior interns.",
   },
   {
     number: "04",
-    title: "Speed to Execution",
-    desc: "In digital marketing, speed wins. We launch campaigns in 3–5 business days and test fresh creative variations weekly to combat ad fatigue.",
+    title: "Continuous Creative Velocity",
+    desc: "Creative fatigue kills performance. We systematically test ad hooks, angles, video variations, and landing page headlines every single week.",
   },
 ];
 
 export default function WhoWeArePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "About Us",
+            item: `${siteUrl}/who-we-are`,
+          },
+        ],
+      },
+      {
+        "@type": "AboutPage",
+        name: "About AdForge Tech",
+        description:
+          "Learn about AdForge Tech — veteran performance marketers, certified media buyers, and data engineers dedicated to profitable ROI.",
+        url: `${siteUrl}/who-we-are`,
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 pt-20">
@@ -77,7 +144,7 @@ export default function WhoWeArePage() {
           highlight="Scalable Growth Engines"
           subtitle="AdForge Tech is a performance marketing agency composed of veteran media buyers, data engineers, technical SEOs, and conversion architects aligned around your bottom line."
           primaryCtaText="Book a Strategy Call"
-          primaryCtaHref="/#contact"
+          primaryCtaHref="/contact-us"
           secondaryCtaText="Our Core Principles"
           secondaryCtaHref="#principles"
           trustPoints={[
@@ -88,11 +155,11 @@ export default function WhoWeArePage() {
         />
 
         {/* Agency Story Section with Real Photography */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Real Team Photography Stack */}
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-xl overflow-hidden shadow-md border border-slate-200">
+              <div className="relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800">
                 <Image
                   src="/images/about/team-planning.jpg"
                   alt="AdForge Tech Marketing Team Planning Campaigns"
@@ -103,7 +170,7 @@ export default function WhoWeArePage() {
               </div>
 
               {/* Floating Secondary Image */}
-              <div className="hidden sm:block absolute -bottom-8 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-lg border-4 border-white">
+              <div className="hidden sm:block absolute -bottom-8 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-900">
                 <Image
                   src="/images/about/analytics-dashboard.jpg"
                   alt="Performance Marketing Data Analysis"
@@ -114,13 +181,13 @@ export default function WhoWeArePage() {
               </div>
 
               {/* Floating Experience Badge */}
-              <div className="absolute top-6 left-6 bg-white rounded-xl p-3.5 shadow-md border border-slate-200 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#046BD2] flex items-center justify-center font-extrabold text-lg border border-blue-100">
+              <div className="absolute top-6 left-6 bg-white dark:bg-slate-900 rounded-xl p-3.5 shadow-md border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/70 text-[#046BD2] dark:text-[#38BDF8] flex items-center justify-center font-extrabold text-lg border border-blue-100 dark:border-blue-900/70">
                   8+
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900 leading-tight">Years Live</p>
-                  <p className="text-[10px] text-slate-500 font-medium">Scaling High-Growth Brands</p>
+                  <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">Years Live</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Scaling High-Growth Brands</p>
                 </div>
               </div>
             </div>
@@ -128,35 +195,35 @@ export default function WhoWeArePage() {
             {/* Right: Copy & Philosophy */}
             <div className="lg:col-span-6 flex flex-col gap-6 text-left">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2] block mb-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#046BD2] dark:text-[#38BDF8] block mb-2">
                   OUR PHILOSOPHY
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
                   A Team Passionate About Delivering Real Results
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-base leading-relaxed">
-                In an industry full of vanity metrics and generic playbook tactics, AdForge Tech was founded on a simple premise: <strong className="text-slate-900 font-bold">revenue growth and profitability are the only metrics that matter.</strong>
+              <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                In an industry full of vanity metrics and generic playbook tactics, AdForge Tech was founded on a simple premise: <strong className="text-slate-900 dark:text-white font-bold">revenue growth and profitability are the only metrics that matter.</strong>
               </p>
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
                 Whether scaling Google Performance Max campaigns, optimizing Meta Advantage+ funnels, or dominating competitive organic keywords through technical SEO, we act as an extension of your in-house leadership team.
               </p>
 
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Card surface="muted" className="p-4 border-slate-200">
-                  <p className="text-2xl font-extrabold text-[#046BD2]">
+                <Card surface="muted" className="p-4 border-slate-200 dark:border-slate-800">
+                  <p className="text-2xl font-extrabold text-[#046BD2] dark:text-[#38BDF8]">
                     <AnimatedCounter value="100%" />
                   </p>
-                  <p className="text-xs font-bold text-slate-700 uppercase tracking-wide mt-1">
+                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mt-1">
                     In-House Specialists Only
                   </p>
                 </Card>
-                <Card surface="muted" className="p-4 border-slate-200">
-                  <p className="text-2xl font-extrabold text-slate-900">
+                <Card surface="muted" className="p-4 border-slate-200 dark:border-slate-800">
+                  <p className="text-2xl font-extrabold text-slate-900 dark:text-white">
                     Official
                   </p>
-                  <p className="text-xs font-bold text-slate-700 uppercase tracking-wide mt-1">
+                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mt-1">
                     Google &amp; Meta Partners
                   </p>
                 </Card>
@@ -166,7 +233,7 @@ export default function WhoWeArePage() {
         </section>
 
         {/* Milestones Metrics Grid */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 border-y border-slate-200">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800 transition-colors">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {milestones.map((item, idx) => (
@@ -185,7 +252,7 @@ export default function WhoWeArePage() {
         </section>
 
         {/* Core Values Section */}
-        <section id="principles" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section id="principles" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="GUIDING VALUES"
@@ -204,13 +271,13 @@ export default function WhoWeArePage() {
                   className="p-6 sm:p-7 flex flex-col gap-4 justify-between"
                 >
                   <div className="flex flex-col gap-3">
-                    <span className="w-10 h-10 rounded-xl bg-blue-50 text-[#046BD2] font-black text-sm flex items-center justify-center border border-blue-100">
+                    <span className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-[#046BD2] dark:text-[#38BDF8] font-black text-sm flex items-center justify-center border border-blue-100 dark:border-blue-900/70">
                       {val.number}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                       {val.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {val.desc}
                     </p>
                   </div>

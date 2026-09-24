@@ -28,19 +28,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   trustPoints,
 }) => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 text-center bg-white border-b border-slate-200">
+    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 text-center bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-5">
         {badge && (
-          <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2] dark:text-[#38BDF8]">
             {badge}
           </p>
         )}
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.14]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.14]">
           {highlight && title.includes(highlight) ? (
             <>
               {title.split(highlight)[0]}
-              <span className="text-[#046BD2]">{highlight}</span>
+              <span className="text-[#046BD2] dark:text-[#38BDF8]">{highlight}</span>
               {title.split(highlight)[1]}
             </>
           ) : (
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           )}
         </h1>
 
-        <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
           {subtitle}
         </p>
 
@@ -78,10 +78,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Trust Points */}
         {trustPoints && trustPoints.length > 0 && (
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-medium text-slate-600">
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300">
             {trustPoints.map((point, index) => (
               <div key={index} className="flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-[#046BD2]" />
+                <Check className="w-3.5 h-3.5 text-[#046BD2] dark:text-[#38BDF8]" />
                 <span>{point}</span>
               </div>
             ))}

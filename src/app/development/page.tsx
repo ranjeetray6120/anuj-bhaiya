@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -10,6 +9,39 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Globe, Smartphone, Server, Bot, ArrowRight } from "lucide-react";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
+
+export const metadata: Metadata = {
+  title: "Web & CRO Development Agency | Next.js, Mobile & AI | AdForge Tech",
+  description:
+    "Custom full-stack web applications, React & Next.js development, high-converting CRO landing pages, Java Spring Boot microservices, and AI workflow integrations.",
+  alternates: {
+    canonical: "/development",
+  },
+  openGraph: {
+    title: "Web & CRO Development Agency | Next.js, Mobile & AI | AdForge Tech",
+    description:
+      "Custom full-stack web applications, React & Next.js development, high-converting CRO landing pages, Java Spring Boot microservices, and AI workflow integrations.",
+    url: `${siteUrl}/development`,
+    type: "website",
+    siteName: "AdForge Tech",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Full-Stack Development by AdForge Tech",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web & CRO Development Agency | AdForge Tech",
+    description:
+      "Custom full-stack web applications, React & Next.js development, high-converting CRO landing pages, and AI integrations.",
+  },
+};
 
 const capabilities = [
   {
@@ -116,8 +148,48 @@ const processSteps = [
 ];
 
 export default function DevelopmentPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Web & CRO Development",
+            item: `${siteUrl}/development`,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Web Application & CRO Development Services",
+        description:
+          "High-performance Next.js and React development, custom software engineering, and conversion rate optimization (CRO) funnels.",
+        provider: {
+          "@type": "Organization",
+          name: "AdForge Tech",
+          url: siteUrl,
+        },
+        areaServed: "Worldwide",
+        serviceType: "Software Engineering & Web Development",
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 pt-20">
@@ -128,7 +200,7 @@ export default function DevelopmentPage() {
           highlight="Web, Mobile & Software"
           subtitle="From high-performance web applications and mobile apps to custom business software, backend architectures, APIs, and AI integrations — engineered for scale from day one."
           primaryCtaText="Start Your Project"
-          primaryCtaHref="/#contact"
+          primaryCtaHref="/contact-us"
           secondaryCtaText="Explore Capabilities"
           secondaryCtaHref="#services"
           trustPoints={[
@@ -139,7 +211,7 @@ export default function DevelopmentPage() {
         />
 
         {/* 2. Key Capabilities / Highlights */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cap, idx) => (
               <Card
@@ -149,16 +221,16 @@ export default function DevelopmentPage() {
                 className="p-6 sm:p-7 flex flex-col justify-between gap-4"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#046BD2] flex items-center justify-center mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-[#046BD2] dark:text-[#38BDF8] flex items-center justify-center mb-4 border border-blue-100/50 dark:border-blue-900/50">
                     {cap.icon}
                   </div>
                   <Badge variant="primary" size="sm" className="mb-2">
                     {cap.category}
                   </Badge>
-                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
                     {cap.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {cap.desc}
                   </p>
                 </div>
@@ -168,7 +240,7 @@ export default function DevelopmentPage() {
         </section>
 
         {/* 3. Core Development Services */}
-        <section id="services" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section id="services" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="ENGINEERING CAPABILITIES"
@@ -186,7 +258,7 @@ export default function DevelopmentPage() {
                   title={service.title}
                   description={service.desc}
                   bullets={service.items}
-                  href="/#contact"
+                  href="/contact-us"
                   ctaText="Discuss Project Scope"
                 />
               ))}
@@ -195,7 +267,7 @@ export default function DevelopmentPage() {
         </section>
 
         {/* 4. Technology Stack */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-b border-slate-200 overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/40 border-t border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="MODERN TECH STACK"
@@ -214,17 +286,17 @@ export default function DevelopmentPage() {
                   className="p-6 sm:p-7 flex flex-col justify-between"
                 >
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-1">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                       {stack.category}
                     </h3>
-                    <p className="text-xs text-slate-500 mb-5 leading-relaxed">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed">
                       {stack.description}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {stack.technologies.map((tech, techIdx) => (
                         <span
                           key={techIdx}
-                          className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-blue-50 text-slate-800 border border-blue-100"
+                          className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-slate-800 dark:text-slate-200 border border-blue-100 dark:border-blue-900/50"
                         >
                           {tech}
                         </span>
@@ -238,7 +310,7 @@ export default function DevelopmentPage() {
         </section>
 
         {/* 5. End-to-End Development Process */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="DEVELOPMENT LIFECYCLE"
@@ -261,14 +333,14 @@ export default function DevelopmentPage() {
                       <span className="w-10 h-10 rounded-xl bg-[#046BD2] text-white font-black text-sm flex items-center justify-center shadow-xs">
                         {step.step}
                       </span>
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                         Phase {step.step}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -279,24 +351,25 @@ export default function DevelopmentPage() {
         </section>
 
         {/* 6. Pre-CTA Banner */}
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-b from-blue-50/70 to-slate-50 border-t border-slate-200 text-slate-900 overflow-hidden">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-b from-blue-50/70 to-slate-50 dark:from-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 transition-colors overflow-hidden">
           <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10">
             <Badge variant="primary" size="md">
               CUSTOM DEVELOPMENT
             </Badge>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Have an Idea or Technical Requirement?
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
               Tell us what you want to build. Our senior engineering team will architect the solution, scope the roadmap, and deploy it to production.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
               <Button
-                href="/#contact"
+                href="/contact-us"
                 variant="primary"
                 size="lg"
                 rightIcon={<ArrowRight className="w-4 h-4" />}
+                aria-label="Start your web or software development project"
               >
                 Start Your Project
               </Button>
@@ -304,6 +377,7 @@ export default function DevelopmentPage() {
                 href="/contact-us"
                 variant="outline"
                 size="lg"
+                aria-label="Schedule technical consultation call"
               >
                 Schedule Technical Call
               </Button>

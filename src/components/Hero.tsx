@@ -91,28 +91,28 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[85vh] flex items-center px-4 sm:px-6 lg:px-12 pt-24 sm:pt-28 pb-16 bg-white border-b border-slate-200 overflow-hidden"
+      className="relative min-h-[85vh] flex items-center px-4 sm:px-6 lg:px-12 pt-24 sm:pt-28 pb-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden"
       id="home"
     >
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* Left Column: Heading, Supporting Message, CTAs, Proof */}
         <div className="lg:col-span-6 flex flex-col gap-6 text-left">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2] dark:text-[#38BDF8]">
             PERFORMANCE MARKETING &amp; DIGITAL GROWTH
           </p>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 leading-[1.12] tracking-tight min-h-[5.5rem] sm:min-h-[6.5rem]">
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 dark:text-white leading-[1.12] tracking-tight min-h-[5.5rem] sm:min-h-[6.5rem]">
             <span>{currentPrefix}</span>
             {currentHighlight && (
-              <span className="text-[#046BD2]">
+              <span className="text-[#046BD2] dark:text-[#38BDF8]">
                 {currentHighlight}
               </span>
             )}
-            <span className="inline-block w-[2.5px] h-[0.9em] bg-[#046BD2] ml-1 align-baseline animate-pulse" />
+            <span className="inline-block w-[2.5px] h-[0.9em] bg-[#046BD2] dark:bg-[#38BDF8] ml-1 align-baseline animate-pulse" />
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-            AdForge Tech engineers high-converting paid media funnels across Google Ads, Meta Ads, and Technical SEO with one primary objective: <strong className="text-slate-900 font-semibold">measurable unit economics and bottom-line return on ad spend.</strong>
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+            AdForge Tech engineers high-converting paid media funnels across Google Ads, Meta Ads, and Technical SEO with one primary objective: <strong className="text-slate-900 dark:text-white font-semibold">measurable unit economics and bottom-line return on ad spend.</strong>
           </p>
 
           {/* Action Buttons */}
@@ -144,28 +144,28 @@ export default function Hero() {
                   alt="Client Founder"
                   width={34}
                   height={34}
-                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-900"
                 />
                 <Image
                   src="/images/avatars/avatar-2.jpg"
                   alt="Client Founder"
                   width={34}
                   height={34}
-                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-900"
                 />
                 <Image
                   src="/images/avatars/avatar-3.jpg"
                   alt="Client Founder"
                   width={34}
                   height={34}
-                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-900"
                 />
                 <Image
                   src="/images/avatars/avatar-4.jpg"
                   alt="Client Founder"
                   width={34}
                   height={34}
-                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-900"
                 />
               </div>
 
@@ -176,56 +176,56 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="text-xs text-slate-500 leading-snug max-w-xs">
-              Trusted by <strong className="text-slate-800">100+ scaling brands</strong> for verified attribution and profitable ROAS.
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-snug max-w-xs">
+              Trusted by <strong className="text-slate-800 dark:text-slate-200">100+ scaling brands</strong> for verified attribution and profitable ROAS.
             </p>
           </div>
 
           {/* 3 Quick Hero Stats */}
-          <div className="pt-4 grid grid-cols-3 gap-4 border-t border-slate-100 max-w-lg">
+          <div className="pt-4 grid grid-cols-3 gap-4 border-t border-slate-100 dark:border-slate-800 max-w-lg">
             <div>
-              <p className="text-2xl font-black text-slate-900">
+              <p className="text-2xl font-black text-slate-900 dark:text-white">
                 <AnimatedCounter value="8+" duration={2} />
               </p>
-              <p className="text-xs text-slate-500 font-medium">Years Active</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Years Active</p>
             </div>
             <div>
-              <p className="text-2xl font-black text-slate-900">
+              <p className="text-2xl font-black text-slate-900 dark:text-white">
                 <AnimatedCounter value="1000+" duration={2} />
               </p>
-              <p className="text-xs text-slate-500 font-medium">Campaigns Run</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Campaigns Run</p>
             </div>
             <div>
-              <p className="text-2xl font-black text-[#046BD2]">
+              <p className="text-2xl font-black text-[#046BD2] dark:text-[#38BDF8]">
                 <AnimatedCounter value="92%" duration={2} />
               </p>
-              <p className="text-xs text-slate-500 font-medium">Client Retention</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Client Retention</p>
             </div>
           </div>
         </div>
 
         {/* Right Column: Grounded Verified Performance Card */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end">
-          <div className="w-full max-w-lg bg-slate-50 rounded-xl border border-slate-200 p-6 sm:p-7 text-left">
+          <div className="w-full max-w-lg bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 text-left transition-colors">
             {/* Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#046BD2]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#046BD2] dark:text-[#38BDF8]">
                   Verified Account Benchmarks
                 </span>
-                <h3 className="text-lg font-bold text-slate-900 mt-0.5">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
                   Real Performance Metrics
                 </h3>
               </div>
               <div className="text-right">
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">
+                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-md">
                   Avg. 4.8x ROAS
                 </span>
               </div>
             </div>
 
             {/* Table Header */}
-            <div className="grid grid-cols-12 gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mt-4 mb-2 px-3">
+            <div className="grid grid-cols-12 gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-4 mb-2 px-3">
               <span className="col-span-5">Client / Industry</span>
               <span className="col-span-4 text-right">Conversions</span>
               <span className="col-span-3 text-right">Cost / CPA</span>
@@ -236,23 +236,23 @@ export default function Hero() {
               {resultsData.map((item, idx) => (
                 <div
                   key={idx}
-                  className="grid grid-cols-12 gap-2 items-center bg-white p-3.5 rounded-lg border border-slate-200/80 text-sm"
+                  className="grid grid-cols-12 gap-2 items-center bg-white dark:bg-slate-800/80 p-3.5 rounded-lg border border-slate-200/80 dark:border-slate-700/80 text-sm transition-colors"
                 >
                   <div className="col-span-5">
-                    <p className="font-bold text-slate-900 truncate text-xs sm:text-sm">
+                    <p className="font-bold text-slate-900 dark:text-white truncate text-xs sm:text-sm">
                       {item.brand}
                     </p>
-                    <p className="text-[11px] text-slate-500 truncate">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                       {item.industry}
                     </p>
                   </div>
                   <div className="col-span-4 text-right">
-                    <span className="font-bold text-emerald-700 text-xs sm:text-sm">
+                    <span className="font-bold text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm">
                       {item.conversions}
                     </span>
                   </div>
                   <div className="col-span-3 text-right">
-                    <span className="font-bold text-[#046BD2] text-xs sm:text-sm">
+                    <span className="font-bold text-[#046BD2] dark:text-[#38BDF8] text-xs sm:text-sm">
                       {item.cost}
                     </span>
                   </div>
@@ -261,12 +261,12 @@ export default function Hero() {
             </div>
 
             {/* Footer Trust Note */}
-            <div className="mt-4 pt-3.5 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <div className="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Verified GA4 &amp; Server-Side CAPI</span>
               </span>
-              <span className="font-medium text-slate-700">60-Day Scaling Period</span>
+              <span className="font-medium text-slate-700 dark:text-slate-300">60-Day Scaling Period</span>
             </div>
           </div>
         </div>

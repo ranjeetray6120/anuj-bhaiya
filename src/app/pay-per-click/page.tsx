@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -9,6 +8,39 @@ import { ServiceCard } from "@/components/adforge/ServiceCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Award, Users, TrendingDown, DollarSign } from "lucide-react";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
+
+export const metadata: Metadata = {
+  title: "Google Ads & PPC Management Agency | AdForge Tech",
+  description:
+    "Scale profitable revenue with Google Premier Partner account managers. We engineer high-intent Search Ads, Performance Max, and Shopping campaigns that lower CPA.",
+  alternates: {
+    canonical: "/pay-per-click",
+  },
+  openGraph: {
+    title: "Google Ads & PPC Management Agency | AdForge Tech",
+    description:
+      "Scale profitable revenue with Google Premier Partner account managers. We engineer high-intent Search Ads, Performance Max, and Shopping campaigns that lower CPA.",
+    url: `${siteUrl}/pay-per-click`,
+    type: "website",
+    siteName: "AdForge Tech",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Google Ads Management by AdForge Tech",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Google Ads & PPC Management Agency | AdForge Tech",
+    description:
+      "Scale profitable revenue with Google Premier Partner account managers. High-intent Search Ads and Performance Max.",
+  },
+};
 
 const ppcCampaigns = [
   {
@@ -77,8 +109,48 @@ const ppcAdvantages = [
 ];
 
 export default function PayPerClickPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Pay Per Click (PPC)",
+            item: `${siteUrl}/pay-per-click`,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Google Ads & PPC Management Services",
+        description:
+          "Full-funnel Google Ads management, Performance Max, Search ads, and high-converting YouTube funnels engineered for scalable ROAS.",
+        provider: {
+          "@type": "Organization",
+          name: "AdForge Tech",
+          url: siteUrl,
+        },
+        areaServed: "Worldwide",
+        serviceType: "Pay Per Click Advertising",
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 pt-20">
@@ -89,9 +161,9 @@ export default function PayPerClickPage() {
           highlight="Success Is Guaranteed"
           subtitle="We structure, optimize, and scale profitable Google Ads campaigns that lower your cost-per-acquisition (CPA) and maximize your bottom-line return on ad spend."
           primaryCtaText="Claim Free Google Ads Audit"
-          primaryCtaHref="/#contact"
+          primaryCtaHref="/contact-us"
           secondaryCtaText="View Client Results"
-          secondaryCtaHref="/#stats"
+          secondaryCtaHref="/clients"
           trustPoints={[
             "100% Certified Account Specialists",
             "₹50Cr+ Annual Media Spend Managed",
@@ -100,7 +172,7 @@ export default function PayPerClickPage() {
         />
 
         {/* Stats Grid with Standardized MetricCards */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {ppcAdvantages.map((stat, idx) => (
               <MetricCard
@@ -116,7 +188,7 @@ export default function PayPerClickPage() {
         </section>
 
         {/* Services Grid with SectionHeader & ServiceCards */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="CAPABILITIES"
@@ -134,7 +206,7 @@ export default function PayPerClickPage() {
                   title={campaign.title}
                   description={campaign.desc}
                   bullets={campaign.bullets}
-                  href="/#contact"
+                  href="/contact-us"
                   ctaText="Schedule Campaign Audit"
                 />
               ))}

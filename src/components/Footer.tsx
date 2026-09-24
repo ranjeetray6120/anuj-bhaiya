@@ -6,7 +6,8 @@ import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 const companyLinks = [
   { label: "Home", href: "/" },
   { label: "Who We Are", href: "/who-we-are" },
-  { label: "Blogs", href: "/blogs" },
+  { label: "Clients & Portfolio", href: "/clients" },
+  { label: "Blogs & Insights", href: "/blogs" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -155,10 +156,11 @@ export default function Footer() {
 
             <div className="pt-2">
               <Button
-                href="/#contact"
+                href="/contact-us"
                 variant="primary"
                 size="sm"
                 rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
+                aria-label="Claim free digital growth audit"
               >
                 Claim Free Audit
               </Button>

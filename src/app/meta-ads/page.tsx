@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -9,6 +8,39 @@ import { ServiceCard } from "@/components/adforge/ServiceCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Zap, TrendingDown, Eye, ShieldCheck } from "lucide-react";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
+
+export const metadata: Metadata = {
+  title: "Meta Ads (Facebook & Instagram) Agency | AdForge Tech",
+  description:
+    "Official Meta Business Partner agency. We engineer Advantage+ Shopping campaigns, high-velocity creative testing sprints, and CAPI server-side tracking for scalable ROAS.",
+  alternates: {
+    canonical: "/meta-ads",
+  },
+  openGraph: {
+    title: "Meta Ads (Facebook & Instagram) Agency | AdForge Tech",
+    description:
+      "Official Meta Business Partner agency. We engineer Advantage+ Shopping campaigns, high-velocity creative testing sprints, and CAPI server-side tracking.",
+    url: `${siteUrl}/meta-ads`,
+    type: "website",
+    siteName: "AdForge Tech",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Meta Ads Agency by AdForge Tech",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Meta Ads (Facebook & Instagram) Agency | AdForge Tech",
+    description:
+      "Official Meta Business Partner agency. Advantage+ Shopping campaigns and Conversions API.",
+  },
+};
 
 const metaSolutions = [
   {
@@ -79,8 +111,48 @@ const metaAdvantages = [
 ];
 
 export default function MetaAdsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Meta Ads (FB & IG)",
+            item: `${siteUrl}/meta-ads`,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Meta Ads (Facebook & Instagram) Management Services",
+        description:
+          "Advantage+ Shopping Campaigns, high-volume creative testing, and Meta Conversions API (CAPI) engineered for high blended ROAS.",
+        provider: {
+          "@type": "Organization",
+          name: "AdForge Tech",
+          url: siteUrl,
+        },
+        areaServed: "Worldwide",
+        serviceType: "Social Media Advertising",
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 pt-20">
@@ -91,9 +163,9 @@ export default function MetaAdsPage() {
           highlight="Facebook & Instagram Ads"
           subtitle="We turn Facebook & Instagram Ads into high-margin revenue engines for D2C brands, lead-gen businesses, and service providers through scientific creative testing and server-side tracking."
           primaryCtaText="Claim Free Meta Ads Audit"
-          primaryCtaHref="/#contact"
+          primaryCtaHref="/contact-us"
           secondaryCtaText="See Growth Metrics"
-          secondaryCtaHref="/#stats"
+          secondaryCtaHref="/clients"
           trustPoints={[
             "Meta Certified Media Buyers",
             "9.0+ Conversions API Event Quality",
@@ -102,7 +174,7 @@ export default function MetaAdsPage() {
         />
 
         {/* Stats Grid with Standardized MetricCards */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {metaAdvantages.map((stat, idx) => (
               <MetricCard
@@ -119,7 +191,7 @@ export default function MetaAdsPage() {
         </section>
 
         {/* Services Grid with SectionHeader & ServiceCards */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="METHODOLOGY"
@@ -137,7 +209,7 @@ export default function MetaAdsPage() {
                   title={sol.title}
                   description={sol.desc}
                   bullets={sol.bullets}
-                  href="/#contact"
+                  href="/contact-us"
                   ctaText="Claim Free Meta Audit"
                 />
               ))}

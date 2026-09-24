@@ -751,7 +751,7 @@ const displayTools = [...allTools, ...allTools, ...allTools, ...allTools];
 export default function ToolsSection() {
   return (
     <section
-      className="py-16 sm:py-20 bg-white border-t border-slate-200 overflow-hidden"
+      className="py-16 sm:py-20 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors overflow-hidden"
       id="tools"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mb-8">
@@ -767,20 +767,20 @@ export default function ToolsSection() {
       {/* Infinite Marquee Slider: Sliding continuously from Left to Right */}
       <div className="relative w-full overflow-hidden py-3">
         {/* Left & Right Smooth Edge Fade Overlays */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
 
         {/* Sliding Track */}
         <div className="animate-slide-ltr flex items-center gap-4">
           {displayTools.map((tool, idx) => (
             <div
               key={`${tool.id}-${idx}`}
-              className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-50/80 border border-slate-200 shadow-2xs hover:border-[#046BD2]/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0 group select-none cursor-default"
+              className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xs hover:border-[#046BD2]/50 dark:hover:border-[#168ED3]/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0 group select-none cursor-default"
             >
-              <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 p-1 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-2xs">
+              <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-2xs">
                 {tool.icon}
               </div>
-              <span className="text-sm font-bold text-slate-800 group-hover:text-[#046BD2] transition-colors whitespace-nowrap">
+              <span className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-[#046BD2] dark:group-hover:text-[#168ED3] transition-colors whitespace-nowrap">
                 {tool.name}
               </span>
             </div>
@@ -790,14 +790,14 @@ export default function ToolsSection() {
 
       {/* Bottom Stack Capability Pill Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mt-10">
-        <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <Wrench className="w-4 h-4 text-[#046BD2]" />
-            <span className="font-semibold text-slate-700">
+            <Wrench className="w-4 h-4 text-[#046BD2] dark:text-[#38BDF8]" />
+            <span className="font-semibold text-slate-700 dark:text-slate-300">
               Certified Tool Deployments &amp; Direct APIs
             </span>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6 font-medium text-slate-500">
+          <div className="flex items-center gap-4 sm:gap-6 font-medium text-slate-500 dark:text-slate-400">
             <span>Google Marketing Platform</span>
             <span>•</span>
             <span>Meta Business Suite</span>

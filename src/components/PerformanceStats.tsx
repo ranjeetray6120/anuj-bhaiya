@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 const servicesData = [
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">
         {/* Official Google 4-Color G Logo */}
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z" fill="#4285F4"/>
@@ -31,7 +31,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">
         {/* Official Google Ads Logo */}
         <svg className="w-9 h-9" viewBox="0 0 256 230" fill="none" aria-hidden="true">
           <path
@@ -59,7 +59,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">
         {/* Official Meta Infinity Logo */}
         <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <defs>
@@ -86,7 +86,7 @@ const servicesData = [
   },
   {
     icon: (
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 transition-colors">
+      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">
         {/* Full-Stack Web Development & CRO Icon */}
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M16 18L22 12L16 6" stroke="#0284C7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -123,7 +123,7 @@ const cardVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
       ease: "easeOut",
     },
   },
@@ -131,7 +131,7 @@ const cardVariants: Variants = {
 
 export default function PerformanceStats() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-12 bg-white border-t border-slate-100" id="services">
+    <section className="py-20 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 transition-colors" id="services">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="mb-14">
@@ -156,7 +156,7 @@ export default function PerformanceStats() {
             <motion.div
               key={idx}
               variants={cardVariants}
-              className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between transition-colors hover:border-[#046BD2]"
+              className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between transition-colors hover:border-[#046BD2] dark:hover:border-[#168ED3]"
             >
               <div>
                 {/* Icon Container */}
@@ -165,27 +165,27 @@ export default function PerformanceStats() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-slate-900 text-center mb-2 tracking-tight">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white text-center mb-2 tracking-tight">
                   {s.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-slate-600 text-center leading-relaxed mb-5">
+                <p className="text-xs text-slate-600 dark:text-slate-300 text-center leading-relaxed mb-5">
                   {s.desc}
                 </p>
 
                 {/* Deliverables Checklist */}
-                <div className="border-t border-slate-100 pt-4 mb-5">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5 text-left">
+                <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mb-5">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2.5 text-left">
                     Capabilities
                   </p>
                   <ul className="space-y-1.5">
                     {s.items.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-2 text-xs text-slate-700 font-medium"
+                        className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-medium"
                       >
-                        <span className="text-[#046BD2] font-bold text-xs">✓</span>
+                        <span className="text-[#046BD2] dark:text-[#38BDF8] font-bold text-xs">✓</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -194,12 +194,13 @@ export default function PerformanceStats() {
               </div>
 
               {/* Action Link */}
-              <div className="text-center pt-3 border-t border-slate-100">
+              <div className="text-center pt-3 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   href={s.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046BD2] hover:text-[#0356A8] uppercase tracking-wider transition-colors py-1 group/link"
+                  aria-label={`Explore ${s.title} Services`}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046BD2] dark:text-[#38BDF8] hover:text-[#0356A8] dark:hover:text-[#60A5FA] uppercase tracking-wider transition-colors py-1 group/link"
                 >
-                  Explore Service
+                  Explore {s.title} Services
                   <span className="transition-transform group-hover/link:translate-x-0.5 duration-150">
                     →
                   </span>

@@ -11,7 +11,6 @@ const ClientsSection = dynamic(() => import("@/components/ClientsSection"));
 const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"));
 const Partners = dynamic(() => import("@/components/Partners"));
 const ToolsSection = dynamic(() => import("@/components/ToolsSection"));
-const OurProcess = dynamic(() => import("@/components/OurProcess"));
 const CTA = dynamic(() => import("@/components/CTA"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
@@ -26,19 +25,20 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
       <Navbar />
-      <Hero />
-      <MarqueeTicker />
-      <PerformanceStats />
-      <AgencyResults />
-      <ClientsSection />
-      <ComparisonTable />
-      <Partners />
-      <ToolsSection />
-      <OurProcess />
-      <CTA />
+      <main id="main-content" className="flex-1">
+        <Hero />
+        <MarqueeTicker />
+        <PerformanceStats />
+        <AgencyResults />
+        <ClientsSection />
+        <ComparisonTable />
+        <Partners />
+        <ToolsSection />
+        <CTA />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

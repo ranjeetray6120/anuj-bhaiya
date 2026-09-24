@@ -21,10 +21,10 @@ export default function MarqueeTicker() {
   const duplicatedItems = [...marqueeItems, ...marqueeItems];
 
   return (
-    <div className="relative w-full bg-slate-50/90 border-y border-slate-200 py-3.5 sm:py-4 overflow-hidden select-none z-20">
+    <div className="relative w-full bg-slate-50/90 dark:bg-slate-900/90 border-y border-slate-200 dark:border-slate-800 py-3.5 sm:py-4 overflow-hidden select-none z-20 transition-colors">
       {/* Left and Right Fade Gradients */}
-      <div className="absolute top-0 left-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 right-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 right-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 dark:from-slate-900 to-transparent z-10 pointer-events-none" />
 
       {/* Marquee Track */}
       <div className="flex overflow-hidden">
@@ -41,7 +41,7 @@ export default function MarqueeTicker() {
           {duplicatedItems.map((label, idx) => (
             <div
               key={idx}
-              className="flex items-center px-3.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 hover:border-[#046BD2] hover:text-[#046BD2] transition-colors shadow-xs"
+              className="flex items-center px-3.5 py-1 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-[#046BD2] dark:hover:border-[#168ED3] hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors shadow-xs"
             >
               <span className="text-xs sm:text-sm font-semibold tracking-tight">
                 {label}
@@ -53,4 +53,3 @@ export default function MarqueeTicker() {
     </div>
   );
 }
-

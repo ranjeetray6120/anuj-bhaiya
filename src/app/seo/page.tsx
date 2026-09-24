@@ -1,78 +1,174 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
 import { HeroSection } from "@/components/adforge/HeroSection";
-import { ServiceCard } from "@/components/adforge/ServiceCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ServiceCard } from "@/components/adforge/ServiceCard";
 import { Card } from "@/components/ui/Card";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
+
+export const metadata: Metadata = {
+  title: "SEO Services | Technical, Topical Authority & Enterprise SEO | AdForge Tech",
+  description:
+    "Data-driven SEO strategies engineered to rank #1, outrank tough competitors, and generate high-intent organic leads and revenue with measurable ROI.",
+  alternates: {
+    canonical: "/seo",
+  },
+  openGraph: {
+    title: "SEO Services | Technical, Topical Authority & Enterprise SEO | AdForge Tech",
+    description:
+      "Data-driven SEO strategies engineered to rank #1, outrank tough competitors, and generate high-intent organic leads and revenue.",
+    url: `${siteUrl}/seo`,
+    type: "website",
+    siteName: "AdForge Tech",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "SEO Services by AdForge Tech",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO Services | AdForge Tech",
+    description:
+      "Technical SEO, topical authority architecture, and revenue-focused organic growth.",
+  },
+};
 
 const seoServices = [
   {
-    tag: "Technical",
+    tag: "TECHNICAL EXCELLENCE",
     title: "Technical SEO & Core Web Vitals",
-    desc: "Complete crawl budget optimization, server log analysis, site speed acceleration, and JavaScript rendering fixes to dominate Google indexing.",
-    bullets: ["Crawl Budget & Server Logs", "Core Web Vitals Optimization", "Faceted Navigation Architecture"],
+    desc: "Fix site architecture, crawl bloat, JavaScript rendering issues, schema markup, and speed metrics to ensure search spiders index every high-value page.",
+    bullets: [
+      "Server-side rendering & JS hydration audits",
+      "Dynamic XML sitemaps & robots directives",
+      "LCP, INP, and CLS performance tuning",
+    ],
   },
   {
-    tag: "Content",
-    title: "Entity & Topical Authority Optimization",
-    desc: "Move beyond basic keywords. We build comprehensive semantic content clusters that establish undeniable subject matter authority.",
-    bullets: ["Semantic Cluster Mapping", "Content Gap Analysis", "Search Intent Matching"],
+    tag: "CONTENT ARCHITECTURE",
+    title: "Topical Authority & Content Clusters",
+    desc: "Build comprehensive semantic content clusters that establish undeniable search engine trust across competitive high-intent keyword groups.",
+    bullets: [
+      "Competitor content gap analysis",
+      "Intent-mapped keyword clusters",
+      "Structured internal link graphs",
+    ],
   },
   {
-    tag: "Authority",
-    title: "High-Tier Digital PR & Link Acquisition",
-    desc: "Earn contextual backlinks from authoritative niche publications and media outlets that drive real referral traffic and trust.",
-    bullets: ["Editorial Media Placements", "Unlinked Brand Mention Reclaim", "Data-Driven Research Reports"],
+    tag: "OFF-PAGE DOMINANCE",
+    title: "High-Authority Digital PR & Backlinks",
+    desc: "Acquire Tier-1 editorial backlinks through original research, industry data studies, and journalist media outreach to skyrocket domain authority.",
+    bullets: [
+      "100% white-hat editorial outreach",
+      "Data-led digital PR campaigns",
+      "Toxic link profile cleanup & disavow",
+    ],
   },
   {
-    tag: "E-Commerce",
+    tag: "LOCAL & REGIONAL",
+    title: "Local SEO & Multi-Location Strategy",
+    desc: "Dominate Google Maps local packs and high-converting 'near me' queries with synchronized Google Business Profiles and localized content silos.",
+    bullets: [
+      "Google Business Profile optimization",
+      "NAP consistency & local citation scaling",
+      "Geo-targeted landing page networks",
+    ],
+  },
+  {
+    tag: "TRANSACTIONAL REVENUE",
     title: "E-Commerce Category & Product SEO",
-    desc: "Optimize high-intent product collection pages, structured schema markup, and faceted navigation to capture buyers ready to convert.",
-    bullets: ["Rich Product Schema", "PLP Keyword Optimization", "Internal Linking Ladders"],
+    desc: "Scale organic revenue for Shopify, WooCommerce, and Magento stores by capturing buyers actively searching for products in high transactional volume.",
+    bullets: [
+      "Faceted navigation & duplicate canonicals",
+      "Product schema JSON-LD with review stars",
+      "High-converting collection hierarchy design",
+    ],
   },
   {
-    tag: "Local",
-    title: "Local SEO & Multi-Location Scaling",
-    desc: "Dominate Google Maps 3-Pack rankings, localize landing pages, and optimize GMB profiles for maximum high-converting local walk-ins and inquiries.",
-    bullets: ["Google Business Profile Dominance", "Local Citation Consistency", "Geo-Targeted Landing Pages"],
-  },
-  {
-    tag: "Next-Gen",
-    title: "AI Search Optimization (GEO & SGE)",
-    desc: "Position your brand to be cited and recommended in Google AI Overviews, Perplexity AI, and conversational search engines.",
-    bullets: ["Generative Engine Optimization", "LLM Citation Structuring", "Information Gain Content"],
+    tag: "GROWTH REPORTING",
+    title: "Real-Time Ranking & Revenue Analytics",
+    desc: "Full attribution tracking connecting keyword movements directly to sales, conversion values, and pipeline revenue in Google Analytics 4.",
+    bullets: [
+      "Custom Looker Studio attribution dashboards",
+      "Daily rank tracking with SERP feature alerts",
+      "Direct commercial value modeling",
+    ],
   },
 ];
 
 const seoProcess = [
   {
     step: "01",
-    title: "Comprehensive Deep Audit",
-    desc: "Uncover technical blockers, indexing traps, and hidden keyword opportunities in your current architecture.",
+    title: "Discovery & Technical Audit",
+    desc: "Deep crawl diagnostics of logs, indexing status, Core Web Vitals, and competitor topical gaps.",
   },
   {
     step: "02",
-    title: "Intent & Architecture Blueprint",
-    desc: "Map transactional and high-commercial search intent to scalable URL funnels and content silos.",
+    title: "Architecture & Strategy",
+    desc: "Building the master content roadmap, site hierarchy corrections, and schema specifications.",
   },
   {
     step: "03",
-    title: "Content Sprint & Link Velocity",
-    desc: "Deploy high-grade semantic content and execute white-hat editorial outreach campaigns.",
+    title: "Execution & Optimization",
+    desc: "Rolling out optimized metadata, cluster content, internal linking, and digital PR campaigns.",
   },
   {
     step: "04",
-    title: "Revenue Tracking & CRO",
-    desc: "Track keyword surge in GA4 and GSC while continuously improving on-page conversion rates.",
+    title: "Analysis & Scale",
+    desc: "Continuous monitoring of keyword velocity, SERP shifts, and revenue attribution to double down on winners.",
   },
 ];
 
 export default function SEOPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "SEO Services",
+            item: `${siteUrl}/seo`,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Search Engine Optimization (SEO) Services",
+        description:
+          "Technical SEO audits, Core Web Vitals optimization, topical authority architecture, and enterprise organic revenue growth.",
+        provider: {
+          "@type": "Organization",
+          name: "AdForge Tech",
+          url: siteUrl,
+        },
+        areaServed: "Worldwide",
+        serviceType: "Search Engine Optimization",
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 pt-20">
@@ -83,9 +179,9 @@ export default function SEOPage() {
           highlight="Predictable ROI"
           subtitle="We engineer revenue-focused SEO campaigns that outrank competitors, build defensible domain authority, and turn organic search into your highest margin acquisition channel."
           primaryCtaText="Claim Free SEO Audit"
-          primaryCtaHref="/#contact"
+          primaryCtaHref="/contact-us"
           secondaryCtaText="See Proven Case Studies"
-          secondaryCtaHref="/#stats"
+          secondaryCtaHref="/clients"
           trustPoints={[
             "Full Technical & Core Web Vitals Audit",
             "100% White-Hat Editorial Authority",
@@ -94,7 +190,7 @@ export default function SEOPage() {
         />
 
         {/* Services Grid */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="SERVICES"
@@ -121,7 +217,7 @@ export default function SEOPage() {
         </section>
 
         {/* 4-Step Process Section */}
-        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden">
+        <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               badge="EXECUTION FRAMEWORK"
@@ -140,13 +236,13 @@ export default function SEOPage() {
                   className="p-6 sm:p-7 flex flex-col gap-4 justify-between"
                 >
                   <div className="flex flex-col gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#046BD2] font-black text-sm flex items-center justify-center border border-blue-100/80">
+                    <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-[#046BD2] dark:text-[#38BDF8] font-black text-sm flex items-center justify-center border border-blue-100/80 dark:border-blue-900/80">
                       {p.step}
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
                       {p.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {p.desc}
                     </p>
                   </div>

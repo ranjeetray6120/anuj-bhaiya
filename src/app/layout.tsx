@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import FloatingWidgets from "@/components/FloatingWidgets";
+import ThemeWatcher from "@/components/ThemeWatcher";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -100,7 +101,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#168ed3",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#168ed3" },
+    { media: "(prefers-color-scheme: dark)", color: "#060d1f" },
+  ],
 };
 
 const jsonLd = {
@@ -143,9 +147,23 @@ const jsonLd = {
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
       name: "AdForge Tech",
+      alternateName: [
+        "AdForge",
+        "AdForgeTech",
+        "AdForge Tech Agency",
+        "AdForge Performance Marketing"
+      ],
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteUrl}/blogs?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "ItemList",
@@ -247,8 +265,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${inter.variable}`}>
       <head>
+        {/* Anti-Flicker Synchronous Theme Detection Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              try {
+                var mql = window.matchMedia('(prefers-color-scheme: dark)');
+                var root = document.documentElement;
+                if (mql.matches) {
+                  root.classList.add('dark');
+                  root.setAttribute('data-theme', 'dark');
+                  root.style.colorScheme = 'dark';
+                } else {
+                  root.classList.remove('dark');
+                  root.setAttribute('data-theme', 'light');
+                  root.style.colorScheme = 'light';
+                }
+              } catch (e) {}
+            })();`,
+          }}
+        />
+
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -282,7 +321,8 @@ if(document.readyState==='complete'){l();}else{window.addEventListener('load',l)
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-slate-900">
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-200">
+        <ThemeWatcher />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

@@ -39,6 +39,62 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // 301 Permanent SEO Redirects for canonical structure
+  async redirects() {
+    return [
+      {
+        source: "/about",
+        destination: "/who-we-are",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/who-we-are",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/contact-us",
+        permanent: true,
+      },
+      {
+        source: "/ppc",
+        destination: "/pay-per-click",
+        permanent: true,
+      },
+      {
+        source: "/google-ads",
+        destination: "/pay-per-click",
+        permanent: true,
+      },
+      {
+        source: "/meta",
+        destination: "/meta-ads",
+        permanent: true,
+      },
+      {
+        source: "/portfolio",
+        destination: "/clients",
+        permanent: true,
+      },
+      {
+        source: "/work",
+        destination: "/clients",
+        permanent: true,
+      },
+      {
+        source: "/case-studies",
+        destination: "/clients",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/blogs",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

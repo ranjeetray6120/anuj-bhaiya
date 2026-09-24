@@ -112,16 +112,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
   return (
     <div
-      className={`w-full bg-white rounded-xl p-6 sm:p-8 border border-slate-200 text-left shadow-xs ${className}`}
+      className={`w-full bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 text-left shadow-xs transition-colors ${className}`}
       onFocus={handleInteraction}
       onClick={handleInteraction}
     >
       <div className="mb-6 text-center">
-        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           {title}
         </h3>
         {subtitle && (
-          <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
             {subtitle}
           </p>
         )}
@@ -131,13 +131,13 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-emerald-50 border border-emerald-200 text-emerald-900 p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center gap-3"
+          className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center gap-3"
         >
           <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-md">
             <CheckCircle2 className="w-7 h-7" />
           </div>
           <h4 className="text-xl font-bold">Request Received!</h4>
-          <p className="text-sm text-emerald-800 max-w-sm">
+          <p className="text-sm text-emerald-800 dark:text-emerald-300 max-w-sm">
             Thank you, <span className="font-bold">{formData.name || "there"}</span>. Our senior growth strategist will analyze your website and reach out via email or phone within 2 hours.
           </p>
         </motion.div>
@@ -232,7 +232,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           )}
 
           {errorMessage && (
-            <p className="text-xs text-rose-600 font-medium text-center">{errorMessage}</p>
+            <p className="text-xs text-rose-600 dark:text-rose-400 font-medium text-center">{errorMessage}</p>
           )}
 
           <Button
@@ -246,7 +246,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             Claim Free Growth Audit
           </Button>
 
-          <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-400">
+          <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-400 dark:text-slate-500">
             <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
             <span>100% Confidential • No Obligation • Response within 2 hrs</span>
           </div>

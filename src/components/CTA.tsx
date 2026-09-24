@@ -3,8 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LeadForm } from "@/components/adforge/LeadForm";
-import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function CTA() {
   const deliverables = [
@@ -17,7 +16,7 @@ export default function CTA() {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200 overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -29,16 +28,16 @@ export default function CTA() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 flex flex-col gap-6 text-left"
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2]">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#046BD2] dark:text-[#38BDF8]">
               CONFIDENTIAL GROWTH AUDIT
             </p>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
               Ready to Scale Your Brand with{" "}
-              <span className="text-[#046BD2]">Predictable ROI?</span>
+              <span className="text-[#046BD2] dark:text-[#38BDF8]">Predictable ROI?</span>
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
               Get a comprehensive 1-on-1 Growth Audit &amp; Paid Media Roadmap from
               our certified performance specialists. We analyze your ads, funnels,
               and unit economics — completely free.
@@ -55,16 +54,16 @@ export default function CTA() {
                   transition={{ duration: 0.3, delay: idx * 0.08 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-5 h-5 rounded-full bg-blue-100 text-[#046BD2] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-950/70 text-[#046BD2] dark:text-[#38BDF8] flex items-center justify-center shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800">{item}</span>
+                  <span className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">{item}</span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="pt-2 flex items-center gap-3 text-xs text-slate-500">
-              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="pt-2 flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>No pushy sales reps. Direct discussion with a senior media buyer.</span>
             </div>
           </motion.div>
