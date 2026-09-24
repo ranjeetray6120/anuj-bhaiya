@@ -28,8 +28,18 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Cache static assets for 1 year
-        source: "/(.*)\\.(jpg|jpeg|png|webp|avif|gif|svg|ico|woff|woff2|ttf|eot|otf)",
+        // Don't cache favicons or manifest aggressively so changes reflect immediately
+        source: "/(favicon.*|icon.*|apple-icon.*|site\\.webmanifest|manifest\\.webmanifest)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+        ],
+      },
+      {
+        // Cache static media assets and fonts for 1 year
+        source: "/(images|icons|_next/static)/(.*)",
         headers: [
           {
             key: "Cache-Control",
