@@ -265,3 +265,25 @@ body {
 .animate-slide-ltr:hover {
   animation-play-state: paused;
 }
+
+/* ── Infinite Marquee Slider (Right-to-Left) ── */
+@keyframes slide-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-slide-rtl {
+  display: flex;
+  width: max-content;
+  animation: slide-rtl 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-slide-rtl:hover,
+.animate-slide-rtl:active {
+  animation-play-state: paused;
+}

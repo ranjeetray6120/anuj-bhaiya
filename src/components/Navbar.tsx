@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { PhoneCall } from "lucide-react";
+import { PhoneCall, Menu, X } from "lucide-react";
 
 const servicesList = [
   {
@@ -37,16 +37,21 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800/80 shadow-xs transition-colors duration-200">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Mobile Left: Phone Call Icon Button (matching phone view design) */}
+        {/* Mobile Left: Hamburger Button */}
         <div className="flex items-center lg:hidden w-10">
-          <a
-            href="tel:+918178802368"
-            className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors rounded-lg flex items-center justify-center cursor-pointer"
-            aria-label="Call AdForge Tech"
-            title="Call +91 81788 02368"
+          <button
+            className="p-2 -ml-2 text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] focus:outline-none focus:ring-2 focus:ring-[#046BD2] rounded-lg cursor-pointer flex items-center justify-center transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
-            <PhoneCall className="w-5 h-5" />
-          </a>
+            {menuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
 
         {/* Logo: Centered on mobile (< lg), left-aligned on desktop (lg:) */}
@@ -173,33 +178,16 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Right: Hamburger Button */}
+        {/* Mobile Right: Phone Call Button */}
         <div className="flex items-center justify-end lg:hidden w-10">
-          <button
-            className="p-2 text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-[#046BD2] rounded-md cursor-pointer"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
+          <a
+            href="tel:+918178802368"
+            className="p-2 -mr-2 text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors rounded-lg flex items-center justify-center cursor-pointer"
+            aria-label="Call AdForge Tech"
+            title="Call +91 81788 02368"
           >
-            <div className="w-6 flex flex-col gap-1.5" aria-hidden="true">
-              <span
-                className={`h-0.5 bg-slate-800 dark:bg-slate-200 transition-all ${
-                  menuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`h-0.5 bg-slate-800 dark:bg-slate-200 transition-all ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`h-0.5 bg-slate-800 dark:bg-slate-200 transition-all ${
-                  menuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
-            </div>
-          </button>
+            <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6" />
+          </a>
         </div>
       </nav>
 

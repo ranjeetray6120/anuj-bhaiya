@@ -389,14 +389,14 @@ const slides: SlideItem[] = [
     bgImage: "/images/hero/hero-background.png",
     bgImageDark: "/images/hero/hero-background.png",
     bgImageLight: "/images/hero/hero-meta-light.jpg",
-    logo: <MetaInfinityLogo className="w-12 h-8 sm:w-16 sm:h-11 lg:w-20 lg:h-13 shrink-0" />,
+    logo: <MetaInfinityLogo className="w-10 h-7 sm:w-16 sm:h-11 lg:w-20 lg:h-13 shrink-0" />,
     headingPrefix: "Meta",
     headingHighlight: "Ads",
     headingHighlightColor: "#1877F2",
     floatingBadges: (
       <>
-        <FacebookBadge className="w-10 h-10 sm:w-12 sm:h-12" />
-        <InstagramBadge className="w-10 h-10 sm:w-12 sm:h-12" />
+        <FacebookBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <InstagramBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
       </>
     ),
     bullets: [
@@ -503,14 +503,14 @@ const slides: SlideItem[] = [
     bgImage: "/images/hero/google-ads-bg.jpg",
     bgImageDark: "/images/hero/google-ads-bg.jpg",
     bgImageLight: "/images/hero/hero-google-light.jpg",
-    logo: <GoogleAdsLogo className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 shrink-0" />,
+    logo: <GoogleAdsLogo className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 shrink-0" />,
     headingPrefix: "Google",
     headingHighlight: "Ads",
     headingHighlightColor: "#4285F4",
     floatingBadges: (
       <>
-        <GoogleSearchBadge className="w-10 h-10 sm:w-12 sm:h-12" />
-        <YouTubeBadge className="w-10 h-10 sm:w-12 sm:h-12" />
+        <GoogleSearchBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <YouTubeBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
       </>
     ),
     bullets: [
@@ -621,14 +621,14 @@ const slides: SlideItem[] = [
     bgImage: "/images/hero/web-dev-bg.jpg",
     bgImageDark: "/images/hero/web-dev-bg.jpg",
     bgImageLight: "/images/hero/hero-tech-light.jpg",
-    logo: <CodeTerminalLogo className="w-10 h-10 sm:w-13 sm:h-13 lg:w-15 lg:h-15 shrink-0" />,
+    logo: <CodeTerminalLogo className="w-8 h-8 sm:w-11 sm:h-11 lg:w-15 lg:h-15 shrink-0 text-sm sm:text-2xl" />,
     headingPrefix: "Tech &",
     headingHighlight: "Dev",
     headingHighlightColor: "#06B6D4",
     floatingBadges: (
       <>
-        <ReactNextBadge className="w-10 h-10 sm:w-12 sm:h-12" />
-        <CloudBadge className="w-10 h-10 sm:w-12 sm:h-12" />
+        <ReactNextBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <CloudBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
       </>
     ),
     bullets: [
@@ -740,14 +740,14 @@ const slides: SlideItem[] = [
     bgImage: "/images/hero/real-estate-desk.jpg",
     bgImageDark: "/images/hero/real-estate-desk.jpg",
     bgImageLight: "/images/hero/hero-realestate-light.jpg",
-    logo: <RealEstateLogo className="w-10 h-10 sm:w-13 sm:h-13 lg:w-15 lg:h-15 shrink-0" />,
+    logo: <RealEstateLogo className="w-8 h-8 sm:w-11 sm:h-11 lg:w-15 lg:h-15 shrink-0" />,
     headingPrefix: "Real Estate",
     headingHighlight: "Ads",
     headingHighlightColor: "#10B981",
     floatingBadges: (
       <>
-        <VerifiedBadge className="w-10 h-10 sm:w-12 sm:h-12" />
-        <SiteVisitBadge className="w-10 h-10 sm:w-12 sm:h-12" />
+        <VerifiedBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <SiteVisitBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
       </>
     ),
     bullets: [
@@ -850,6 +850,16 @@ export default function HeroBanner() {
 
   const current = slides[activeSlide];
 
+  // Sextuple the cards array for seamless continuous right-to-left marquee loop
+  const displayCards = [
+    ...current.cards,
+    ...current.cards,
+    ...current.cards,
+    ...current.cards,
+    ...current.cards,
+    ...current.cards,
+  ];
+
   // Auto-advance through all 4 slides smoothly every 5 seconds (1 -> 2 -> 3 -> 4 -> 1)
   useEffect(() => {
     if (isPaused) return;
@@ -863,7 +873,7 @@ export default function HeroBanner() {
 
   return (
     <section
-      className="relative w-full min-h-screen pt-20 bg-slate-50 dark:bg-[#060D1F] border-b border-slate-200 dark:border-slate-800/80 overflow-hidden flex flex-col justify-between transition-colors duration-300"
+      className="relative w-full min-h-[calc(100svh-5rem)] sm:min-h-screen pt-20 sm:pt-24 lg:pt-20 pb-4 sm:pb-6 bg-slate-50 dark:bg-[#060D1F] border-b border-slate-200 dark:border-slate-800/80 overflow-x-clip overflow-y-visible lg:overflow-hidden flex flex-col justify-between transition-colors duration-300"
       id="home"
       aria-label="AdForge Tech High Performance Hero Carousel"
     >
@@ -933,9 +943,9 @@ export default function HeroBanner() {
           }}
         />
 
-        {/* Cinema Ambient Vignette: Left-edge directional dark gradient for crystal clear white text legibility while preserving 100% image clarity, vibrancy and zero blur */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 via-50% to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+        {/* Cinema Ambient Vignette: Multi-directional gradient for crystal clear text legibility on both mobile and desktop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/55 to-black/85 lg:bg-gradient-to-r lg:from-black/75 lg:via-black/35 lg:via-50% lg:to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* TOP ROW: Left Branding & Right Capability Pills */}
@@ -945,24 +955,24 @@ export default function HeroBanner() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative z-20 flex flex-col justify-between lg:flex-row lg:items-start px-4 sm:px-8 lg:px-14 xl:px-20 pt-4 sm:pt-6 lg:pt-8 pb-4 pointer-events-none"
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="relative z-20 flex flex-col justify-between lg:flex-row lg:items-start px-4 sm:px-8 lg:px-14 xl:px-20 pt-2 sm:pt-4 lg:pt-6 pb-2 sm:pb-4 pointer-events-none"
         >
           {/* Left Side: Service Heading & Bullet Points */}
           <div className="flex flex-col items-start max-w-2xl lg:max-w-3xl pointer-events-auto">
-            <div className="flex items-center gap-2.5 sm:gap-4 lg:gap-5 flex-nowrap">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3.5 lg:gap-4">
               {/* Logo & Heading */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -15 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center gap-3 sm:gap-4 shrink-0"
+                transition={{ duration: 0.4 }}
+                className="flex items-center gap-2 sm:gap-3.5 shrink-0"
               >
                 <div className="shrink-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
                   {current.logo}
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white flex items-center gap-2 whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-                  {current.headingPrefix}{" "}
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white flex items-center gap-1.5 sm:gap-2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+                  <span>{current.headingPrefix}</span>{" "}
                   <span
                     style={{ color: current.headingHighlightColor }}
                     className="drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]"
@@ -974,25 +984,25 @@ export default function HeroBanner() {
 
               {/* Floating Social / Tech Badges with Gentle Levitation Animation */}
               <motion.div
-                animate={{ y: [0, -5, 0] }}
+                animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative flex items-center gap-2 sm:gap-2.5 ml-1 sm:ml-2 shrink-0 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
+                className="relative flex items-center gap-1.5 sm:gap-2.5 shrink-0 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
               >
                 {current.floatingBadges}
               </motion.div>
             </div>
 
             {/* Bullet Points with Staggered Entrance & Signal Dot */}
-            <div className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 text-base sm:text-2xl lg:text-3xl font-bold tracking-tight leading-snug">
+            <div className="mt-2.5 sm:mt-4 space-y-1 sm:space-y-1.5 text-xs sm:text-xl lg:text-2xl font-bold tracking-tight leading-snug">
               {current.bullets.map((bullet, idx) => (
                 <motion.div
                   key={bullet}
-                  initial={{ opacity: 0, x: -25 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 + idx * 0.12 }}
-                  className="flex items-center gap-2.5 sm:gap-3"
+                  transition={{ duration: 0.4, delay: 0.1 + idx * 0.08 }}
+                  className="flex items-center gap-2 sm:gap-2.5"
                 >
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#00C6FF] shadow-[0_0_10px_#00C6FF] shrink-0" />
+                  <span className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-[#00C6FF] shadow-[0_0_8px_#00C6FF] shrink-0" />
                   <p className="text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                     {bullet}
                   </p>
@@ -1003,34 +1013,34 @@ export default function HeroBanner() {
             {/* Glowing Accent Underline Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: "6rem", opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className={`mt-4 sm:mt-5 h-1 sm:h-1.5 rounded-full bg-gradient-to-r ${current.accentGradient} shadow-[0_0_12px_rgba(56,189,248,0.7)]`}
+              animate={{ width: "5rem", opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className={`mt-2.5 sm:mt-4 h-1 sm:h-1.5 rounded-full bg-gradient-to-r ${current.accentGradient} shadow-[0_0_12px_rgba(56,189,248,0.7)]`}
             />
           </div>
 
-          {/* Right Side: Floating Capability Pills */}
-          <div className="flex justify-end pt-3 sm:pt-1 pointer-events-auto">
-            <div className="w-full max-w-[270px] sm:max-w-[295px] flex flex-col gap-2 sm:gap-2.5">
+          {/* Right Side: Floating Capability Pills (2-column balanced grid on mobile, vertical stack on desktop) */}
+          <div className="w-full lg:w-auto lg:max-w-[295px] mt-3.5 sm:mt-4 lg:mt-0 pointer-events-auto">
+            <div className="grid grid-cols-2 lg:flex lg:flex-col gap-1.5 sm:gap-2.5 w-full">
               {current.pills.map((pill, idx) => (
                 <motion.div
                   key={pill.title}
-                  initial={{ opacity: 0, x: 25 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 + idx * 0.08 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.35, delay: 0.05 + idx * 0.05 }}
                   whileHover={{ scale: 1.02 }}
-                  className="group relative flex items-center justify-between gap-3 px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/90 dark:bg-[#0A1A36]/85 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.06)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.4)] hover:border-[#046BD2] dark:hover:border-[#38BDF8] hover:shadow-[0_8px_24px_rgba(4,107,210,0.2)] dark:hover:shadow-[0_8px_28px_rgba(4,107,210,0.4)] transition-all duration-300"
+                  className="group relative flex items-center justify-between gap-1.5 sm:gap-3 px-2 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl bg-white/90 dark:bg-[#0A1A36]/85 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-xs sm:shadow-md hover:border-[#046BD2] dark:hover:border-[#38BDF8] transition-all duration-300"
                 >
-                  <div className="flex-1 text-left select-none">
-                    <h3 className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm tracking-tight leading-snug">
+                  <div className="flex-1 min-w-0 text-left select-none">
+                    <h3 className="text-slate-900 dark:text-white font-bold text-[10.5px] sm:text-xs md:text-sm tracking-tight leading-tight truncate">
                       {pill.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-300 text-[10px] sm:text-[11px] font-normal leading-snug mt-0.5">
+                    <p className="text-slate-500 dark:text-slate-300 text-[9px] sm:text-[11px] font-normal leading-tight mt-0.5 truncate hidden sm:block">
                       {pill.subtitle}
                     </p>
                   </div>
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm"
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs text-white"
                     style={{ backgroundColor: current.themeColor }}
                   >
                     {pill.icon}
@@ -1042,112 +1052,119 @@ export default function HeroBanner() {
         </motion.div>
       </AnimatePresence>
 
-      {/* BOTTOM ROW: Slide-Specific Showcase Cards with 5s Transition */}
+      {/* BOTTOM ROW: Slide-Specific Showcase Cards with Continuous Right-to-Left Scroll */}
       <div
-        className="relative z-20 w-full px-3 sm:px-6 lg:px-8 xl:px-10 pb-5 sm:pb-7 pt-2"
+        className="relative z-20 w-full pb-3 sm:pb-5 pt-1 sm:pt-2 overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.id}
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="w-full flex items-stretch gap-2.5 sm:gap-3 lg:gap-3.5 xl:gap-4 overflow-x-auto lg:overflow-visible pb-3 pt-1 scroll-smooth no-scrollbar select-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {current.cards.map((card, idx) => (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.05 + idx * 0.05 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="group relative flex-1 min-w-[185px] lg:min-w-0 rounded-2xl bg-white/95 dark:bg-[#081528]/85 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_26px_rgba(0,0,0,0.4)] hover:border-[#046BD2] dark:hover:border-[#38BDF8] hover:shadow-[0_10px_30px_rgba(4,107,210,0.18)] dark:hover:shadow-[0_12px_36px_rgba(4,107,210,0.5)] transition-all duration-300 flex flex-col p-2.5 overflow-hidden cursor-pointer"
-              >
-                {/* Header */}
-                <div className="flex items-start gap-2 pb-2 border-b border-slate-100 dark:border-blue-950/80">
+
+        {/* Continuous Right-to-Left Marquee Track */}
+        <div className="relative w-full overflow-hidden">
+          {/* Left & Right Smooth Edge Fade Overlays for seamless cinematic blending */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 lg:w-24 bg-gradient-to-r from-black/85 via-black/40 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 lg:w-24 bg-gradient-to-l from-black/85 via-black/40 to-transparent z-10" />
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="w-full overflow-hidden"
+            >
+              <div className="animate-slide-rtl flex items-stretch gap-2.5 sm:gap-3 lg:gap-3.5 py-1.5 select-none">
+                {displayCards.map((card, idx) => (
                   <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-white shadow-sm group-hover:scale-105 transition-transform duration-200"
-                    style={{ backgroundColor: current.themeColor }}
+                    key={`${card.id}-${idx}`}
+                    className="group relative shrink-0 w-[170px] xs:w-[185px] sm:w-[210px] md:w-[225px] lg:w-[240px] rounded-2xl bg-white/95 dark:bg-[#081528]/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_26px_rgba(0,0,0,0.4)] hover:border-[#046BD2] dark:hover:border-[#38BDF8] hover:shadow-[0_10px_30px_rgba(4,107,210,0.18)] dark:hover:shadow-[0_12px_36px_rgba(4,107,210,0.5)] hover:-translate-y-1 transition-all duration-300 flex flex-col p-2 sm:p-2.5 overflow-hidden cursor-pointer"
                   >
-                    {card.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm tracking-tight leading-tight truncate">
-                      {card.title}
-                    </h3>
-                    <p className="text-slate-500 dark:text-slate-300 text-[10px] leading-tight mt-0.5 truncate">
-                      {card.sub1}
-                    </p>
-                    <p className="text-slate-500 dark:text-slate-300 text-[10px] leading-tight truncate">
-                      {card.sub2}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Smartphone / Screen Frame */}
-                <div className="mt-2 pt-1.5 pb-1 px-1 rounded-[14px] bg-slate-100/90 dark:bg-[#020612] border border-slate-200/90 dark:border-slate-700/70 shadow-xs dark:shadow-lg flex flex-col transition-transform duration-300 group-hover:scale-[1.02]">
-                  <div className="w-7 h-1 rounded-full bg-slate-300 dark:bg-slate-800 mx-auto mb-1 opacity-80" />
-
-                  {/* Inner Content */}
-                  <div className="rounded-[10px] overflow-hidden bg-white text-slate-900 flex flex-col shadow-inner">
-                    {/* Sponsored Header */}
-                    <div className="flex items-center justify-between px-2 py-1 bg-slate-50 border-b border-slate-100">
-                      <div className="leading-none">
-                        <span className="text-[8.5px] font-bold text-slate-900 block leading-tight">
-                          Your Brand
-                        </span>
-                        <span className="text-[6.5px] text-slate-500 block leading-none mt-0.5">
-                          Sponsored
-                        </span>
-                      </div>
-                      <span className="text-slate-400 text-[8px] font-bold">•••</span>
-                    </div>
-
-                    {/* Ad Headline Banner */}
-                    <div className="px-2 py-0.5 bg-gradient-to-r from-slate-900 to-[#0A1628] text-white">
-                      <p className="text-[8.5px] font-semibold tracking-tight truncate">
-                        {card.adHeadline}
-                      </p>
-                    </div>
-
-                    {/* Creative Image — explicitly defined height with public/images/industries/ */}
-                    <div
-                      className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-900"
-                      style={{ height: "105px", minHeight: "105px" }}
-                    >
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        fill
-                        sizes="(max-width: 768px) 180px, 220px"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-400"
-                      />
-                    </div>
-
-                    {/* Action Bar */}
-                    <div className="p-1.5 bg-slate-50 flex items-center justify-between border-t border-slate-100">
-                      <span
-                        className="px-2 py-0.5 rounded-md text-white text-[8px] font-bold tracking-tight shadow-xs transition-colors"
+                    {/* Header */}
+                    <div className="flex items-start gap-1.5 sm:gap-2 pb-1.5 sm:pb-2 border-b border-slate-100 dark:border-blue-950/80">
+                      <div
+                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center shrink-0 text-white shadow-xs group-hover:scale-105 transition-transform duration-200"
                         style={{ backgroundColor: current.themeColor }}
                       >
-                        {card.cta}
-                      </span>
-                      {card.metric && (
-                        <span className="text-[8px] text-slate-600 font-semibold">
-                          {card.metric}
-                        </span>
-                      )}
+                        {card.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-slate-900 dark:text-white font-bold text-[11px] sm:text-xs md:text-sm tracking-tight leading-tight truncate">
+                          {card.title}
+                        </h3>
+                        <p className="text-slate-500 dark:text-slate-300 text-[9px] sm:text-[10px] leading-tight mt-0.5 truncate">
+                          {card.sub1}
+                        </p>
+                        <p className="text-slate-500 dark:text-slate-300 text-[9px] sm:text-[10px] leading-tight truncate">
+                          {card.sub2}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Smartphone / Screen Frame */}
+                    <div className="mt-1.5 sm:mt-2 pt-1 sm:pt-1.5 pb-1 px-1 rounded-[12px] sm:rounded-[14px] bg-slate-100/90 dark:bg-[#020612] border border-slate-200/90 dark:border-slate-700/70 shadow-xs dark:shadow-lg flex flex-col transition-transform duration-300 group-hover:scale-[1.02]">
+                      <div className="w-5 sm:w-7 h-0.5 sm:h-1 rounded-full bg-slate-300 dark:bg-slate-800 mx-auto mb-1 opacity-80" />
+
+                      {/* Inner Content */}
+                      <div className="rounded-[8px] sm:rounded-[10px] overflow-hidden bg-white text-slate-900 flex flex-col shadow-inner">
+                        {/* Sponsored Header */}
+                        <div className="flex items-center justify-between px-1.5 sm:px-2 py-0.5 sm:py-1 bg-slate-50 border-b border-slate-100">
+                          <div className="leading-none">
+                            <span className="text-[7.5px] sm:text-[8.5px] font-bold text-slate-900 block leading-tight">
+                              Your Brand
+                            </span>
+                            <span className="text-[6px] sm:text-[6.5px] text-slate-500 block leading-none mt-0.5">
+                              Sponsored
+                            </span>
+                          </div>
+                          <span className="text-slate-400 text-[7px] sm:text-[8px] font-bold">•••</span>
+                        </div>
+
+                        {/* Ad Headline Banner */}
+                        <div className="px-1.5 sm:px-2 py-0.5 bg-gradient-to-r from-slate-900 to-[#0A1628] text-white">
+                          <p className="text-[7.5px] sm:text-[8.5px] font-semibold tracking-tight truncate">
+                            {card.adHeadline}
+                          </p>
+                        </div>
+
+                        {/* Creative Image */}
+                        <div
+                          className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-900"
+                          style={{ height: "95px", minHeight: "95px" }}
+                        >
+                          <Image
+                            src={card.image}
+                            alt={card.title}
+                            fill
+                            sizes="(max-width: 640px) 185px, (max-width: 1024px) 225px, 240px"
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+
+                        {/* Action Bar */}
+                        <div className="p-1 sm:p-1.5 bg-slate-50 flex items-center justify-between border-t border-slate-100">
+                          <span
+                            className="px-1.5 sm:px-2 py-0.5 rounded-md text-white text-[7.5px] sm:text-[8px] font-bold tracking-tight shadow-xs transition-colors"
+                            style={{ backgroundColor: current.themeColor }}
+                          >
+                            {card.cta}
+                          </span>
+                          {card.metric && (
+                            <span className="text-[7.5px] sm:text-[8px] text-slate-600 font-semibold truncate max-w-[65px] sm:max-w-none">
+                              {card.metric}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
