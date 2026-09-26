@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HeroBanner from "@/components/HeroBanner";
 import MarqueeTicker from "@/components/MarqueeTicker";
 
 // Dynamic imports for below-fold components — reduces TBT dramatically
@@ -15,7 +15,7 @@ const CTA = dynamic(() => import("@/components/CTA"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
-  title: "AdForge Tech | Ads that forge growth",
+  title: "AdForge Tech",
   description:
     "AdForge Tech engineers high-converting campaigns, Google Ads, Meta Ads, and SEO strategies that deliver measurable ROI for your business.",
   alternates: {
@@ -28,7 +28,7 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <Hero />
+        <HeroBanner />
         <MarqueeTicker />
         <PerformanceStats />
         <AgencyResults />

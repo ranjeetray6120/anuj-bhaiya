@@ -52,12 +52,22 @@ export default function Navbar() {
         {/* Logo: Centered on mobile (< lg), left-aligned on desktop (lg:) */}
         <div className="flex-1 flex justify-center lg:flex-initial lg:justify-start">
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group py-1 select-none">
+            {/* Light Mode Logo */}
+            <Image
+              src="/logo-icon-light.png"
+              alt="AdForge Tech Logo"
+              width={44}
+              height={44}
+              className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl object-contain shadow-xs transition-transform duration-200 group-hover:scale-105 dark:hidden"
+              priority
+            />
+            {/* Dark Mode Logo */}
             <Image
               src="/logo-icon.jpeg"
               alt="AdForge Tech Logo"
               width={44}
               height={44}
-              className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl object-contain shadow-xs transition-transform duration-200 group-hover:scale-105"
+              className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl object-contain shadow-xs transition-transform duration-200 group-hover:scale-105 hidden dark:block"
               priority
             />
             <div className="flex flex-col">
@@ -261,6 +271,7 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
+
 
           <div className="pt-2">
             <Button

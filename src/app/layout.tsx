@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import ThemeWatcher from "@/components/ThemeWatcher";
@@ -48,16 +49,28 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2", sizes: "any" },
-      { url: "/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
-      { url: "/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-48x48.png?v=2", type: "image/png", sizes: "48x48" },
-      { url: "/android-chrome-192x192.png?v=2", type: "image/png", sizes: "192x192" },
-      { url: "/android-chrome-512x512.png?v=2", type: "image/png", sizes: "512x512" },
+      // Light Mode Favicons (Pure transparent high-contrast brand symbol)
+      { url: "/favicon-light.ico?v=5", media: "(prefers-color-scheme: light)", sizes: "any" },
+      { url: "/favicon-light-16x16.png?v=5", media: "(prefers-color-scheme: light)", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-light-32x32.png?v=5", media: "(prefers-color-scheme: light)", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-light-48x48.png?v=5", media: "(prefers-color-scheme: light)", type: "image/png", sizes: "48x48" },
+
+      // Dark Mode Favicons
+      { url: "/favicon-dark.ico?v=5", media: "(prefers-color-scheme: dark)", sizes: "any" },
+      { url: "/favicon-dark-16x16.png?v=5", media: "(prefers-color-scheme: dark)", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-dark-32x32.png?v=5", media: "(prefers-color-scheme: dark)", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-dark-48x48.png?v=5", media: "(prefers-color-scheme: dark)", type: "image/png", sizes: "48x48" },
+
+      // Universal fallbacks
+      { url: "/android-chrome-192x192.png?v=5", type: "image/png", sizes: "192x192" },
+      { url: "/android-chrome-512x512.png?v=5", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=2",
+    shortcut: [
+      { url: "/favicon-light.ico?v=5", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-dark.ico?v=5", media: "(prefers-color-scheme: dark)" },
+    ],
     apple: [
-      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=5", sizes: "180x180", type: "image/png" },
     ],
   },
   openGraph: {
@@ -268,27 +281,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${inter.variable}`}>
       <head>
-        {/* Anti-Flicker Synchronous Theme Detection Script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){
-              try {
-                var mql = window.matchMedia('(prefers-color-scheme: dark)');
-                var root = document.documentElement;
-                if (mql.matches) {
-                  root.classList.add('dark');
-                  root.setAttribute('data-theme', 'dark');
-                  root.style.colorScheme = 'dark';
-                } else {
-                  root.classList.remove('dark');
-                  root.setAttribute('data-theme', 'light');
-                  root.style.colorScheme = 'light';
-                }
-              } catch (e) {}
-            })();`,
-          }}
-        />
-
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -312,25 +304,26 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=2" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
 
-        {/* Google Tag Manager — deferred to reduce TBT */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){function l(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T4S8XWQM');}
-if(document.readyState==='complete'){l();}else{window.addEventListener('load',l);}
-})();`,
-          }}
-        />
-        {/* End Google Tag Manager */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-200">
+
+        {/* Google Tag Manager */}
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4S8XWQM');`,
+          }}
+        />
+
         <ThemeWatcher />
         {/* Google Tag Manager (noscript) */}
         <noscript>
