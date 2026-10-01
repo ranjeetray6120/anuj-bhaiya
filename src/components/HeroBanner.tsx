@@ -168,6 +168,67 @@ function SiteVisitBadge({ className }: { className?: string }) {
   );
 }
 
+function SeoRankLogo({ className }: { className?: string }) {
+  return (
+    <div
+      className={`rounded-2xl bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-700 flex items-center justify-center text-white shadow-md dark:shadow-[0_0_24px_rgba(147,51,234,0.8)] border border-purple-400/40 dark:border-purple-300/40 font-black ${className}`}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[60%] h-[60%]">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+        <path d="m11 8 2.5 3-2.5 3" />
+        <path d="M8.5 11h5" />
+      </svg>
+    </div>
+  );
+}
+
+function GoogleRankBadge({ className }: { className?: string }) {
+  return (
+    <div className={`rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-extrabold text-[10px] sm:text-xs shadow-md dark:shadow-[0_0_22px_rgba(245,158,11,0.85)] border border-amber-200 dark:border-amber-300/60 ${className}`}>
+      <span className="drop-shadow font-black">#1</span>
+    </div>
+  );
+}
+
+function SearchConsoleBadge({ className }: { className?: string }) {
+  return (
+    <div className={`rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white shadow-md dark:shadow-[0_0_22px_rgba(168,85,247,0.8)] border border-purple-200 dark:border-purple-300/40 ${className}`}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[58%] h-[58%]">
+        <path d="M3 3v18h18" />
+        <path d="m19 9-5 5-4-4-3 3" />
+      </svg>
+    </div>
+  );
+}
+
+function GlobeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+      <path d="M2 12h20" />
+    </svg>
+  );
+}
+
+function ZapIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  );
+}
+
+function LinkIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
 // ── GENERAL ICONS ──
 
 function TargetIcon({ className }: { className?: string }) {
@@ -842,37 +903,147 @@ const slides: SlideItem[] = [
       },
     ],
   },
+  {
+    id: "seo-growth",
+    title: "Organic SEO & Search Dominance",
+    tabLabel: "SEO & Growth",
+    badgeTag: "Search Engine Optimization & Authority",
+    liveStat: "Page #1 Rankings: +340% ↗ Organic Traffic",
+    themeColor: "#8B5CF6",
+    accentBorder: "border-[#8B5CF6]/40",
+    glowColor: "rgba(139,92,246,0.4)",
+    bgImage: "/images/hero/seo-hero-dark.jpg",
+    bgImageDark: "/images/hero/seo-hero-dark.jpg",
+    bgImageLight: "/images/hero/seo-hero-light.jpg",
+    logo: <SeoRankLogo className="w-8 h-8 sm:w-11 sm:h-11 lg:w-15 lg:h-15 shrink-0" />,
+    headingPrefix: "SEO &",
+    headingHighlight: "Organic",
+    headingHighlightColor: "#A855F7",
+    floatingBadges: (
+      <>
+        <GoogleRankBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <SearchConsoleBadge className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+      </>
+    ),
+    bullets: [
+      "Rank #1 on High-Intent Keywords.",
+      "Exponential Organic Traffic Growth.",
+      "Build Dominant Search Authority.",
+    ],
+    accentGradient: "from-[#7C3AED] via-[#8B5CF6] to-[#06B6D4]",
+    pills: [
+      {
+        title: "Technical SEO Audit",
+        subtitle: "Core Web Vitals & 100% crawl index",
+        icon: <ZapIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" />,
+      },
+      {
+        title: "Keyword Dominance",
+        subtitle: "High-volume, high-intent rankings",
+        icon: <SearchIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" />,
+      },
+      {
+        title: "Authority Backlinks",
+        subtitle: "Editorial high-DA link placement",
+        icon: <LinkIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" />,
+      },
+      {
+        title: "Global & Local SEO",
+        subtitle: "Google Maps & multi-market visibility",
+        icon: <GlobeIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" />,
+      },
+    ],
+    cards: [
+      {
+        id: "seo-1",
+        title: "E-commerce SEO",
+        sub1: "Category ranking.",
+        sub2: "High-intent buyers.",
+        icon: <CartIcon className="w-4 h-4" />,
+        adHeadline: "Rank #1 for Product Keywords",
+        image: "/images/industries/ecommerce.jpg",
+        cta: "Audit Store",
+        metric: "+320% Traffic",
+      },
+      {
+        id: "seo-2",
+        title: "Real Estate SEO",
+        sub1: "Location queries.",
+        sub2: "HNI buyer searches.",
+        icon: <HomeIcon className="w-4 h-4" />,
+        adHeadline: "Local Luxury Property Keywords",
+        image: "/images/industries/realestate.jpg",
+        cta: "Dominate Local",
+        metric: "Top 3 SERP",
+      },
+      {
+        id: "seo-3",
+        title: "Healthcare SEO",
+        sub1: "Doctor & clinic.",
+        sub2: "Local patient inquiries.",
+        icon: <StethoscopeIcon className="w-4 h-4" />,
+        adHeadline: "Medical & Clinic Search Authority",
+        image: "/images/industries/healthcare.jpg",
+        cta: "Get Ranked",
+        metric: "#1 Ranking",
+      },
+      {
+        id: "seo-4",
+        title: "Education SEO",
+        sub1: "Course keywords.",
+        sub2: "Student admissions.",
+        icon: <GraduationCapIcon className="w-4 h-4" />,
+        adHeadline: "Top Ranking Academy & Courses",
+        image: "/images/industries/education.jpg",
+        cta: "Boost Intake",
+        metric: "Page #1",
+      },
+      {
+        id: "seo-5",
+        title: "Travel & Tours SEO",
+        sub1: "Destination guides.",
+        sub2: "Direct hotel bookings.",
+        icon: <PlaneIcon className="w-4 h-4" />,
+        adHeadline: "Global Travel & Hotel Keywords",
+        image: "/images/industries/travel.jpg",
+        cta: "Explore Rank",
+        metric: "+280% Growth",
+      },
+      {
+        id: "seo-6",
+        title: "B2B / SaaS SEO",
+        sub1: "Bottom-funnel terms.",
+        sub2: "Enterprise demos.",
+        icon: <BriefcaseIcon className="w-4 h-4" />,
+        adHeadline: "High-Value SaaS Product Search",
+        image: "/images/industries/saas.jpg",
+        cta: "Scale Organic",
+        metric: "+190% MQLs",
+      },
+    ],
+  },
 ];
 
 export default function HeroBanner() {
+  const [mounted, setMounted] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const current = slides[activeSlide];
 
-  // Sextuple the cards array for seamless continuous right-to-left marquee loop
+  // 2 sets of cards: translating 0% to -50% scrolls through all cards 1 complete time
   const displayCards = [
-    ...current.cards,
-    ...current.cards,
-    ...current.cards,
-    ...current.cards,
     ...current.cards,
     ...current.cards,
   ];
 
-  // Auto-advance through all 4 slides smoothly every 5 seconds (1 -> 2 -> 3 -> 4 -> 1)
-  useEffect(() => {
-    if (isPaused) return;
-
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
   return (
     <section
+      suppressHydrationWarning
       className="relative w-full min-h-[calc(100svh-5rem)] sm:min-h-screen pt-20 sm:pt-24 lg:pt-20 pb-4 sm:pb-6 bg-slate-50 dark:bg-[#060D1F] border-b border-slate-200 dark:border-slate-800/80 overflow-x-clip overflow-y-visible lg:overflow-hidden flex flex-col justify-between transition-colors duration-300"
       id="home"
       aria-label="AdForge Tech High Performance Hero Carousel"
@@ -1052,7 +1223,45 @@ export default function HeroBanner() {
         </motion.div>
       </AnimatePresence>
 
-      {/* BOTTOM ROW: Slide-Specific Showcase Cards with Continuous Right-to-Left Scroll */}
+      {/* INTERACTIVE SLIDE SELECTOR TABS & INDICATORS */}
+      <div className="relative z-30 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-4 py-1.5 select-none">
+        {slides.map((slide, idx) => {
+          const isActive = activeSlide === idx;
+          return (
+            <button
+              key={slide.id}
+              onClick={() => setActiveSlide(idx)}
+              className={`group relative overflow-hidden px-2.5 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 border backdrop-blur-md cursor-pointer ${
+                isActive
+                  ? "bg-slate-900/90 text-white dark:bg-white/15 dark:text-white border-slate-300 dark:border-white/30 shadow-md scale-105"
+                  : "bg-black/30 text-white/70 hover:text-white border-white/10 hover:border-white/20 hover:bg-black/50"
+              }`}
+              aria-label={`Go to ${slide.tabLabel} slide`}
+            >
+              <span
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  isActive ? "scale-125 ring-2 ring-white/50" : "opacity-60 group-hover:opacity-100"
+                }`}
+                style={{ backgroundColor: slide.themeColor }}
+              />
+              <span>{slide.tabLabel}</span>
+              {isActive && (
+                <span
+                  key={current.id}
+                  className="absolute bottom-0 left-0 h-[2px] w-full"
+                  style={{
+                    backgroundColor: slide.themeColor,
+                    animation: "slide-card-cycle 16s linear 1 forwards",
+                    animationPlayState: isPaused ? "paused" : "running",
+                  }}
+                />
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* BOTTOM ROW: Slide-Specific Showcase Cards with Synchronized Full Loop Scroll */}
       <div
         className="relative z-20 w-full pb-3 sm:pb-5 pt-1 sm:pt-2 overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
@@ -1061,7 +1270,7 @@ export default function HeroBanner() {
         onTouchEnd={() => setIsPaused(false)}
       >
 
-        {/* Continuous Right-to-Left Marquee Track */}
+        {/* Synchronized Card Track */}
         <div className="relative w-full overflow-hidden">
           {/* Left & Right Smooth Edge Fade Overlays for seamless cinematic blending */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 lg:w-24 bg-gradient-to-r from-black/85 via-black/40 to-transparent z-10" />
@@ -1076,7 +1285,18 @@ export default function HeroBanner() {
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="w-full overflow-hidden"
             >
-              <div className="animate-slide-rtl flex items-stretch gap-2.5 sm:gap-3 lg:gap-3.5 py-1.5 select-none">
+              <div
+                key={current.id}
+                className="animate-card-cycle flex items-stretch gap-2.5 sm:gap-3 lg:gap-3.5 py-1.5 select-none"
+                style={{
+                  animationPlayState: isPaused ? "paused" : "running",
+                }}
+                onAnimationEnd={() => {
+                  if (!isPaused) {
+                    setActiveSlide((prev) => (prev + 1) % slides.length);
+                  }
+                }}
+              >
                 {displayCards.map((card, idx) => (
                   <div
                     key={`${card.id}-${idx}`}

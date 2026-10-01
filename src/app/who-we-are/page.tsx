@@ -13,14 +13,14 @@ import { Target, Users, Zap, Award } from "lucide-react";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://adforgetech.com";
 
 export const metadata: Metadata = {
-  title: "About Us | Who We Are | AdForge Tech Leadership & Engineering",
+  title: "About",
   description:
     "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
   alternates: {
     canonical: "/who-we-are",
   },
   openGraph: {
-    title: "About Us | Who We Are | AdForge Tech Leadership & Engineering",
+    title: "About | AdForge Tech",
     description:
       "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
     url: `${siteUrl}/who-we-are`,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | Who We Are | AdForge Tech",
+    title: "About | AdForge Tech",
     description:
       "Learn about AdForge Tech — veteran performance marketers and certified media buyers.",
   },
@@ -97,6 +97,33 @@ const coreValues = [
   },
 ];
 
+const aboutFaqs = [
+  {
+    q: "What makes AdForge Tech different from traditional digital marketing agencies?",
+    a: "Unlike traditional agencies that pass client accounts to junior interns and report on vanity impressions, AdForge Tech assigns senior growth engineers and certified media buyers directly to your business. We focus 100% on net revenue growth, verified unit economics, and transparent server-side attribution.",
+  },
+  {
+    q: "Where is AdForge Tech based and do you work with global clients?",
+    a: "Our headquarters is located in Gurugram, India, and we actively manage performance marketing, SEO, and web engineering for partner brands across India, North America, the UK, the Middle East (UAE), and Southeast Asia.",
+  },
+  {
+    q: "What industries and business verticals does your team specialize in?",
+    a: "We have deep domain expertise across High-Growth E-commerce & D2C brands, Real Estate (HNI luxury acquisitions), Healthcare & Multi-specialty Clinics, Higher Education & EdTech, and B2B SaaS lead funnels.",
+  },
+  {
+    q: "Who will manage my campaigns and communicate with our team day-to-day?",
+    a: "You get a dedicated Senior Growth Strategist and certified Media Buyer with 5+ years of live experience. We establish a direct Slack/WhatsApp communication channel and conduct weekly transparent video sprint reviews — no junior middlemen.",
+  },
+  {
+    q: "Do I retain full ownership of all ad accounts, pixels, and creative assets?",
+    a: "100% Yes. All Meta Business Managers, Google Ads accounts, GA4 properties, server containers, and creative designs remain your company's permanent intellectual property.",
+  },
+  {
+    q: "How do we get started with AdForge Tech?",
+    a: "We begin with a complimentary 1-on-1 Growth Strategy & Account Audit. Our senior team analyzes your current funnel, identifies conversion bottlenecks, and presents a customized 90-day scaling roadmap before onboarding.",
+  },
+];
+
 export default function WhoWeArePage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -124,6 +151,17 @@ export default function WhoWeArePage() {
         description:
           "Learn about AdForge Tech — veteran performance marketers, certified media buyers, and data engineers dedicated to profitable ROI.",
         url: `${siteUrl}/who-we-are`,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: aboutFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
+        })),
       },
     ],
   };
@@ -281,6 +319,37 @@ export default function WhoWeArePage() {
                       {val.desc}
                     </p>
                   </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faqs" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeader
+              badge="FREQUENTLY ASKED QUESTIONS"
+              badgeVariant="secondary"
+              title="Everything You Need to Know About Us"
+              highlight="About Us"
+              description="Clear, transparent answers about our team, working methodology, deliverables, and partnership structure."
+            />
+
+            <div className="space-y-4">
+              {aboutFaqs.map((faq, idx) => (
+                <Card
+                  key={idx}
+                  interactive
+                  surface="white"
+                  className="p-6 sm:p-7 flex flex-col gap-2 text-left shadow-xs hover:shadow-md transition-all duration-200"
+                >
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                    {faq.q}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {faq.a}
+                  </p>
                 </Card>
               ))}
             </div>

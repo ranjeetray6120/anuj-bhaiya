@@ -287,3 +287,21 @@ body {
 .animate-slide-rtl:active {
   animation-play-state: paused;
 }
+
+/* ── Synchronized Single-Pass Card Cycle ── */
+@keyframes slide-card-cycle {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-card-cycle {
+  display: flex;
+  width: max-content;
+  animation: slide-card-cycle 16s linear 1 forwards;
+  will-change: transform;
+}
+
