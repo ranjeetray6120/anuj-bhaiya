@@ -303,5 +303,10 @@ body {
   width: max-content;
   animation: slide-card-cycle 16s linear 1 forwards;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 

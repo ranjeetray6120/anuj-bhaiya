@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
@@ -1028,10 +1028,37 @@ export default function HeroBanner() {
   const [mounted, setMounted] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      if (touchTimeoutRef.current) clearTimeout(touchTimeoutRef.current);
+    };
   }, []);
+
+  // Fail-safe auto-slide advance timer (16.2s) ensures mobile browsers never freeze
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setTimeout(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 16200);
+    return () => clearTimeout(timer);
+  }, [activeSlide, isPaused]);
+
+  const handleTouchStart = () => {
+    setIsPaused(true);
+    if (touchTimeoutRef.current) clearTimeout(touchTimeoutRef.current);
+    // Auto-resume after 3.5s in case touchend/touchcancel is dropped by the mobile browser
+    touchTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 3500);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchTimeoutRef.current) clearTimeout(touchTimeoutRef.current);
+    setIsPaused(false);
+  };
 
   const current = slides[activeSlide];
 
@@ -1064,8 +1091,9 @@ export default function HeroBanner() {
               src={current.bgImageLight}
               alt={`${current.title} Light`}
               fill
-              priority
-              sizes="100vw"
+              priority={activeSlide === 0}
+              quality={75}
+              sizes="(max-width: 768px) 100vw, 100vw"
               className="object-cover object-center opacity-100 dark:hidden transition-opacity duration-700"
             />
             {/* Dedicated Dark Mode Image */}
@@ -1073,14 +1101,15 @@ export default function HeroBanner() {
               src={current.bgImageDark}
               alt={`${current.title} Dark`}
               fill
-              priority
-              sizes="100vw"
+              priority={activeSlide === 0}
+              quality={75}
+              sizes="(max-width: 768px) 100vw, 100vw"
               className="object-cover object-center hidden dark:block opacity-100 transition-opacity duration-700"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Dynamic Digital Marketing Radial Energy Auras (Dark Mode Only to eliminate blur in Light Mode) */}
+        {/* Dynamic Digital Marketing Radial Energy Auras (Optimized for GPU on Desktop, hidden on Mobile) */}
         <motion.div
           animate={{
             scale: [1, 1.25, 1],
@@ -1089,7 +1118,7 @@ export default function HeroBanner() {
             y: [0, -25, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden dark:block absolute -top-32 left-1/4 w-[520px] h-[520px] rounded-full blur-[130px] pointer-events-none opacity-70"
+          className="hidden md:dark:block absolute -top-32 left-1/4 w-[520px] h-[520px] rounded-full blur-[90px] pointer-events-none opacity-70 will-change-transform"
           style={{ background: `radial-gradient(circle, ${current.themeColor} 0%, transparent 70%)` }}
         />
         <motion.div
@@ -1100,7 +1129,7 @@ export default function HeroBanner() {
             y: [0, 30, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden dark:block absolute top-1/3 -right-20 w-[480px] h-[480px] rounded-full blur-[140px] pointer-events-none opacity-60"
+          className="hidden md:dark:block absolute top-1/3 -right-20 w-[480px] h-[480px] rounded-full blur-[90px] pointer-events-none opacity-60 will-change-transform"
           style={{ background: `radial-gradient(circle, ${current.themeColor} 0%, transparent 70%)` }}
         />
 
@@ -1223,51 +1252,14 @@ export default function HeroBanner() {
         </motion.div>
       </AnimatePresence>
 
-      {/* INTERACTIVE SLIDE SELECTOR TABS & INDICATORS */}
-      <div className="relative z-30 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-4 py-1.5 select-none">
-        {slides.map((slide, idx) => {
-          const isActive = activeSlide === idx;
-          return (
-            <button
-              key={slide.id}
-              onClick={() => setActiveSlide(idx)}
-              className={`group relative overflow-hidden px-2.5 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 border backdrop-blur-md cursor-pointer ${
-                isActive
-                  ? "bg-slate-900/90 text-white dark:bg-white/15 dark:text-white border-slate-300 dark:border-white/30 shadow-md scale-105"
-                  : "bg-black/30 text-white/70 hover:text-white border-white/10 hover:border-white/20 hover:bg-black/50"
-              }`}
-              aria-label={`Go to ${slide.tabLabel} slide`}
-            >
-              <span
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isActive ? "scale-125 ring-2 ring-white/50" : "opacity-60 group-hover:opacity-100"
-                }`}
-                style={{ backgroundColor: slide.themeColor }}
-              />
-              <span>{slide.tabLabel}</span>
-              {isActive && (
-                <span
-                  key={current.id}
-                  className="absolute bottom-0 left-0 h-[2px] w-full"
-                  style={{
-                    backgroundColor: slide.themeColor,
-                    animation: "slide-card-cycle 16s linear 1 forwards",
-                    animationPlayState: isPaused ? "paused" : "running",
-                  }}
-                />
-              )}
-            </button>
-          );
-        })}
-      </div>
-
       {/* BOTTOM ROW: Slide-Specific Showcase Cards with Synchronized Full Loop Scroll */}
       <div
         className="relative z-20 w-full pb-3 sm:pb-5 pt-1 sm:pt-2 overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
       >
 
         {/* Synchronized Card Track */}
@@ -1300,7 +1292,7 @@ export default function HeroBanner() {
                 {displayCards.map((card, idx) => (
                   <div
                     key={`${card.id}-${idx}`}
-                    className="group relative shrink-0 w-[170px] xs:w-[185px] sm:w-[210px] md:w-[225px] lg:w-[240px] rounded-2xl bg-white/95 dark:bg-[#081528]/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_26px_rgba(0,0,0,0.4)] hover:border-[#046BD2] dark:hover:border-[#38BDF8] hover:shadow-[0_10px_30px_rgba(4,107,210,0.18)] dark:hover:shadow-[0_12px_36px_rgba(4,107,210,0.5)] hover:-translate-y-1 transition-all duration-300 flex flex-col p-2 sm:p-2.5 overflow-hidden cursor-pointer"
+                    className="group relative shrink-0 w-[170px] xs:w-[185px] sm:w-[210px] md:w-[225px] lg:w-[240px] rounded-2xl bg-white/95 dark:bg-[#081528]/95 sm:backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_26px_rgba(0,0,0,0.4)] hover:border-[#046BD2] dark:hover:border-[#38BDF8] hover:shadow-[0_10px_30px_rgba(4,107,210,0.18)] dark:hover:shadow-[0_12px_36px_rgba(4,107,210,0.5)] hover:-translate-y-1 transition-all duration-300 flex flex-col p-2 sm:p-2.5 overflow-hidden cursor-pointer"
                   >
                     {/* Header */}
                     <div className="flex items-start gap-1.5 sm:gap-2 pb-1.5 sm:pb-2 border-b border-slate-100 dark:border-blue-950/80">
@@ -1359,6 +1351,8 @@ export default function HeroBanner() {
                             alt={card.title}
                             fill
                             sizes="(max-width: 640px) 185px, (max-width: 1024px) 225px, 240px"
+                            quality={70}
+                            loading={idx < 4 ? "eager" : "lazy"}
                             className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
