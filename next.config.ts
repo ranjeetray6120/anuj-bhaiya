@@ -54,13 +54,13 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/about",
-        destination: "/who-we-are",
+        source: "/who-we-are",
+        destination: "/about",
         permanent: true,
       },
       {
         source: "/about-us",
-        destination: "/who-we-are",
+        destination: "/about",
         permanent: true,
       },
       {

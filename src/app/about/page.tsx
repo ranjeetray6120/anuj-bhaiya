@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
   alternates: {
-    canonical: "/who-we-are",
+    canonical: "/about",
   },
   openGraph: {
     title: "About | AdForge Tech",
     description:
       "Learn about AdForge Tech — our veteran performance marketers, certified Google Premier & Meta Business specialists, and data engineers dedicated to profitable ROI.",
-    url: `${siteUrl}/who-we-are`,
+    url: `${siteUrl}/about`,
     type: "website",
     siteName: "AdForge Tech",
     images: [
@@ -124,7 +124,7 @@ const aboutFaqs = [
   },
 ];
 
-export default function WhoWeArePage() {
+export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -141,7 +141,7 @@ export default function WhoWeArePage() {
             "@type": "ListItem",
             position: 2,
             name: "About Us",
-            item: `${siteUrl}/who-we-are`,
+            item: `${siteUrl}/about`,
           },
         ],
       },
@@ -150,7 +150,7 @@ export default function WhoWeArePage() {
         name: "About AdForge Tech",
         description:
           "Learn about AdForge Tech — veteran performance marketers, certified media buyers, and data engineers dedicated to profitable ROI.",
-        url: `${siteUrl}/who-we-are`,
+        url: `${siteUrl}/about`,
       },
       {
         "@type": "FAQPage",

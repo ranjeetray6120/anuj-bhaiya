@@ -96,10 +96,10 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/who-we-are"
+            href="/about"
             className="text-xs font-bold tracking-wider text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors uppercase"
           >
-            Who We Are
+            About
           </Link>
 
           {/* Services Hover Dropdown */}
@@ -202,11 +202,11 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/who-we-are"
+            href="/about"
             onClick={() => setMenuOpen(false)}
             className="block py-2 text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] uppercase"
           >
-            Who We Are
+            About
           </Link>
 
           <div>

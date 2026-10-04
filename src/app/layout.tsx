@@ -187,9 +187,9 @@ const jsonLd = {
         {
           "@type": "SiteNavigationElement",
           position: 1,
-          name: "Who We Are",
+          name: "About",
           description: "Learn about AdForge Tech, our team, and our track record.",
-          url: `${siteUrl}/who-we-are`,
+          url: `${siteUrl}/about`,
         },
         {
           "@type": "SiteNavigationElement",

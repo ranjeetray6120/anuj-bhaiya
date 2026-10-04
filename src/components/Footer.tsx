@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "Who We Are", href: "/who-we-are" },
+  { label: "About", href: "/about" },
   { label: "Clients & Portfolio", href: "/clients" },
   { label: "Blogs & Insights", href: "/blogs" },
   { label: "Contact Us", href: "/contact-us" },
