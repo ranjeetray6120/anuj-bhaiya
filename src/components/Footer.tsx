@@ -8,6 +8,7 @@ const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Clients & Portfolio", href: "/clients" },
   { label: "Blogs & Insights", href: "/blogs" },
+  { label: "FAQs", href: "/#faqs" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 

@@ -159,6 +159,13 @@ export default function Navbar() {
           </Link>
 
           <Link
+            href="/#faqs"
+            className="text-xs font-bold tracking-wider text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors uppercase"
+          >
+            FAQs
+          </Link>
+
+          <Link
             href="/contact-us"
             className="text-xs font-bold tracking-wider text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] transition-colors uppercase"
           >
@@ -250,6 +257,14 @@ export default function Navbar() {
             className="block py-2 text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] uppercase"
           >
             Blogs
+          </Link>
+
+          <Link
+            href="/#faqs"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-[#046BD2] dark:hover:text-[#168ED3] uppercase"
+          >
+            FAQs
           </Link>
 
           <Link
