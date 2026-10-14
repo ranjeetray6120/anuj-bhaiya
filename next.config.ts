@@ -90,27 +90,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/portfolio",
-        destination: "/clients",
+        destination: "/testimonials",
         permanent: true,
       },
       {
         source: "/work",
-        destination: "/clients",
+        destination: "/testimonials",
         permanent: true,
       },
       {
         source: "/case-studies",
-        destination: "/clients",
-        permanent: true,
-      },
-      {
-        source: "/testimonials",
-        destination: "/clients",
+        destination: "/testimonials",
         permanent: true,
       },
       {
         source: "/reviews",
-        destination: "/clients",
+        destination: "/testimonials",
         permanent: true,
       },
       {
