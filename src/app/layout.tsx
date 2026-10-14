@@ -222,9 +222,9 @@ const jsonLd = {
         {
           "@type": "SiteNavigationElement",
           position: 6,
-          name: "Our Clients & Portfolio",
-          description: "Verified performance marketing client partnerships.",
-          url: `${siteUrl}/clients`,
+          name: "Testimonials & Reviews",
+          description: "Verified customer testimonials, Google reviews & client partnerships.",
+          url: `${siteUrl}/testimonials`,
         },
         {
           "@type": "SiteNavigationElement",

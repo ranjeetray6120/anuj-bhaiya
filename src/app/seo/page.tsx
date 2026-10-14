@@ -181,7 +181,7 @@ export default function SEOPage() {
           primaryCtaText="Claim Free SEO Audit"
           primaryCtaHref="/contact-us"
           secondaryCtaText="See Proven Case Studies"
-          secondaryCtaHref="/clients"
+          secondaryCtaHref="/testimonials"
           trustPoints={[
             "Full Technical & Core Web Vitals Audit",
             "100% White-Hat Editorial Authority",

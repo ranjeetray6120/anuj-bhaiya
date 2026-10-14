@@ -163,7 +163,7 @@ export default function PayPerClickPage() {
           primaryCtaText="Claim Free Google Ads Audit"
           primaryCtaHref="/contact-us"
           secondaryCtaText="View Client Results"
-          secondaryCtaHref="/clients"
+          secondaryCtaHref="/testimonials"
           trustPoints={[
             "100% Certified Account Specialists",
             "₹50Cr+ Annual Media Spend Managed",

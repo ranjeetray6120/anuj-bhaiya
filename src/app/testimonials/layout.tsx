@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Clients & Portfolio | Verified Performance Growth | AdForge Tech",
+  title: "Customer Testimonials & Reviews | Verified Performance Growth | AdForge Tech",
   description:
     "Explore the brands and companies that trust AdForge Tech to scale their revenue through Google Ads, Meta Ads, SEO, and full-funnel performance marketing.",
   alternates: {
-    canonical: "/clients",
+    canonical: "/testimonials",
   },
   openGraph: {
-    title: "Our Clients & Portfolio | AdForge Tech",
+    title: "Customer Testimonials & Reviews | AdForge Tech",
     description:
       "Trusted by e-commerce brands and businesses across the UK and India to drive predictable, profitable growth.",
-    url: "https://adforgetech.com/clients",
+    url: "https://adforgetech.com/testimonials",
     siteName: "AdForge Tech",
   },
 };
 
-export default function ClientsLayout({
+export default function TestimonialsLayout({
   children,
 }: {
   children: React.ReactNode;

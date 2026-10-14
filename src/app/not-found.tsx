@@ -23,7 +23,7 @@ const quickLinks = [
   { label: "Google Ads (PPC)", href: "/pay-per-click", desc: "Performance Max & Search" },
   { label: "Meta Ads", href: "/meta-ads", desc: "Facebook & Instagram growth" },
   { label: "Web Development", href: "/development", desc: "CRO & high-converting sites" },
-  { label: "Clients & Portfolio", href: "/clients", desc: "Proven results & case studies" },
+  { label: "Testimonials", href: "/testimonials", desc: "Customer reviews & case studies" },
   { label: "Contact Us", href: "/contact-us", desc: "Get a free growth quote" },
 ];
 

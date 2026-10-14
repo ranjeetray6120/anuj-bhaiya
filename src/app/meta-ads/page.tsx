@@ -165,7 +165,7 @@ export default function MetaAdsPage() {
           primaryCtaText="Claim Free Meta Ads Audit"
           primaryCtaHref="/contact-us"
           secondaryCtaText="See Growth Metrics"
-          secondaryCtaHref="/clients"
+          secondaryCtaHref="/testimonials"
           trustPoints={[
             "Meta Certified Media Buyers",
             "9.0+ Conversions API Event Quality",
